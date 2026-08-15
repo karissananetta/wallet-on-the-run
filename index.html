@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Wallet on the Run · Field Dispatch</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<style>
+  :root{
+    --ink:#0C1A22; --panel:#10242F; --land:#16262F; --line:#23414E;
+    --text:#E7F1EE; --muted:#7E9AA1; --dim:#54727B;
+    --signal:#4FD0C4; --hot:#F4A64C; --hot-2:#F0703C;
+    --display:"Space Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:"Space Mono",ui-monospace,"SF Mono",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(79,208,196,.10), transparent 60%),
+      radial-gradient(900px 500px at 10% 20%, rgba(244,166,76,.06), transparent 60%),
+      var(--ink);
+    color:var(--text);font-family:var(--display);-webkit-font-smoothing:antialiased;line-height:1.5;
+    overflow-x:hidden;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+
+  .strip{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:20px 0 6px}
+  .rec{width:9px;height:9px;border-radius:50%;background:var(--hot-2);animation:blip 1.6s ease-out infinite}
+  @keyframes blip{0%{box-shadow:0 0 0 0 rgba(240,112,60,.55)}70%{box-shadow:0 0 0 9px rgba(240,112,60,0)}100%{box-shadow:0 0 0 0 rgba(240,112,60,0)}}
+  .strip .sp{flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+
+  .hero{padding:14px 0 26px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--signal)}
+  h1{font-weight:700;font-size:clamp(38px,9vw,74px);line-height:.98;letter-spacing:-.02em;margin:.28em 0 .1em}
+  h1 .glow{color:var(--hot);text-shadow:0 0 26px rgba(244,166,76,.45)}
+  .lede{max-width:46ch;color:var(--muted);font-size:clamp(15px,2.4vw,18px)}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:28px 0 0;
+    background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .stat{background:var(--panel);padding:16px 14px}
+  .stat .n{font-family:var(--mono);font-weight:700;font-size:clamp(22px,5vw,30px);line-height:1}
+  .stat .n.hot{color:var(--hot)}
+  .stat .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-top:8px}
+  @media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+  .mapsec{margin:34px 0 10px}
+  .maphead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px}
+  .maphead h2{font-size:13px;font-family:var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:0}
+  .maphead .legend{font-family:var(--mono);font-size:11px;color:var(--dim)}
+  .legend b{color:var(--hot);font-weight:400}
+  #map{height:440px;border:1px solid var(--line);border-radius:18px;background:#0b1a21}
+  @media(max-width:560px){#map{height:340px}}
+  .leaflet-container{background:#0b1a21;font-family:var(--mono)}
+  .wallet-icon{filter:drop-shadow(0 0 10px rgba(244,166,76,.85));font-size:22px;line-height:1;text-align:center}
+  .leaflet-popup-content-wrapper{background:var(--panel);color:var(--text);border-radius:10px;border:1px solid var(--line)}
+  .leaflet-popup-tip{background:var(--panel)}
+  .leaflet-popup-content{font-family:var(--mono);font-size:12px}
+  .leaflet-bar a{background:var(--panel);color:var(--text);border-color:var(--line)}
+
+  .log{margin:44px 0 20px}
+  .log > h2{font-family:var(--mono);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:0 0 6px}
+  .log .sub{color:var(--dim);font-family:var(--mono);font-size:12px;margin-bottom:22px}
+  .entry{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:20px 0;border-top:1px solid var(--line)}
+  .entry .when{font-family:var(--mono);color:var(--muted);font-size:12.5px;line-height:1.5}
+  .entry .when .d{color:var(--text);font-weight:700}
+  .entry .node{display:flex;align-items:center;gap:9px;margin-bottom:6px;flex-wrap:wrap}
+  .dot{width:10px;height:10px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px rgba(79,208,196,.55);flex:none}
+  .dot.hot{background:var(--hot);box-shadow:0 0 12px rgba(244,166,76,.7)}
+  .entry .addr{font-weight:500;font-size:clamp(17px,3.2vw,21px);letter-spacing:-.01em}
+  .entry .hood{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);padding:2px 7px;border-radius:999px}
+  .entry .count{font-family:var(--mono);font-size:11px;color:var(--dim)}
+  .entry.now .addr{color:var(--hot)}
+  @media(max-width:560px){.entry{grid-template-columns:1fr;gap:6px}.entry .when{order:2}}
+  .more{font-family:var(--mono);font-size:12px;color:var(--dim);padding:18px 0 0;border-top:1px solid var(--line)}
+
+  footer{border-top:1px solid var(--line);margin-top:30px;padding:26px 0 60px;color:var(--dim);
+    font-family:var(--mono);font-size:12px;line-height:1.7}
+  footer b{color:var(--muted);font-weight:400}
+  :focus-visible{outline:2px solid var(--hot);outline-offset:3px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="strip">
+    <span class="rec"></span><span>Tile signal · auto-updating</span>
+    <span class="sp"></span><span id="updated">syncing…</span>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Field dispatch — Greater Seattle</div>
+    <h1>Your wallet is <span class="glow">still at large.</span></h1>
+    <p class="lede">It slipped out of your pocket and started an unauthorized tour of the city. This log rebuilds itself from the tracker every half hour. It has crossed a lake. It shows no remorse.</p>
+    <div class="stats">
+      <div class="stat"><div class="n" id="s-days">–</div><div class="k">Days on the run</div></div>
+      <div class="stat"><div class="n" id="s-pings">–</div><div class="k">Signal pings</div></div>
+      <div class="stat"><div class="n" id="s-lakes">–</div><div class="k">Lakes crossed</div></div>
+      <div class="stat"><div class="n hot" id="s-last">–</div><div class="k">Last known</div></div>
+    </div>
+  </header>
+
+  <section class="mapsec">
+    <div class="maphead">
+      <h2>The trail</h2>
+      <div class="legend"><b>◆ wallet</b> · newest ping pulses</div>
+    </div>
+    <div id="map"></div>
+  </section>
+
+  <section class="log">
+    <h2>Dispatch log</h2>
+    <div class="sub">Most recent first · grouped by stop</div>
+    <div id="entries"></div>
+  </section>
+
+  <footer>
+    <div><b>Wallet on the Run</b> — auto-tracked via Tile. Updates every 30 minutes.</div>
+    <div>If found: it answers to no one now.</div>
+  </footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+const SEED = [
+  {"ts":"2026-08-10T10:31:00-07:00","lat":47.65104,"lng":-122.34251,"address":"3425 Stone Way N","hood":"Wallingford"},
+  {"ts":"2026-08-10T10:47:00-07:00","lat":47.65121,"lng":-122.33884,"address":"3401 Woodlawn Ave N","hood":"Wallingford"},
+  {"ts":"2026-08-10T20:53:00-07:00","lat":47.60952,"lng":-122.33704,"address":"1428 4th Ave","hood":"Downtown Seattle"},
+  {"ts":"2026-08-12T18:48:00-07:00","lat":47.61961,"lng":-122.19572,"address":"10777 NE 10th St","hood":"Bellevue"},
+  {"ts":"2026-08-13T09:12:00-07:00","lat":47.61782,"lng":-122.18523,"address":"12025 NE Fifth St","hood":"Bellevue"}
+];
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function dist(a,b){ // meters, rough
+  const R=6371000, dLat=(b.lat-a.lat)*Math.PI/180, dLng=(b.lng-a.lng)*Math.PI/180;
+  const la1=a.lat*Math.PI/180, la2=b.lat*Math.PI/180;
+  const h=Math.sin(dLat/2)**2 + Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;
+  return 2*R*Math.asin(Math.sqrt(h));
+}
+function fmtDate(ts){return new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric'});}
+function fmtTime(ts){return new Date(ts).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});}
+
+function clusterStops(pts){ // group consecutive points within ~120m
+  const stops=[];
+  for(const p of pts){
+    const last=stops[stops.length-1];
+    if(last && dist(last.anchor,p)<120){ last.count++; last.lastTs=p.ts; }
+    else stops.push({anchor:p, address:p.address, hood:p.hood, firstTs:p.ts, lastTs:p.ts, count:1});
+  }
+  return stops;
+}
+
+function render(points){
+  points = points.filter(p=>p && p.lat && p.lng && p.ts).sort((a,b)=>new Date(a.ts)-new Date(b.ts));
+  if(!points.length){ document.getElementById('entries').innerHTML='<div class="more">No pings logged yet.</div>'; return; }
+  const latest = points[points.length-1];
+
+  // ---- stats ----
+  const days = new Set(points.map(p=>p.ts.slice(0,10))).size;
+  const west = points.some(p=>p.lng < -122.28), east = points.some(p=>p.lng > -122.24);
+  document.getElementById('s-days').textContent = days;
+  document.getElementById('s-pings').textContent = points.length;
+  document.getElementById('s-lakes').textContent = (west && east) ? 1 : 0;
+  document.getElementById('s-last').textContent = (latest.hood || 'Unknown').toUpperCase();
+  document.getElementById('updated').textContent = 'as of ' + fmtDate(latest.ts) + ' ' + fmtTime(latest.ts);
+
+  // ---- map ----
+  const map = L.map('map',{scrollWheelZoom:false});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
+    attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19, subdomains:'abcd'
+  }).addTo(map);
+
+  const line = points.map(p=>[p.lat,p.lng]);
+  L.polyline(line,{color:'#4FD0C4',weight:2.5,opacity:.55}).addTo(map);
+  points.forEach((p,i)=>{
+    const isLast = i===points.length-1;
+    L.circleMarker([p.lat,p.lng],{
+      radius:isLast?7:4, color:isLast?'#F4A64C':'#4FD0C4',
+      fillColor:isLast?'#F4A64C':'#4FD0C4', fillOpacity:isLast?1:.7, weight:isLast?2:1
+    }).addTo(map).bindPopup(`<b>${p.address||'Unknown spot'}</b><br>${fmtDate(p.ts)} · ${fmtTime(p.ts)}`);
+  });
+  map.fitBounds(line,{padding:[40,40]});
+
+  // pulsing latest + traveling wallet
+  const walletIcon = L.divIcon({className:'',html:'<div class="wallet-icon">💳</div>',iconSize:[24,24],iconAnchor:[12,12]});
+  const wallet = L.marker([latest.lat,latest.lng],{icon:walletIcon,interactive:false}).addTo(map);
+
+  if(!reduce){
+    // gentle pulse on latest
+    const pulse = L.circleMarker([latest.lat,latest.lng],{radius:7,color:'#F4A64C',fill:false,weight:2,opacity:.8}).addTo(map);
+    let t=0;
+    setInterval(()=>{ t=(t+0.04)%1; pulse.setRadius(7+t*26); pulse.setStyle({opacity:.8*(1-t)}); },40);
+    // walk the wallet along the trail, looping
+    if(line.length>1){
+      let seg=0, prog=0;
+      const stepMs=Math.max(900, 6000/line.length);
+      setInterval(()=>{
+        const a=points[seg], b=points[(seg+1)%points.length];
+        prog+=0.05;
+        if(prog>=1){prog=0; seg=(seg+1)%(points.length-1);}
+        wallet.setLatLng([a.lat+(b.lat-a.lat)*prog, a.lng+(b.lng-a.lng)*prog]);
+      }, stepMs/20);
+    }
+  }
+
+  // ---- dispatch log ----
+  const stops = clusterStops(points).reverse();
+  const box = document.getElementById('entries');
+  const show = stops.slice(0,14);
+  box.innerHTML = show.map((s,idx)=>`
+    <article class="entry ${idx===0?'now':''}">
+      <div class="when"><span class="d">${fmtDate(s.firstTs)}</span><br>${fmtTime(s.firstTs)}</div>
+      <div>
+        <div class="node">
+          <span class="dot ${idx===0?'hot':''}"></span>
+          ${s.hood?`<span class="hood">${s.hood}</span>`:''}
+          ${s.count>1?`<span class="count">· ${s.count} pings here</span>`:''}
+        </div>
+        <div class="addr">${s.address||'Unknown spot'}</div>
+      </div>
+    </article>`).join('');
+  if(stops.length>show.length){
+    box.insertAdjacentHTML('beforeend',`<div class="more">+ ${stops.length-show.length} earlier stops · ${points.length} pings total</div>`);
+  }
+}
+
+fetch('wallet.json',{cache:'no-store'})
+  .then(r=>{ if(!r.ok) throw new Error(); return r.json(); })
+  .then(render)
+  .catch(()=>render(SEED));
+</script>
+</body>
+</html>
