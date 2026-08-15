@@ -1,25 +1,24 @@
 #!/usr/bin/env python3
 """
-Wallet on the Run — data fetcher (privacy build).
+Wallet on the Run — data fetcher (privacy build, batched lookups).
 
-Modes (pass as arg or MODE env var):
+Modes (arg or MODE env var):
   poll      (default)  current location. No Premium needed.
   backfill             full history (last N days). Needs Premium.
-  migrate              re-process the EXISTING wallet.json in place — re-snap every
-                       point, strip house numbers, add business flavor. No Tile call.
+  migrate              re-process EXISTING wallet.json: re-snap, strip house numbers,
+                       (re)add business flavor. No Tile call. Safe to re-run.
 
-Privacy design:
-  - Every point is SNAPPED to a ~200 m grid cell and placed at a fixed per-cell
-    offset. The true sub-cell position is discarded (lossy), and the offset is
-    deterministic, so repeated pings can't be averaged back to the real spot.
-    Even with this code public, the most anyone recovers is the 200 m cell.
-  - Labels are street + neighborhood only (no house numbers).
-  - Business flavor is looked up around the SNAPPED point, so it can't re-pin you.
+Privacy:
+  - Points SNAPPED to a ~200 m grid at a fixed per-cell offset (lossy; averaging-proof).
+  - Street + neighborhood labels only (no house numbers).
+  - Business flavor is looked up around the SNAPPED point.
 
-Secrets (GitHub repo secrets): TILE_EMAIL, TILE_PASSWORD
-Optional: TILE_NAME, BACKFILL_DAYS (default 30)
+Kindness to free services:
+  - Business POIs are fetched in a FEW big region queries (not one per point) and
+    matched locally, with retry/backoff. Never hammers the shared Overpass service.
 
-Writes: wallet.json, .geocache.json  (history_raw.json is intentionally NOT saved)
+Secrets: TILE_EMAIL, TILE_PASSWORD   Optional: TILE_NAME, BACKFILL_DAYS (default 30)
+Writes: wallet.json, .geocache.json   (history_raw.json is intentionally NOT saved)
 """
 
 import asyncio
@@ -40,15 +39,16 @@ from pytile import async_login
 HERE = pathlib.Path(__file__).parent
 DATA = HERE / "wallet.json"
 CACHE = HERE / ".geocache.json"
+UA = "wallet-on-the-run/1.0 (personal project)"
 
 EMAIL = os.environ.get("TILE_EMAIL", "")
 PASSWORD = os.environ.get("TILE_PASSWORD", "")
 TILE_NAME = os.environ.get("TILE_NAME", "").strip().lower()
 BACKFILL_DAYS = int(os.environ.get("BACKFILL_DAYS") or "30")
 
-# ~200 m grid at Seattle's latitude
-CELL_LAT = 0.0018
+CELL_LAT = 0.0018      # ~200 m grid (privacy)
 CELL_LNG = 0.0027
+POI_REGION = 0.06      # ~6.5 km tiles for batched business lookups
 
 LAT_KEYS = ("latitude", "lat")
 LNG_KEYS = ("longitude", "lng", "lon", "long")
@@ -56,6 +56,7 @@ TS_KEYS = ("location_timestamp", "timestamp", "logged_timestamp",
            "end_timestamp", "ts", "time", "logged_ts")
 
 
+# ---------- io ----------
 def load_json(path, default):
     try:
         return json.loads(path.read_text())
@@ -80,17 +81,32 @@ def to_iso(value):
         return str(value)
 
 
+def http_json(url, timeout=20, data=None):
+    req = urllib.request.Request(url, data=data, headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return json.loads(resp.read())
+
+
+# ---------- geometry ----------
 def snap(lat, lng):
-    """Lossy snap to a ~200 m cell + deterministic per-cell offset. Returns (lat, lng, cell_key)."""
+    """Lossy snap to a ~200 m cell + deterministic per-cell offset."""
     clat = round(lat / CELL_LAT) * CELL_LAT
     clng = round(lng / CELL_LNG) * CELL_LNG
-    cell_key = f"{clat:.5f},{clng:.5f}"
-    h = int(hashlib.sha256(cell_key.encode()).hexdigest(), 16)
+    key = f"{clat:.5f},{clng:.5f}"
+    h = int(hashlib.sha256(key.encode()).hexdigest(), 16)
     ang = math.radians(h % 360)
-    dist = 120 + (h % 121)  # fixed 120-240 m offset for this cell
+    dist = 120 + (h % 121)  # fixed 120-240 m per cell
     dlat = dist * math.cos(ang) / 111_320.0
     dlng = dist * math.sin(ang) / (111_320.0 * math.cos(math.radians(clat)) or 1e-6)
-    return round(clat + dlat, 5), round(clng + dlng, 5), cell_key
+    return round(clat + dlat, 5), round(clng + dlng, 5)
+
+
+def cell_of(lat, lng):
+    return f"{round(lat / CELL_LAT) * CELL_LAT:.5f},{round(lng / CELL_LNG) * CELL_LNG:.5f}"
+
+
+def meters(alat, alng, blat, blng):
+    return math.hypot((alat - blat) * 111_320, (alng - blng) * 111_320 * math.cos(math.radians(alat)))
 
 
 def find_points(obj, out):
@@ -110,14 +126,8 @@ def find_points(obj, out):
             find_points(v, out)
 
 
-def http_json(url, timeout=20):
-    req = urllib.request.Request(url, headers={"User-Agent": "wallet-on-the-run/1.0 (personal project)"})
-    with urllib.request.urlopen(req, timeout=timeout) as resp:
-        return json.loads(resp.read())
-
-
+# ---------- labels ----------
 def reverse_geocode(lat, lng):
-    """Street + neighborhood only. Returns (street, hood)."""
     url = "https://nominatim.openstreetmap.org/reverse?" + urllib.parse.urlencode(
         {"lat": lat, "lon": lng, "format": "jsonv2", "zoom": "18"}
     )
@@ -132,7 +142,8 @@ def reverse_geocode(lat, lng):
         return None, None
 
 
-DENY_KEYS = ("healthcare", "office")  # never surface these whole categories
+# ---------- business flavor (batched) ----------
+DENY_KEYS = ("healthcare", "office")
 DENY = {
     "amenity": {"pharmacy", "hospital", "clinic", "doctors", "dentist", "veterinary",
                 "nursing_home", "social_facility", "childcare", "kindergarten", "school",
@@ -154,7 +165,6 @@ DENY = {
 
 
 def phrase(key, val, n):
-    """Playful line for a nearby place. Specific where we can, generic otherwise."""
     m = {
         ("amenity", "cafe"): f"possibly stopped for coffee at {n}",
         ("amenity", "bar"): f"perhaps a drink at {n}",
@@ -202,69 +212,92 @@ def phrase(key, val, n):
     return f"seen loitering near {n}"
 
 
-def nearby_business(lat, lng):
-    """Best-effort: nearest interesting named place within ~400 m of the SNAPPED point.
-    Catch-all across shops/amenities/leisure/tourism, minus the deny-list (health, junk,
-    sensitive). Returns (flavor_or_None, ok); ok=False means network trouble (don't cache)."""
+def parse_element(el):
+    tags = el.get("tags") or {}
+    name = tags.get("name")
+    if not name or any(k in tags for k in DENY_KEYS):
+        return None
+    key = next((k for k in ("amenity", "shop", "leisure", "tourism") if k in tags), None)
+    if key is None:
+        return None
+    val = tags.get(key)
+    if val in DENY.get(key, ()):
+        return None
+    c = el.get("center") or el
+    lat, lng = c.get("lat"), c.get("lon")
+    if lat is None or lng is None:
+        return None
+    return (lat, lng, key, val, name)
+
+
+def overpass_bbox(s, w, n, e):
+    """One region query, with retry/backoff. Returns list of parsed POIs."""
     q = (
-        "[out:json][timeout:20];("
-        f"nwr(around:400,{lat},{lng})[amenity][name];"
-        f"nwr(around:400,{lat},{lng})[shop][name];"
-        f"nwr(around:400,{lat},{lng})[leisure][name];"
-        f"nwr(around:400,{lat},{lng})[tourism][name];"
-        ");out center 80;"
+        "[out:json][timeout:120];("
+        f"nwr[amenity][name]({s},{w},{n},{e});"
+        f"nwr[shop][name]({s},{w},{n},{e});"
+        f"nwr[leisure][name]({s},{w},{n},{e});"
+        f"nwr[tourism][name]({s},{w},{n},{e});"
+        ");out center 6000;"
     )
-    url = "https://overpass-api.de/api/interpreter?" + urllib.parse.urlencode({"data": q})
-    try:
-        j = http_json(url, timeout=30)
-    except Exception as e:
-        print(f"  overpass failed {lat},{lng}: {e}", file=sys.stderr)
-        return None, False
+    data = urllib.parse.urlencode({"data": q}).encode()
+    for attempt in range(4):
+        try:
+            j = http_json("https://overpass-api.de/api/interpreter", timeout=180, data=data)
+            return [p for p in (parse_element(el) for el in j.get("elements", [])) if p]
+        except Exception as ex:
+            wait = 5 * (2 ** attempt)
+            print(f"  overpass region retry in {wait}s ({ex})", file=sys.stderr)
+            time.sleep(wait)
+    print("  overpass region gave up (will fill in on a later run)", file=sys.stderr)
+    return []
+
+
+def build_poi_index(coords):
+    """Fetch POIs for every ~6.5 km region the points touch — a handful of queries total."""
+    regions = sorted({(round(lat / POI_REGION), round(lng / POI_REGION)) for lat, lng in coords})
+    print(f"Business lookup across {len(regions)} region(s)...")
+    pois = []
+    for i, (ry, rx) in enumerate(regions):
+        clat, clng = ry * POI_REGION, rx * POI_REGION
+        pad = 0.006
+        s, w = clat - POI_REGION / 2 - pad, clng - POI_REGION / 2 - pad
+        n, e = clat + POI_REGION / 2 + pad, clng + POI_REGION / 2 + pad
+        got = overpass_bbox(s, w, n, e)
+        pois.extend(got)
+        print(f"  region {i + 1}/{len(regions)}: +{len(got)} places (total {len(pois)})")
+        if i < len(regions) - 1:
+            time.sleep(4)  # polite spacing between region queries
+    return pois
+
+
+def nearest_flavor(lat, lng, pois):
     best = None
-    for el in j.get("elements", []):
-        tags = el.get("tags", {}) or {}
-        name = tags.get("name")
-        if not name:
+    for (plat, plng, key, val, name) in pois:
+        d = meters(lat, lng, plat, plng)
+        if d > 400:
             continue
-        c = el.get("center") or el  # ways/relations return a 'center'
-        elat, elng = c.get("lat"), c.get("lon")
-        if elat is None or elng is None:
-            continue
-        if any(k in tags for k in DENY_KEYS):
-            continue
-        key = next((k for k in ("amenity", "shop", "leisure", "tourism") if k in tags), None)
-        if key is None:
-            continue
-        val = tags.get(key)
-        if val in DENY.get(key, ()):
-            continue
-        d = math.hypot((elat - lat) * 111_320, (elng - lng) * 111_320 * math.cos(math.radians(lat)))
         if best is None or d < best[0]:
-            best = (d, name, key, val)
+            best = (d, key, val, name)
     if not best:
-        return None, True  # nothing interesting nearby - cache this
-    _, name, key, val = best
-    return phrase(key, val, name), True
+        return None
+    _, key, val, name = best
+    return phrase(key, val, name)
 
 
-def enrich(lat, lng, ts, cache):
-    """Snap a raw point and attach labels + flavor, using the per-cell cache."""
-    slat, slng, cell = snap(lat, lng)
-    c = cache.get(cell)
-    if c is None or "street" not in c:
-        street, hood = reverse_geocode(slat, slng)
-        time.sleep(1.1)
-        flavor, ok = nearby_business(slat, slng)
-        time.sleep(1.1)
-        c = {"street": street, "hood": hood}
-        if ok:
-            c["flavor"] = flavor  # may be None (= checked, nothing there)
-        cache[cell] = c
-    return {
-        "ts": ts, "lat": slat, "lng": slng,
-        "street": c.get("street"), "hood": c.get("hood"),
-        "flavor": c.get("flavor"), "snapped": True,
-    }
+# ---------- enrich ----------
+def enrich(dlat, dlng, ts, cache, pois):
+    key = cell_of(dlat, dlng)
+    c = cache.get(key, {})
+    if "street" not in c:
+        c["street"], c["hood"] = reverse_geocode(dlat, dlng)
+        time.sleep(1.1)  # Nominatim: <= 1 req/sec
+    if "flavor" not in c:
+        c["flavor"] = nearest_flavor(dlat, dlng, pois)
+    cache[key] = c
+    return {"ts": ts, "lat": round(dlat, 5), "lng": round(dlng, 5),
+            "street": c.get("street"), "hood": c.get("hood"),
+            "flavor": c.get("flavor"), "snapped": True}
 
 
 def merge(existing, new_points):
@@ -279,6 +312,7 @@ def merge(existing, new_points):
     return sorted(by_ts.values(), key=lambda p: p.get("ts") or ""), added
 
 
+# ---------- tile ----------
 async def get_tile_points(mode):
     if not EMAIL or not PASSWORD:
         sys.exit("Missing TILE_EMAIL / TILE_PASSWORD. Set them as repo secrets.")
@@ -312,33 +346,45 @@ async def get_tile_points(mode):
         return found
 
 
+# ---------- main ----------
 def main():
     mode = (sys.argv[1] if len(sys.argv) > 1 else os.environ.get("MODE", "poll")).lower()
-    cache = load_json(CACHE, {})
 
     if mode == "migrate":
         existing = load_json(DATA, [])
-        print(f"Migrating {len(existing)} existing points to snapped/obscured form...")
-        cache = {}  # start clean so no old precise-coordinate keys survive
-        out = []
+        print(f"Migrating {len(existing)} existing points...")
+        cache = {}  # fresh: drops any old precise-coordinate cache keys
+        targets = []  # (display_lat, display_lng, ts)
         for p in existing:
-            if p.get("snapped"):
-                out.append(p)  # already obscured — leave it (keeps re-runs stable)
-                continue
             try:
-                out.append(enrich(float(p["lat"]), float(p["lng"]), p.get("ts"), cache))
+                if p.get("snapped"):
+                    dlat, dlng = float(p["lat"]), float(p["lng"])   # keep position stable
+                else:
+                    dlat, dlng = snap(float(p["lat"]), float(p["lng"]))
+                if p.get("ts"):
+                    targets.append((dlat, dlng, p["ts"]))
             except (KeyError, TypeError, ValueError):
                 continue
+        pois = build_poi_index([(a, b) for a, b, _ in targets])
+        out = [enrich(a, b, ts, cache, pois) for a, b, ts in targets]
         merged, _ = merge([], out)
-        save_json(CACHE, cache)  # cell-keyed only
+        save_json(CACHE, cache)
         save_json(DATA, merged)
         print(f"Done. wallet.json now holds {len(merged)} snapped points.")
         return
 
-    found = asyncio.run(get_tile_points(mode))
-    enriched = [enrich(p["lat"], p["lng"], p["ts"], cache) for p in found if p.get("ts")]
+    raw = asyncio.run(get_tile_points(mode))
+    snapped = []
+    for p in raw:
+        if not p.get("ts"):
+            continue
+        slat, slng = snap(p["lat"], p["lng"])
+        snapped.append((slat, slng, p["ts"]))
+    cache = load_json(CACHE, {})
+    pois = build_poi_index([(a, b) for a, b, _ in snapped]) if snapped else []
+    out = [enrich(a, b, ts, cache, pois) for a, b, ts in snapped]
     existing = load_json(DATA, [])
-    merged, added = merge(existing, enriched)
+    merged, added = merge(existing, out)
     save_json(CACHE, cache)
     save_json(DATA, merged)
     print(f"Done. {added} new point(s). wallet.json now holds {len(merged)} total.")
