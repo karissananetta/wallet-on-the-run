@@ -75,6 +75,7 @@
   .entry .hood{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);padding:2px 7px;border-radius:999px}
   .entry .count{font-family:var(--mono);font-size:11px;color:var(--dim)}
   .entry.now .addr{color:var(--hot)}
+  .entry .flavor{color:var(--signal);font-family:var(--mono);font-size:12.5px;margin-top:6px;opacity:.9}
   @media(max-width:560px){.entry{grid-template-columns:1fr;gap:6px}.entry .when{order:2}}
   .more{font-family:var(--mono);font-size:12px;color:var(--dim);padding:18px 0 0;border-top:1px solid var(--line)}
 
@@ -113,7 +114,7 @@
 
   <section class="log">
     <h2>Dispatch log</h2>
-    <div class="sub">Most recent first · grouped by stop</div>
+    <div class="sub">Most recent first · grouped by stop · locations fuzzed & shown on a 6-hour delay</div>
     <div id="entries"></div>
   </section>
 
@@ -148,14 +149,17 @@ function clusterStops(pts){ // group consecutive points within ~120m
   for(const p of pts){
     const last=stops[stops.length-1];
     if(last && dist(last.anchor,p)<120){ last.count++; last.lastTs=p.ts; }
-    else stops.push({anchor:p, address:p.address, hood:p.hood, firstTs:p.ts, lastTs:p.ts, count:1});
+    else stops.push({anchor:p, addr:(p.street||p.address), hood:p.hood, flavor:p.flavor, firstTs:p.ts, lastTs:p.ts, count:1});
   }
   return stops;
 }
 
 function render(points){
-  points = points.filter(p=>p && p.lat && p.lng && p.ts).sort((a,b)=>new Date(a.ts)-new Date(b.ts));
-  if(!points.length){ document.getElementById('entries').innerHTML='<div class="more">No pings logged yet.</div>'; return; }
+  const DELAY_MS = 6*3600*1000; // hide anything pinged in the last 6 hours
+  const cutoff = Date.now() - DELAY_MS;
+  points = points.filter(p=>p && p.lat && p.lng && p.ts && new Date(p.ts).getTime() < cutoff)
+                 .sort((a,b)=>new Date(a.ts)-new Date(b.ts));
+  if(!points.length){ document.getElementById('entries').innerHTML='<div class="more">No pings to show yet (newest are held back 6 hours).</div>'; return; }
   const latest = points[points.length-1];
 
   // ---- stats ----
@@ -180,7 +184,7 @@ function render(points){
     L.circleMarker([p.lat,p.lng],{
       radius:isLast?7:4, color:isLast?'#F4A64C':'#4FD0C4',
       fillColor:isLast?'#F4A64C':'#4FD0C4', fillOpacity:isLast?1:.7, weight:isLast?2:1
-    }).addTo(map).bindPopup(`<b>${p.address||'Unknown spot'}</b><br>${fmtDate(p.ts)} · ${fmtTime(p.ts)}`);
+    }).addTo(map).bindPopup(`<b>${p.hood||p.street||'Somewhere'}</b><br>${p.street||''}<br>${fmtDate(p.ts)} · ${fmtTime(p.ts)}`);
   });
   map.fitBounds(line,{padding:[40,40]});
 
@@ -219,7 +223,8 @@ function render(points){
           ${s.hood?`<span class="hood">${s.hood}</span>`:''}
           ${s.count>1?`<span class="count">· ${s.count} pings here</span>`:''}
         </div>
-        <div class="addr">${s.address||'Unknown spot'}</div>
+        <div class="addr">${s.addr||s.hood||'Somewhere in Seattle'}</div>
+        ${s.flavor?`<div class="flavor">${s.flavor}</div>`:''}
       </div>
     </article>`).join('');
   if(stops.length>show.length){
