@@ -1,23 +1,27 @@
 #!/usr/bin/env python3
 """
-Wallet on the Run — data fetcher (privacy build, batched lookups).
+Wallet on the Run — data fetcher (privacy build; resilient business lookups).
 
 Modes (arg or MODE env var):
   poll      (default)  current location. No Premium needed.
   backfill             full history (last N days). Needs Premium.
-  migrate              re-process EXISTING wallet.json: re-snap, strip house numbers,
-                       (re)add business flavor. No Tile call. Safe to re-run.
+  migrate              re-process EXISTING wallet.json: snap, strip house numbers,
+                       and fill in business flavor. INCREMENTAL — only looks up what's
+                       still missing, so it's safe to re-run and nothing is wasted.
 
 Privacy:
   - Points SNAPPED to a ~200 m grid at a fixed per-cell offset (lossy; averaging-proof).
   - Street + neighborhood labels only (no house numbers).
-  - Business flavor is looked up around the SNAPPED point.
+  - Business flavor looked up around the SNAPPED point.
 
-Kindness to free services:
-  - Business POIs are fetched in a FEW big region queries (not one per point) and
-    matched locally, with retry/backoff. Never hammers the shared Overpass service.
+Resilience / kindness to free services:
+  - Business POIs fetched in a FEW big region queries (not one per point), matched locally.
+  - Queries rotate across several Overpass MIRRORS with backoff, so one busy server
+    doesn't sink the run.
+  - Cumulative: a point is only re-queried until its flavor is confirmed, so repeated
+    migrate runs converge (great when a server is having a bad day).
 
-Secrets: TILE_EMAIL, TILE_PASSWORD   Optional: TILE_NAME, BACKFILL_DAYS (default 30)
+Secrets: TILE_EMAIL, TILE_PASSWORD    Optional: TILE_NAME, BACKFILL_DAYS (default 30)
 Writes: wallet.json, .geocache.json   (history_raw.json is intentionally NOT saved)
 """
 
@@ -27,6 +31,7 @@ import json
 import math
 import os
 import pathlib
+import re
 import sys
 import time
 import urllib.parse
@@ -50,10 +55,18 @@ CELL_LAT = 0.0018      # ~200 m grid (privacy)
 CELL_LNG = 0.0027
 POI_REGION = 0.06      # ~6.5 km tiles for batched business lookups
 
+OVERPASS_MIRRORS = [
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+]
+
 LAT_KEYS = ("latitude", "lat")
 LNG_KEYS = ("longitude", "lng", "lon", "long")
 TS_KEYS = ("location_timestamp", "timestamp", "logged_timestamp",
            "end_timestamp", "ts", "time", "logged_ts")
+CELL_KEY_RE = re.compile(r"^-?\d+\.\d{5},-?\d+\.\d{5}$")  # 5-decimal = new cell key
 
 
 # ---------- io ----------
@@ -89,13 +102,12 @@ def http_json(url, timeout=20, data=None):
 
 # ---------- geometry ----------
 def snap(lat, lng):
-    """Lossy snap to a ~200 m cell + deterministic per-cell offset."""
     clat = round(lat / CELL_LAT) * CELL_LAT
     clng = round(lng / CELL_LNG) * CELL_LNG
     key = f"{clat:.5f},{clng:.5f}"
     h = int(hashlib.sha256(key.encode()).hexdigest(), 16)
     ang = math.radians(h % 360)
-    dist = 120 + (h % 121)  # fixed 120-240 m per cell
+    dist = 120 + (h % 121)
     dlat = dist * math.cos(ang) / 111_320.0
     dlng = dist * math.sin(ang) / (111_320.0 * math.cos(math.radians(clat)) or 1e-6)
     return round(clat + dlat, 5), round(clng + dlng, 5)
@@ -103,6 +115,10 @@ def snap(lat, lng):
 
 def cell_of(lat, lng):
     return f"{round(lat / CELL_LAT) * CELL_LAT:.5f},{round(lng / CELL_LNG) * CELL_LNG:.5f}"
+
+
+def region_key(lat, lng):
+    return (round(lat / POI_REGION), round(lng / POI_REGION))
 
 
 def meters(alat, alng, blat, blng):
@@ -142,7 +158,7 @@ def reverse_geocode(lat, lng):
         return None, None
 
 
-# ---------- business flavor (batched) ----------
+# ---------- business flavor ----------
 DENY_KEYS = ("healthcare", "office")
 DENY = {
     "amenity": {"pharmacy", "hospital", "clinic", "doctors", "dentist", "veterinary",
@@ -231,44 +247,47 @@ def parse_element(el):
 
 
 def overpass_bbox(s, w, n, e):
-    """One region query, with retry/backoff. Returns list of parsed POIs."""
+    """One region query, rotating across mirrors with backoff. Returns (pois, ok)."""
     q = (
-        "[out:json][timeout:120];("
+        "[out:json][timeout:90];("
         f"nwr[amenity][name]({s},{w},{n},{e});"
         f"nwr[shop][name]({s},{w},{n},{e});"
         f"nwr[leisure][name]({s},{w},{n},{e});"
         f"nwr[tourism][name]({s},{w},{n},{e});"
-        ");out center 6000;"
+        ");out center 4000;"
     )
     data = urllib.parse.urlencode({"data": q}).encode()
-    for attempt in range(4):
+    for attempt in range(6):
+        url = OVERPASS_MIRRORS[attempt % len(OVERPASS_MIRRORS)]
         try:
-            j = http_json("https://overpass-api.de/api/interpreter", timeout=180, data=data)
-            return [p for p in (parse_element(el) for el in j.get("elements", [])) if p]
+            j = http_json(url, timeout=120, data=data)
+            return [p for p in (parse_element(el) for el in j.get("elements", [])) if p], True
         except Exception as ex:
-            wait = 5 * (2 ** attempt)
-            print(f"  overpass region retry in {wait}s ({ex})", file=sys.stderr)
+            wait = 4 * (attempt + 1)
+            print(f"  overpass busy ({url.split('/')[2]}: {ex}); trying another mirror in {wait}s", file=sys.stderr)
             time.sleep(wait)
-    print("  overpass region gave up (will fill in on a later run)", file=sys.stderr)
-    return []
+    print("  overpass: all mirrors busy this round (will retry on the next migrate)", file=sys.stderr)
+    return [], False
 
 
 def build_poi_index(coords):
-    """Fetch POIs for every ~6.5 km region the points touch — a handful of queries total."""
-    regions = sorted({(round(lat / POI_REGION), round(lng / POI_REGION)) for lat, lng in coords})
+    """Fetch POIs for the regions these points touch. Returns (pois, ok_regions)."""
+    regions = sorted({region_key(lat, lng) for lat, lng in coords})
     print(f"Business lookup across {len(regions)} region(s)...")
-    pois = []
+    pois, ok_regions = [], set()
     for i, (ry, rx) in enumerate(regions):
         clat, clng = ry * POI_REGION, rx * POI_REGION
         pad = 0.006
         s, w = clat - POI_REGION / 2 - pad, clng - POI_REGION / 2 - pad
         n, e = clat + POI_REGION / 2 + pad, clng + POI_REGION / 2 + pad
-        got = overpass_bbox(s, w, n, e)
-        pois.extend(got)
-        print(f"  region {i + 1}/{len(regions)}: +{len(got)} places (total {len(pois)})")
+        got, ok = overpass_bbox(s, w, n, e)
+        if ok:
+            ok_regions.add((ry, rx))
+            pois.extend(got)
+        print(f"  region {i + 1}/{len(regions)}: {'ok' if ok else 'skipped'}, +{len(got)} places (total {len(pois)})")
         if i < len(regions) - 1:
-            time.sleep(4)  # polite spacing between region queries
-    return pois
+            time.sleep(3)
+    return pois, ok_regions
 
 
 def nearest_flavor(lat, lng, pois):
@@ -286,18 +305,20 @@ def nearest_flavor(lat, lng, pois):
 
 
 # ---------- enrich ----------
-def enrich(dlat, dlng, ts, cache, pois):
+def enrich(dlat, dlng, ts, cache, pois, ok_regions):
     key = cell_of(dlat, dlng)
     c = cache.get(key, {})
     if "street" not in c:
         c["street"], c["hood"] = reverse_geocode(dlat, dlng)
         time.sleep(1.1)  # Nominatim: <= 1 req/sec
-    if "flavor" not in c:
-        c["flavor"] = nearest_flavor(dlat, dlng, pois)
+    checked = "flavor" in c
+    if not checked and region_key(dlat, dlng) in ok_regions:
+        c["flavor"] = nearest_flavor(dlat, dlng, pois)  # may be None (checked, none nearby)
+        checked = True
     cache[key] = c
     return {"ts": ts, "lat": round(dlat, 5), "lng": round(dlng, 5),
             "street": c.get("street"), "hood": c.get("hood"),
-            "flavor": c.get("flavor"), "snapped": True}
+            "flavor": c.get("flavor"), "snapped": True, "flavor_checked": checked}
 
 
 def merge(existing, new_points):
@@ -305,10 +326,11 @@ def merge(existing, new_points):
     added = 0
     for p in new_points:
         ts = p.get("ts")
-        if not ts or ts in by_ts:
+        if not ts:
             continue
+        if ts not in by_ts:
+            added += 1
         by_ts[ts] = p
-        added += 1
     return sorted(by_ts.values(), key=lambda p: p.get("ts") or ""), added
 
 
@@ -346,46 +368,51 @@ async def get_tile_points(mode):
         return found
 
 
+def clean_cache(cache):
+    return {k: v for k, v in cache.items() if CELL_KEY_RE.match(k)}
+
+
 # ---------- main ----------
 def main():
     mode = (sys.argv[1] if len(sys.argv) > 1 else os.environ.get("MODE", "poll")).lower()
 
     if mode == "migrate":
         existing = load_json(DATA, [])
-        print(f"Migrating {len(existing)} existing points...")
-        cache = {}  # fresh: drops any old precise-coordinate cache keys
-        targets = []  # (display_lat, display_lng, ts)
+        cache = clean_cache(load_json(CACHE, {}))  # keep known results, drop old precise keys
+        done, targets = [], []
         for p in existing:
+            if p.get("snapped") and p.get("flavor_checked"):
+                done.append(p)  # already complete — no lookups needed
+                continue
             try:
                 if p.get("snapped"):
-                    dlat, dlng = float(p["lat"]), float(p["lng"])   # keep position stable
+                    dlat, dlng = float(p["lat"]), float(p["lng"])
                 else:
                     dlat, dlng = snap(float(p["lat"]), float(p["lng"]))
                 if p.get("ts"):
                     targets.append((dlat, dlng, p["ts"]))
             except (KeyError, TypeError, ValueError):
                 continue
-        pois = build_poi_index([(a, b) for a, b, _ in targets])
-        out = [enrich(a, b, ts, cache, pois) for a, b, ts in targets]
-        merged, _ = merge([], out)
-        save_json(CACHE, cache)
+        print(f"Migrating: {len(done)} already complete, {len(targets)} to look up...")
+        pois, ok = build_poi_index([(a, b) for a, b, _ in targets]) if targets else ([], set())
+        processed = [enrich(a, b, ts, cache, pois, ok) for a, b, ts in targets]
+        merged, _ = merge(done, processed)
+        pending = sum(1 for p in merged if not p.get("flavor_checked"))
+        save_json(CACHE, clean_cache(cache))
         save_json(DATA, merged)
-        print(f"Done. wallet.json now holds {len(merged)} snapped points.")
+        print(f"Done. {len(merged)} points; {pending} still awaiting a business lookup.")
+        if pending:
+            print(f"Re-run 'migrate' anytime to fill the remaining {pending} (it only redoes those).")
         return
 
     raw = asyncio.run(get_tile_points(mode))
-    snapped = []
-    for p in raw:
-        if not p.get("ts"):
-            continue
-        slat, slng = snap(p["lat"], p["lng"])
-        snapped.append((slat, slng, p["ts"]))
-    cache = load_json(CACHE, {})
-    pois = build_poi_index([(a, b) for a, b, _ in snapped]) if snapped else []
-    out = [enrich(a, b, ts, cache, pois) for a, b, ts in snapped]
+    snapped = [(*snap(p["lat"], p["lng"]), p["ts"]) for p in raw if p.get("ts")]
+    cache = clean_cache(load_json(CACHE, {}))
+    pois, ok = build_poi_index([(a, b) for a, b, _ in snapped]) if snapped else ([], set())
+    out = [enrich(a, b, ts, cache, pois, ok) for a, b, ts in snapped]
     existing = load_json(DATA, [])
     merged, added = merge(existing, out)
-    save_json(CACHE, cache)
+    save_json(CACHE, clean_cache(cache))
     save_json(DATA, merged)
     print(f"Done. {added} new point(s). wallet.json now holds {len(merged)} total.")
 
