@@ -2328,5 +2328,15 @@
     "flavor": "maybe browsing Seattle Fish Guys",
     "snapped": true,
     "flavor_checked": true
+  },
+  {
+    "ts": "2026-08-15T04:01:21+00:00",
+    "lat": 47.65216,
+    "lng": -122.35272,
+    "street": "North 36th Street",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Charlie's Queer Books",
+    "snapped": true,
+    "flavor_checked": true
   }
 ]
