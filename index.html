@@ -182,12 +182,89 @@ function aggregate(points){
     const key=`${p.lat.toFixed(5)},${p.lng.toFixed(5)}`;
     let s=map.get(key);
     if(!s){ s={lat:p.lat,lng:p.lng,count:0,firstTs:p.ts,lastTs:p.ts,
-               addr:(p.street||p.address),hood:p.hood,flavor:p.flavor}; map.set(key,s); }
+               addr:(p.street||p.address),hood:p.hood,biz:p.biz||null}; map.set(key,s); }
     s.count++;
     if(p.ts<s.firstTs) s.firstTs=p.ts;
-    if(p.ts>s.lastTs){ s.lastTs=p.ts; if(p.flavor) s.flavor=p.flavor; }
+    if(p.ts>s.lastTs){ s.lastTs=p.ts; }
+    if(p.biz&&!s.biz) s.biz=p.biz;
   }
   return [...map.values()];
+}
+
+// ---- the wallet's voice (smug runaway, talking about you) ----
+function tod(ts){const h=new Date(ts).getHours();return h<5?'small-hours':h<11?'morning':h<15?'midday':h<18?'afternoon':h<22?'evening':'small-hours';}
+function hcode(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return Math.abs(h);}
+function pick(arr,seed){return arr[seed%arr.length];}
+
+function bucket(k){
+  k=k||'';
+  if(['cafe','coffee'].includes(k))return'coffee';
+  if(['bar','pub','biergarten'].includes(k))return'bar';
+  if(k==='nightclub')return'club';
+  if(['restaurant','fast_food','food_court'].includes(k))return'food';
+  if(k==='bakery')return'bakery';
+  if(k==='ice_cream')return'icecream';
+  if(k==='books')return'books';
+  if(['supermarket','convenience','greengrocer'].includes(k))return'grocery';
+  if(['department_store','mall','clothes','boutique','shoes','fashion'].includes(k))return'shop';
+  if(['cinema','theatre'].includes(k))return'screen';
+  if(['fitness_centre','sports_centre','swimming_pool','stadium'].includes(k))return'gym';
+  if(['park','garden','dog_park'].includes(k))return'park';
+  if(['museum','gallery','attraction','viewpoint','zoo','aquarium'].includes(k))return'sights';
+  if(['hotel','hostel'].includes(k))return'hotel';
+  if(k==='library')return'library';
+  if(k==='marketplace')return'market';
+  return'default';
+}
+const BIZ={
+  coffee:["Caffeinating at {n}. On your tab, naturally.","A {n} run — the getaway needs fuel.","Third coffee at {n}. Your card's earning miles.","Holed up in {n}. Don't wait up."],
+  bar:["Out at {n}, buying its own rounds. Growth.","At {n}, living the life you keep meaning to.","Last seen at {n}, entirely unrepentant.","Happy hour at {n} — it's fine, it's thriving."],
+  club:["Out till close at {n}. Zero regrets, zero texts.","At {n}. It doesn't do curfews anymore."],
+  food:["Dinner at {n}. Eating better than you this week.","Treated itself at {n}. Again.","Table for one at {n}. Solo era.","A full meal at {n}, which you're covering, obviously."],
+  bakery:["Pastries at {n}. It has taste, at least.","Carb-loading at {n} for the next leg."],
+  icecream:["Ice cream at {n}. It's on holiday, clearly.","Cooling off at {n}, not a care."],
+  books:["Browsing {n}. Cultured little runaway.","Killing time in {n} — reading up on evasion, probably."],
+  grocery:["Grocery run at {n}. Nesting, apparently.","Stocking up at {n}. Settling in for the long haul."],
+  shop:["Shopping at {n}. New wardrobe, new life.","Retail therapy at {n}. Coping, clearly.","Splurging at {n}. Your credit limit says hello."],
+  screen:["Catching a movie at {n}. Date night, no plus-one.","At {n} for a show. Cultured and gone."],
+  gym:["Working out at {n}. Getting fit for the chase.","At {n} — cardio, ironically, after all that running."],
+  park:["Loafing in {n}, not a care in the world.","Sunning itself in {n}. The audacity."],
+  sights:["Sightseeing at {n}. On vacation from you.","Doing {n} like a tourist — which it now is."],
+  hotel:["Checked in at {n}. Not coming home tonight.","Booked a night at {n}. Living large."],
+  library:["Lying low in {n} — quiet, free, off-grid.","Hiding out in {n}. Smart, for a wallet."],
+  market:["Working the crowd at {n}. Blends right in.","At {n}, haggling with your money."],
+  default:["Poking around {n}, window-shopping your money.","Loitering at {n}, looking suspiciously at home.","Spotted at {n}, making itself comfortable."],
+};
+function bizLine(name,kind,seed){ return pick(BIZ[bucket(kind)]||BIZ.default,seed).replace('{n}',name); }
+
+const NARR={
+  dug:["Really dug into {h}. Comfortable. Unbothered.","Set up camp in {h} for hours — no forwarding address.","Parked in {h} like it pays rent. It doesn't; you do.","Basically moved into {h}. Should update its address.","Settled deep into {h}. Not going anywhere.","Holed up in {h} a good while. Cozy little fugitive."],
+  night:["A small-hours ping in {h}. Out living while you sleep.","Still up in {h} — nightlife's better without you.","{h} at this hour? It's thriving, thanks for asking.","Burning the midnight oil in {h}. Rent-free in your head."],
+  bolt:["Bolted clear out to {h}. Ambitious little thing.","Surfaced way out in {h}, expanding the empire.","Made a run for {h}. Committed to the bit, truly.","All the way out to {h}? Show-off."],
+  hop:["Skipped across to {h}, keeping you guessing.","Drifted over to {h}. Restless as ever.","Hopped to {h} on a whim. Must be nice.","Slid over to {h} — new scenery, same nerve."],
+  rounds:["Made the rounds in {h}. A regular now.","Circling {h} — it has a routine, unlike you two.","Lapped {h} a few times. Getting comfortable.","Working the block in {h}. Practically a local.","A few laps of {h}. Knows the baristas by now."],
+  pass:["Breezed through {h}. Didn't even wave.","A quick {t} cameo in {h}.","Cut through {h}, unbothered.","Ghosted through {h} without a word.","A drive-by in {h} — blink and you missed it. You did.","Swanned through {h} like it owns the place.","Barely paused in {h}. Places to be, apparently.","A flyby over {h}. No forwarding address."],
+  latest:["Latest fix: {h}. Still gone, still smug.","Currently in {h}. No plans to do you any favours.","Last ping — {h}. It's fine. It's thriving.","Newest sighting: {h}. Wish you were here — it does not."],
+};
+function narrative(s,seed){
+  const h=s.hood||'the city', t=tod(s.firstTs);
+  const fill=a=>pick(a,seed).replace('{h}',h).replace('{t}',t);
+  if(s._prev){
+    const d=meters([s._prev.lat,s._prev.lng],[s.lat,s.lng]);
+    if(d>15000) return fill(NARR.bolt);
+    if(d>5000)  return fill(NARR.hop);
+  }
+  if(s.count>=6) return fill(NARR.dug);
+  if(t==='small-hours') return fill(NARR.night);
+  if(s.count>=2) return fill(NARR.rounds);
+  return fill(NARR.pass);
+}
+// real place name (baked as {name,kind}) beats narrative; latest stop gets its own zinger
+function flavorOf(s,isLatest){
+  const seed=hcode((s.hood||'')+s.firstTs+(s.biz?s.biz.name:''));
+  if(s.biz&&s.biz.name) return bizLine(s.biz.name,s.biz.kind,seed);
+  if(isLatest) return pick(NARR.latest,seed).replace('{h}',s.hood||'somewhere');
+  return narrative(s,seed);
 }
 
 function render(raw){
@@ -198,6 +275,8 @@ function render(raw){
   if(!points.length){ box.innerHTML='<div class="more">Nothing to show yet (newest pings are held back 6 hours).</div>'; return; }
 
   const stops=aggregate(points);
+  const chrono=[...stops].sort((a,b)=>new Date(a.firstTs)-new Date(b.firstTs));
+  chrono.forEach((s,i)=>{ s._prev = i ? chrono[i-1] : null; });
   const latestStop=stops.reduce((a,b)=>a.lastTs>b.lastTs?a:b);
   const tMin=Math.min(...stops.map(s=>+new Date(s.firstTs)));
   const tMax=Math.max(...stops.map(s=>+new Date(s.firstTs)));
@@ -245,7 +324,7 @@ function render(raw){
   legend.addTo(map);
 
   // ---- constellation markers (Look A), revealed in time order ----
-  const byFirst=[...stops].sort((a,b)=>new Date(a.firstTs)-new Date(b.firstTs));
+  const byFirst=chrono;
   const radiusFor=s=>4+Math.sqrt(s.count/maxCount)*16;   // dwell -> size
   function place(s,animate){
     const col=rampColor((+new Date(s.firstTs)-tMin)/((tMax-tMin)||1));
@@ -253,7 +332,7 @@ function render(raw){
     const m=L.circleMarker([s.lat,s.lng],{radius:animate?0:target,color:col,weight:1,
       fillColor:col,fillOpacity:.75,opacity:.9}).addTo(map);
     m.bindPopup(`<b>${s.addr||s.hood||'Somewhere'}</b>${s.hood?`<br>${s.hood}`:''}`+
-      `${s.flavor?`<br><i>${s.flavor}</i>`:''}<br>${fmtDate(s.firstTs)} · ${s.count} ping${s.count>1?'s':''}`);
+      `<br><i>${flavorOf(s,s===latestStop)}</i><br>${fmtDate(s.firstTs)} · ${s.count} ping${s.count>1?'s':''}`);
     if(heat) heat.addLatLng([s.lat,s.lng,s.count]);
     if(animate){ // quick pop-in
       const t0=performance.now();
@@ -289,7 +368,7 @@ function render(raw){
           ${s.count>1?`<span class="count">· ${s.count} pings here</span>`:''}
         </div>
         <div class="addr">${s.addr||s.hood||'Somewhere in Seattle'}</div>
-        ${s.flavor?`<div class="flavor">${s.flavor}</div>`:''}
+        <div class="flavor">${flavorOf(s,i===0)}</div>
       </div>
     </article>`).join('');
   if(ordered.length>show.length){
