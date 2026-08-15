@@ -43,7 +43,7 @@
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:28px 0 0;
     background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
   .stat{background:var(--panel);padding:16px 14px}
-  .stat .n{font-family:var(--mono);font-weight:700;font-size:clamp(22px,5vw,30px);line-height:1}
+  .stat .n{font-family:var(--mono);font-weight:700;font-size:clamp(20px,4.6vw,28px);line-height:1}
   .stat .n.hot{color:var(--hot)}
   .stat .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--dim);margin-top:8px}
   @media(max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
@@ -52,15 +52,27 @@
   .maphead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px}
   .maphead h2{font-size:13px;font-family:var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:0}
   .maphead .legend{font-family:var(--mono);font-size:11px;color:var(--dim)}
-  .legend b{color:var(--hot);font-weight:400}
-  #map{height:440px;border:1px solid var(--line);border-radius:18px;background:#0b1a21}
-  @media(max-width:560px){#map{height:340px}}
+  #map{height:520px;border:1px solid var(--line);border-radius:18px;background:#0b1a21}
+  @media(max-width:560px){#map{height:400px}}
   .leaflet-container{background:#0b1a21;font-family:var(--mono)}
-  .wallet-icon{filter:drop-shadow(0 0 10px rgba(244,166,76,.85));font-size:22px;line-height:1;text-align:center}
   .leaflet-popup-content-wrapper{background:var(--panel);color:var(--text);border-radius:10px;border:1px solid var(--line)}
   .leaflet-popup-tip{background:var(--panel)}
-  .leaflet-popup-content{font-family:var(--mono);font-size:12px}
+  .leaflet-popup-content{font-family:var(--mono);font-size:12px;line-height:1.5}
   .leaflet-bar a{background:var(--panel);color:var(--text);border-color:var(--line)}
+
+  /* time legend + last-seen label (Leaflet controls / tooltips) */
+  .legendctl{background:rgba(16,36,47,.86);border:1px solid var(--line);border-radius:10px;
+    padding:9px 11px;font-family:var(--mono);font-size:10.5px;color:var(--muted);backdrop-filter:blur(4px)}
+  .legendctl .bar{height:7px;border-radius:4px;margin:6px 0 4px;
+    background:linear-gradient(90deg,#3AA0C9,#7C6BD8,#F0703C,#F4A64C)}
+  .legendctl .ends{display:flex;justify-content:space-between;color:var(--dim)}
+  .legendctl .far{margin-top:7px;color:var(--hot);opacity:.9}
+  .beacon{width:14px;height:14px;border-radius:50%;background:var(--hot);
+    box-shadow:0 0 0 0 rgba(244,166,76,.7);animation:beat 1.8s ease-out infinite}
+  @keyframes beat{0%{box-shadow:0 0 0 0 rgba(244,166,76,.6)}70%{box-shadow:0 0 0 16px rgba(244,166,76,0)}100%{box-shadow:0 0 0 0 rgba(244,166,76,0)}}
+  .leaflet-tooltip.lastseen{background:var(--hot);color:#241405;border:none;font-family:var(--mono);
+    font-size:11px;font-weight:700;letter-spacing:.05em;border-radius:6px;box-shadow:0 2px 10px rgba(0,0,0,.4)}
+  .leaflet-tooltip.lastseen::before{border-top-color:var(--hot)}
 
   .log{margin:44px 0 20px}
   .log > h2{font-family:var(--mono);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:0 0 6px}
@@ -95,11 +107,11 @@
   <header class="hero">
     <div class="eyebrow">Field dispatch — Greater Seattle</div>
     <h1>Your wallet is <span class="glow">still at large.</span></h1>
-    <p class="lede">It slipped out of your pocket and started an unauthorized tour of the city. This log rebuilds itself from the tracker every half hour. It has crossed a lake. It shows no remorse.</p>
+    <p class="lede">It slipped out of your pocket and started an unauthorized tour of the city. This map rebuilds itself from the tracker — locations fuzzed, newest hours held back. It has crossed a lake. It shows no remorse.</p>
     <div class="stats">
       <div class="stat"><div class="n" id="s-days">–</div><div class="k">Days on the run</div></div>
-      <div class="stat"><div class="n" id="s-pings">–</div><div class="k">Signal pings</div></div>
-      <div class="stat"><div class="n" id="s-lakes">–</div><div class="k">Lakes crossed</div></div>
+      <div class="stat"><div class="n" id="s-pings">–</div><div class="k">Sightings</div></div>
+      <div class="stat"><div class="n hot" id="s-far">–</div><div class="k">Farthest wander</div></div>
       <div class="stat"><div class="n hot" id="s-last">–</div><div class="k">Last known</div></div>
     </div>
   </header>
@@ -107,7 +119,7 @@
   <section class="mapsec">
     <div class="maphead">
       <h2>The trail</h2>
-      <div class="legend"><b>◆ wallet</b> · newest ping pulses</div>
+      <div class="legend">bigger = lingered longer · newest hours hidden</div>
     </div>
     <div id="map"></div>
   </section>
@@ -119,107 +131,160 @@
   </section>
 
   <footer>
-    <div><b>Wallet on the Run</b> — auto-tracked via Tile. Updates every 30 minutes.</div>
+    <div><b>Wallet on the Run</b> — auto-tracked via Tile. Locations snapped to ~200 m.</div>
     <div>If found: it answers to no one now.</div>
   </footer>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.heat/0.2.0/leaflet-heat.js"></script>
 <script>
 const SEED = [
-  {"ts":"2026-08-10T10:31:00-07:00","lat":47.65104,"lng":-122.34251,"address":"3425 Stone Way N","hood":"Wallingford"},
-  {"ts":"2026-08-10T10:47:00-07:00","lat":47.65121,"lng":-122.33884,"address":"3401 Woodlawn Ave N","hood":"Wallingford"},
-  {"ts":"2026-08-10T20:53:00-07:00","lat":47.60952,"lng":-122.33704,"address":"1428 4th Ave","hood":"Downtown Seattle"},
-  {"ts":"2026-08-12T18:48:00-07:00","lat":47.61961,"lng":-122.19572,"address":"10777 NE 10th St","hood":"Bellevue"},
-  {"ts":"2026-08-13T09:12:00-07:00","lat":47.61782,"lng":-122.18523,"address":"12025 NE Fifth St","hood":"Bellevue"}
+  {"ts":"2026-08-10T10:31:00-07:00","lat":47.65104,"lng":-122.34251,"street":"Stone Way N","hood":"Wallingford"},
+  {"ts":"2026-08-10T10:47:00-07:00","lat":47.65121,"lng":-122.33884,"street":"Woodlawn Ave N","hood":"Wallingford"},
+  {"ts":"2026-08-10T20:53:00-07:00","lat":47.60952,"lng":-122.33704,"street":"4th Ave","hood":"Downtown Seattle"},
+  {"ts":"2026-08-12T18:48:00-07:00","lat":47.61961,"lng":-122.19572,"street":"NE 10th St","hood":"Bellevue"},
+  {"ts":"2026-08-13T09:12:00-07:00","lat":47.61782,"lng":-122.18523,"street":"NE Fifth St","hood":"Bellevue"}
 ];
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-function dist(a,b){ // meters, rough
-  const R=6371000, dLat=(b.lat-a.lat)*Math.PI/180, dLng=(b.lng-a.lng)*Math.PI/180;
-  const la1=a.lat*Math.PI/180, la2=b.lat*Math.PI/180;
-  const h=Math.sin(dLat/2)**2 + Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;
-  return 2*R*Math.asin(Math.sqrt(h));
-}
-function fmtDate(ts){return new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric'});}
-function fmtTime(ts){return new Date(ts).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});}
+const fmtDate = ts => new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const fmtTime = ts => new Date(ts).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+const meters = (a,b) => { const R=6371000,dLat=(b[0]-a[0])*Math.PI/180,dLng=(b[1]-a[1])*Math.PI/180,
+  la1=a[0]*Math.PI/180,la2=b[0]*Math.PI/180,
+  h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;
+  return 2*R*Math.asin(Math.sqrt(h)); };
 
-function clusterStops(pts){ // group consecutive points within ~120m
-  const stops=[];
-  for(const p of pts){
-    const last=stops[stops.length-1];
-    if(last && dist(last.anchor,p)<120){ last.count++; last.lastTs=p.ts; }
-    else stops.push({anchor:p, addr:(p.street||p.address), hood:p.hood, flavor:p.flavor, firstTs:p.ts, lastTs:p.ts, count:1});
+// oldest -> newest colour ramp (cool blue -> violet -> coral -> amber)
+const RAMP=[[0,[58,160,201]],[0.5,[124,107,216]],[0.8,[240,112,60]],[1,[244,166,76]]];
+function rampColor(t){
+  t=Math.max(0,Math.min(1,t));
+  for(let i=1;i<RAMP.length;i++){
+    if(t<=RAMP[i][0]){
+      const [t0,c0]=RAMP[i-1],[t1,c1]=RAMP[i];
+      const k=(t-t0)/(t1-t0||1);
+      const c=c0.map((v,j)=>Math.round(v+(c1[j]-v)*k));
+      return `rgb(${c[0]},${c[1]},${c[2]})`;
+    }
   }
-  return stops;
+  return `rgb(244,166,76)`;
+}
+function percentile(sorted,p){ return sorted[Math.min(sorted.length-1,Math.max(0,Math.round((sorted.length-1)*p)))]; }
+function bearing(from,to){
+  const dLng=(to[1]-from[1]); const dLat=(to[0]-from[0]);
+  const ang=Math.atan2(dLng,dLat)*180/Math.PI;
+  return ['N','NE','E','SE','S','SW','W','NW'][Math.round(((ang%360)+360)%360/45)%8];
 }
 
-function render(points){
-  const DELAY_MS = 6*3600*1000; // hide anything pinged in the last 6 hours
-  const cutoff = Date.now() - DELAY_MS;
-  points = points.filter(p=>p && p.lat && p.lng && p.ts && new Date(p.ts).getTime() < cutoff)
-                 .sort((a,b)=>new Date(a.ts)-new Date(b.ts));
-  if(!points.length){ document.getElementById('entries').innerHTML='<div class="more">No pings to show yet (newest are held back 6 hours).</div>'; return; }
-  const latest = points[points.length-1];
+function aggregate(points){
+  const map=new Map();
+  for(const p of points){
+    const key=`${p.lat.toFixed(5)},${p.lng.toFixed(5)}`;
+    let s=map.get(key);
+    if(!s){ s={lat:p.lat,lng:p.lng,count:0,firstTs:p.ts,lastTs:p.ts,
+               addr:(p.street||p.address),hood:p.hood,flavor:p.flavor}; map.set(key,s); }
+    s.count++;
+    if(p.ts<s.firstTs) s.firstTs=p.ts;
+    if(p.ts>s.lastTs){ s.lastTs=p.ts; if(p.flavor) s.flavor=p.flavor; }
+  }
+  return [...map.values()];
+}
+
+function render(raw){
+  const cutoff = Date.now() - 6*3600*1000;
+  const points = raw.filter(p=>p&&p.lat&&p.lng&&p.ts&&new Date(p.ts).getTime()<cutoff)
+                    .sort((a,b)=>new Date(a.ts)-new Date(b.ts));
+  const box=document.getElementById('entries');
+  if(!points.length){ box.innerHTML='<div class="more">Nothing to show yet (newest pings are held back 6 hours).</div>'; return; }
+
+  const stops=aggregate(points);
+  const latestStop=stops.reduce((a,b)=>a.lastTs>b.lastTs?a:b);
+  const tMin=Math.min(...stops.map(s=>+new Date(s.firstTs)));
+  const tMax=Math.max(...stops.map(s=>+new Date(s.firstTs)));
+  const maxCount=Math.max(...stops.map(s=>s.count));
 
   // ---- stats ----
-  const days = new Set(points.map(p=>p.ts.slice(0,10))).size;
-  const west = points.some(p=>p.lng < -122.28), east = points.some(p=>p.lng > -122.24);
-  document.getElementById('s-days').textContent = days;
-  document.getElementById('s-pings').textContent = points.length;
-  document.getElementById('s-lakes').textContent = (west && east) ? 1 : 0;
-  document.getElementById('s-last').textContent = (latest.hood || 'Unknown').toUpperCase();
-  document.getElementById('updated').textContent = 'as of ' + fmtDate(latest.ts) + ' ' + fmtTime(latest.ts);
+  document.getElementById('s-days').textContent=new Set(points.map(p=>p.ts.slice(0,10))).size;
+  document.getElementById('s-pings').textContent=points.length;
+  document.getElementById('s-last').textContent=(latestStop.hood||'Unknown').toUpperCase();
+  document.getElementById('updated').textContent='as of '+fmtDate(latestStop.lastTs)+' '+fmtTime(latestStop.lastTs);
+
+  // ---- core framing (ignore far outliers so Seattle isn't squashed) ----
+  const lats=stops.map(s=>s.lat).sort((a,b)=>a-b), lngs=stops.map(s=>s.lng).sort((a,b)=>a-b);
+  const core=[[percentile(lats,.05),percentile(lngs,.05)],[percentile(lats,.95),percentile(lngs,.95)]];
+  // dwell-weighted centre, for the "farthest wander" stat
+  let wLat=0,wLng=0,wSum=0; stops.forEach(s=>{wLat+=s.lat*s.count;wLng+=s.lng*s.count;wSum+=s.count;});
+  const centre=[wLat/wSum,wLng/wSum];
+  let far=stops[0],farD=0;
+  stops.forEach(s=>{const d=meters(centre,[s.lat,s.lng]); if(d>farD){farD=d;far=s;}});
+  const farMi=Math.round(farD/1609);
+  document.getElementById('s-far').textContent=(far.hood||far.addr||'THE EDGE').toUpperCase();
 
   // ---- map ----
-  const map = L.map('map',{scrollWheelZoom:false});
+  const map=L.map('map',{scrollWheelZoom:false,zoomControl:true});
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{
-    attribution:'&copy; OpenStreetMap &copy; CARTO', maxZoom:19, subdomains:'abcd'
-  }).addTo(map);
+    attribution:'&copy; OpenStreetMap &copy; CARTO',maxZoom:19,subdomains:'abcd'}).addTo(map);
+  map.fitBounds(core,{padding:[36,36]});
 
-  const line = points.map(p=>[p.lat,p.lng]);
-  L.polyline(line,{color:'#4FD0C4',weight:2.5,opacity:.55}).addTo(map);
-  points.forEach((p,i)=>{
-    const isLast = i===points.length-1;
-    L.circleMarker([p.lat,p.lng],{
-      radius:isLast?7:4, color:isLast?'#F4A64C':'#4FD0C4',
-      fillColor:isLast?'#F4A64C':'#4FD0C4', fillOpacity:isLast?1:.7, weight:isLast?2:1
-    }).addTo(map).bindPopup(`<b>${p.hood||p.street||'Somewhere'}</b><br>${p.street||''}<br>${fmtDate(p.ts)} · ${fmtTime(p.ts)}`);
-  });
-  map.fitBounds(line,{padding:[40,40]});
+  // heat bloom underneath (Look B) — grows as the reveal plays
+  let heat=null;
+  if(L.heatLayer){
+    heat=L.heatLayer([],{radius:26,blur:22,minOpacity:.12,max:Math.max(3,maxCount),
+      gradient:{0.15:'rgba(244,166,76,.0)',0.4:'rgba(240,112,60,.5)',0.75:'#F0703C',1:'#FFE0B0'}}).addTo(map);
+  }
 
-  // pulsing latest + traveling wallet
-  const walletIcon = L.divIcon({className:'',html:'<div class="wallet-icon">💳</div>',iconSize:[24,24],iconAnchor:[12,12]});
-  const wallet = L.marker([latest.lat,latest.lng],{icon:walletIcon,interactive:false}).addTo(map);
+  // time legend
+  const legend=L.control({position:'bottomleft'});
+  legend.onAdd=function(){
+    const d=L.DomUtil.create('div','legendctl');
+    d.innerHTML=`older&nbsp;→&nbsp;newer<div class="bar"></div>`+
+      `<div class="ends"><span>${fmtDate(tMin)}</span><span>${fmtDate(tMax)}</span></div>`+
+      `<div class="far">wandered as far as ${far.hood||'the edge of the map'}, ~${farMi} mi ${bearing(centre,[far.lat,far.lng])}</div>`;
+    return d;
+  };
+  legend.addTo(map);
 
-  if(!reduce){
-    // gentle pulse on latest
-    const pulse = L.circleMarker([latest.lat,latest.lng],{radius:7,color:'#F4A64C',fill:false,weight:2,opacity:.8}).addTo(map);
-    let t=0;
-    setInterval(()=>{ t=(t+0.04)%1; pulse.setRadius(7+t*26); pulse.setStyle({opacity:.8*(1-t)}); },40);
-    // walk the wallet along the trail, looping
-    if(line.length>1){
-      let seg=0, prog=0;
-      const stepMs=Math.max(900, 6000/line.length);
-      setInterval(()=>{
-        const a=points[seg], b=points[(seg+1)%points.length];
-        prog+=0.05;
-        if(prog>=1){prog=0; seg=(seg+1)%(points.length-1);}
-        wallet.setLatLng([a.lat+(b.lat-a.lat)*prog, a.lng+(b.lng-a.lng)*prog]);
-      }, stepMs/20);
+  // ---- constellation markers (Look A), revealed in time order ----
+  const byFirst=[...stops].sort((a,b)=>new Date(a.firstTs)-new Date(b.firstTs));
+  const radiusFor=s=>4+Math.sqrt(s.count/maxCount)*16;   // dwell -> size
+  function place(s,animate){
+    const col=rampColor((+new Date(s.firstTs)-tMin)/((tMax-tMin)||1));
+    const target=radiusFor(s);
+    const m=L.circleMarker([s.lat,s.lng],{radius:animate?0:target,color:col,weight:1,
+      fillColor:col,fillOpacity:.75,opacity:.9}).addTo(map);
+    m.bindPopup(`<b>${s.addr||s.hood||'Somewhere'}</b>${s.hood?`<br>${s.hood}`:''}`+
+      `${s.flavor?`<br><i>${s.flavor}</i>`:''}<br>${fmtDate(s.firstTs)} · ${s.count} ping${s.count>1?'s':''}`);
+    if(heat) heat.addLatLng([s.lat,s.lng,s.count]);
+    if(animate){ // quick pop-in
+      const t0=performance.now();
+      (function grow(now){const k=Math.min(1,(now-t0)/280);m.setRadius(target*(0.4+0.6*k));if(k<1)requestAnimationFrame(grow);})(t0);
     }
   }
 
+  function addBeacon(){
+    const icon=L.divIcon({className:'',html:'<div class="beacon"></div>',iconSize:[14,14],iconAnchor:[7,7]});
+    L.marker([latestStop.lat,latestStop.lng],{icon,zIndexOffset:1000})
+      .addTo(map)
+      .bindTooltip('LAST SEEN',{permanent:true,direction:'top',offset:[0,-8],className:'lastseen'});
+  }
+
+  if(reduce){
+    byFirst.forEach(s=>place(s,false)); addBeacon();
+  }else{
+    const step=Math.min(28,4200/byFirst.length);
+    byFirst.forEach((s,i)=>setTimeout(()=>place(s,true),i*step));
+    setTimeout(addBeacon,byFirst.length*step+120);
+  }
+
   // ---- dispatch log ----
-  const stops = clusterStops(points).reverse();
-  const box = document.getElementById('entries');
-  const show = stops.slice(0,14);
-  box.innerHTML = show.map((s,idx)=>`
-    <article class="entry ${idx===0?'now':''}">
-      <div class="when"><span class="d">${fmtDate(s.firstTs)}</span><br>${fmtTime(s.firstTs)}</div>
+  const ordered=[...stops].sort((a,b)=>new Date(b.lastTs)-new Date(a.lastTs));
+  const show=ordered.slice(0,14);
+  box.innerHTML=show.map((s,i)=>`
+    <article class="entry ${i===0?'now':''}">
+      <div class="when"><span class="d">${fmtDate(s.lastTs)}</span><br>${fmtTime(s.lastTs)}</div>
       <div>
         <div class="node">
-          <span class="dot ${idx===0?'hot':''}"></span>
+          <span class="dot ${i===0?'hot':''}"></span>
           ${s.hood?`<span class="hood">${s.hood}</span>`:''}
           ${s.count>1?`<span class="count">· ${s.count} pings here</span>`:''}
         </div>
@@ -227,8 +292,8 @@ function render(points){
         ${s.flavor?`<div class="flavor">${s.flavor}</div>`:''}
       </div>
     </article>`).join('');
-  if(stops.length>show.length){
-    box.insertAdjacentHTML('beforeend',`<div class="more">+ ${stops.length-show.length} earlier stops · ${points.length} pings total</div>`);
+  if(ordered.length>show.length){
+    box.insertAdjacentHTML('beforeend',`<div class="more">+ ${ordered.length-show.length} more stops · ${points.length} sightings total</div>`);
   }
 }
 
