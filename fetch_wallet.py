@@ -132,50 +132,119 @@ def reverse_geocode(lat, lng):
         return None, None
 
 
-PHRASING = {
-    "cafe": "possibly stopped for coffee at {n}",
-    "coffee": "possibly stopped for coffee at {n}",
-    "bakery": "maybe grabbed a pastry near {n}",
-    "bar": "perhaps a drink at {n}",
-    "pub": "perhaps a pint at {n}",
-    "restaurant": "possibly a bite at {n}",
-    "ice_cream": "maybe an ice cream at {n}",
-    "books": "maybe browsing {n}",
-    "default": "seen loitering near {n}",
+DENY_KEYS = ("healthcare", "office")  # never surface these whole categories
+DENY = {
+    "amenity": {"pharmacy", "hospital", "clinic", "doctors", "dentist", "veterinary",
+                "nursing_home", "social_facility", "childcare", "kindergarten", "school",
+                "college", "university", "place_of_worship", "funeral_hall", "crematorium",
+                "grave_yard", "police", "fire_station", "prison", "courthouse",
+                "ranger_station", "atm", "bank", "bureau_de_change", "parking",
+                "parking_space", "parking_entrance", "motorcycle_parking", "bicycle_parking",
+                "fuel", "charging_station", "car_wash", "car_rental", "car_sharing", "taxi",
+                "bus_station", "bench", "toilets", "shower", "drinking_water", "fountain",
+                "clock", "vending_machine", "recycling", "waste_basket", "waste_disposal",
+                "telephone", "post_box", "post_office", "shelter", "hunting_stand",
+                "fire_hydrant"},
+    "shop": {"chemist", "medical_supply", "optician", "hearing_aids", "funeral_directors",
+             "erotic", "weapons", "bail_bond", "car", "car_repair", "tyres", "car_parts",
+             "vacant", "storage_rental"},
+    "leisure": {"playground", "pitch", "track", "fitness_station", "picnic_table", "firepit"},
+    "tourism": {"information", "artwork"},
 }
 
 
+def phrase(key, val, n):
+    """Playful line for a nearby place. Specific where we can, generic otherwise."""
+    m = {
+        ("amenity", "cafe"): f"possibly stopped for coffee at {n}",
+        ("amenity", "bar"): f"perhaps a drink at {n}",
+        ("amenity", "pub"): f"perhaps a pint at {n}",
+        ("amenity", "biergarten"): f"perhaps a pint at {n}",
+        ("amenity", "restaurant"): f"possibly a bite at {n}",
+        ("amenity", "fast_food"): f"maybe a quick bite at {n}",
+        ("amenity", "food_court"): f"grazing the food court at {n}",
+        ("amenity", "ice_cream"): f"maybe an ice cream at {n}",
+        ("amenity", "cinema"): f"possibly catching a film at {n}",
+        ("amenity", "theatre"): f"maybe taking in a show at {n}",
+        ("amenity", "nightclub"): f"out late at {n}",
+        ("amenity", "library"): f"maybe browsing the shelves at {n}",
+        ("amenity", "marketplace"): f"wandering the market at {n}",
+        ("amenity", "fitness_centre"): f"maybe a workout at {n}",
+        ("shop", "books"): f"maybe browsing {n}",
+        ("shop", "coffee"): f"possibly stopped for coffee at {n}",
+        ("shop", "bakery"): f"maybe grabbed a pastry at {n}",
+        ("shop", "department_store"): f"some retail therapy at {n}",
+        ("shop", "mall"): f"wandering the mall at {n}",
+        ("shop", "supermarket"): f"a grocery run at {n}",
+        ("shop", "greengrocer"): f"a grocery run at {n}",
+        ("shop", "convenience"): f"a corner-store run at {n}",
+        ("shop", "clothes"): f"possibly shopping at {n}",
+        ("shop", "boutique"): f"possibly shopping at {n}",
+        ("shop", "shoes"): f"trying on shoes at {n}",
+        ("leisure", "park"): f"taking a stroll through {n}",
+        ("leisure", "garden"): f"taking a stroll through {n}",
+        ("leisure", "dog_park"): f"at the dog park, {n}",
+        ("leisure", "sports_centre"): f"maybe a workout at {n}",
+        ("leisure", "fitness_centre"): f"maybe a workout at {n}",
+        ("leisure", "swimming_pool"): f"maybe a swim at {n}",
+        ("leisure", "stadium"): f"catching something at {n}",
+        ("tourism", "museum"): f"possibly at the museum, {n}",
+        ("tourism", "gallery"): f"taking in art at {n}",
+        ("tourism", "attraction"): f"sightseeing at {n}",
+        ("tourism", "viewpoint"): f"enjoying the view at {n}",
+        ("tourism", "hotel"): f"lying low near {n}",
+        ("tourism", "hostel"): f"lying low near {n}",
+    }
+    if (key, val) in m:
+        return m[(key, val)]
+    if key == "shop":
+        return f"maybe browsing {n}"
+    return f"seen loitering near {n}"
+
+
 def nearby_business(lat, lng):
-    """Best-effort: nearest cafe/bar/etc within ~400 m of the SNAPPED point.
-    Returns (flavor_or_None, ok). ok=False means network trouble (don't cache)."""
+    """Best-effort: nearest interesting named place within ~400 m of the SNAPPED point.
+    Catch-all across shops/amenities/leisure/tourism, minus the deny-list (health, junk,
+    sensitive). Returns (flavor_or_None, ok); ok=False means network trouble (don't cache)."""
     q = (
-        "[out:json][timeout:15];("
-        f'node(around:400,{lat},{lng})[amenity~"^(cafe|bar|pub|restaurant|bakery|ice_cream)$"][name];'
-        f'node(around:400,{lat},{lng})[shop~"^(books|coffee|bakery)$"][name];'
-        ");out 40;"
+        "[out:json][timeout:20];("
+        f"nwr(around:400,{lat},{lng})[amenity][name];"
+        f"nwr(around:400,{lat},{lng})[shop][name];"
+        f"nwr(around:400,{lat},{lng})[leisure][name];"
+        f"nwr(around:400,{lat},{lng})[tourism][name];"
+        ");out center 80;"
     )
     url = "https://overpass-api.de/api/interpreter?" + urllib.parse.urlencode({"data": q})
     try:
-        j = http_json(url, timeout=25)
+        j = http_json(url, timeout=30)
     except Exception as e:
         print(f"  overpass failed {lat},{lng}: {e}", file=sys.stderr)
         return None, False
     best = None
     for el in j.get("elements", []):
-        elat, elng = el.get("lat"), el.get("lon")
-        name = (el.get("tags", {}) or {}).get("name")
-        if elat is None or not name:
+        tags = el.get("tags", {}) or {}
+        name = tags.get("name")
+        if not name:
+            continue
+        c = el.get("center") or el  # ways/relations return a 'center'
+        elat, elng = c.get("lat"), c.get("lon")
+        if elat is None or elng is None:
+            continue
+        if any(k in tags for k in DENY_KEYS):
+            continue
+        key = next((k for k in ("amenity", "shop", "leisure", "tourism") if k in tags), None)
+        if key is None:
+            continue
+        val = tags.get(key)
+        if val in DENY.get(key, ()):
             continue
         d = math.hypot((elat - lat) * 111_320, (elng - lng) * 111_320 * math.cos(math.radians(lat)))
-        tags = el.get("tags", {})
-        kind = tags.get("amenity") or tags.get("shop") or "default"
         if best is None or d < best[0]:
-            best = (d, name, kind)
+            best = (d, name, key, val)
     if not best:
-        return None, True  # genuinely nothing nearby - cache this
-    _, name, kind = best
-    template = PHRASING.get(kind, PHRASING["default"])
-    return template.format(n=name), True
+        return None, True  # nothing interesting nearby - cache this
+    _, name, key, val = best
+    return phrase(key, val, name), True
 
 
 def enrich(lat, lng, ts, cache):
