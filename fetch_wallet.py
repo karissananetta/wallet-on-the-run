@@ -42,8 +42,8 @@ GEOCACHE = HERE / ".geocache.json"
 EMAIL = os.environ.get("TILE_EMAIL", "")
 PASSWORD = os.environ.get("TILE_PASSWORD", "")
 TILE_NAME = os.environ.get("TILE_NAME", "").strip().lower()
-BACKFILL_DAYS = int(os.environ.get("BACKFILL_DAYS", "30"))
-JITTER_METERS = float(os.environ.get("JITTER_METERS", "0"))
+BACKFILL_DAYS = int(os.environ.get("BACKFILL_DAYS") or "30")
+JITTER_METERS = float(os.environ.get("JITTER_METERS") or "0")
 
 LAT_KEYS = ("latitude", "lat")
 LNG_KEYS = ("longitude", "lng", "lon", "long")
