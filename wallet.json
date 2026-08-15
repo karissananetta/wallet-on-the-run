@@ -1,1633 +1,2332 @@
 [
   {
-    "lat": 47.6655826,
-    "lng": -122.3731667,
     "ts": "2026-07-19T20:46:54.873000+00:00",
-    "address": "Northwest 51st Street",
-    "hood": "Ballard"
+    "lat": 47.66589,
+    "lng": -122.37369,
+    "street": "14th Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "perhaps a pint at Great Notion",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6328215,
-    "lng": -122.3409283,
     "ts": "2026-07-21T16:50:50.816000+00:00",
-    "address": "1515 Westlake Avenue North",
-    "hood": "Westlake"
+    "lat": 47.6323,
+    "lng": -122.33775,
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "a corner-store run at Metropolitan",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6180449,
-    "lng": -122.3385578,
     "ts": "2026-07-21T16:59:56.826000+00:00",
-    "address": "Westlake Avenue",
-    "hood": "Belltown"
+    "lat": 47.61846,
+    "lng": -122.33895,
+    "street": "Denny Way",
+    "hood": "South Lake Union",
+    "flavor": "maybe a quick bite at Einstein Bros. Bagels",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.61111986294341,
-    "lng": -122.33919909795291,
     "ts": "2026-07-21T23:50:07.292000+00:00",
-    "address": "Pine Street",
-    "hood": "Central Business District"
+    "lat": 47.61296,
+    "lng": -122.34073,
+    "street": "3rd Avenue",
+    "hood": "Central Business District",
+    "flavor": "possibly a bite at Neb Wine Bar",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62173387435775,
-    "lng": -122.3383686765975,
     "ts": "2026-07-22T00:04:14.998000+00:00",
-    "address": "320 Westlake Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.62145,
+    "lng": -122.34053,
+    "street": "8th Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "possibly a bite at Papa poy-yo",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62526565565764,
-    "lng": -122.33830373085483,
     "ts": "2026-07-22T00:06:34.159000+00:00",
-    "address": "609 Westlake Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.62542,
+    "lng": -122.33475,
+    "street": "Fairview Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "lying low near Staybridge Suites - South Lake Union",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62675422063809,
-    "lng": -122.34017736283889,
     "ts": "2026-07-22T00:08:36.196000+00:00",
-    "address": "737 9th Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.62571,
+    "lng": -122.33814,
+    "street": "Valley Street",
+    "hood": "South Lake Union",
+    "flavor": "possibly a bite at Buca di Beppo",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62853238283586,
-    "lng": -122.3406766707784,
     "ts": "2026-07-22T00:09:23.609000+00:00",
-    "address": "Westlake Avenue North",
-    "hood": "Westlake"
+    "lat": 47.62631,
+    "lng": -122.33961,
+    "street": "9th Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "perhaps a drink at Art Marble 21",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.63073793128889,
-    "lng": -122.34093283455165,
     "ts": "2026-07-22T00:10:08.785000+00:00",
-    "address": "Westlake Protected Bike Lane",
-    "hood": "Westlake"
+    "lat": 47.63288,
+    "lng": -122.34098,
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "maybe browsing Hurtigruten",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.635536773533225,
-    "lng": -122.34024308143323,
     "ts": "2026-07-22T00:11:31.573000+00:00",
-    "address": "Newton Street",
-    "hood": "Westlake"
+    "lat": 47.63346,
+    "lng": -122.34069,
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "maybe browsing Hurtigruten",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.63825850707768,
-    "lng": -122.34087946466188,
     "ts": "2026-07-22T00:12:12.999000+00:00",
-    "address": "2101 Westlake Avenue North",
-    "hood": "Westlake"
+    "lat": 47.63838,
+    "lng": -122.34143,
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "a corner-store run at Westlake Deli & Grocery",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6415103232966,
-    "lng": -122.34278253652805,
     "ts": "2026-07-22T00:12:53.900000+00:00",
-    "address": "Westlake Protected Bike Lane",
-    "hood": "Fremont"
+    "lat": 47.64285,
+    "lng": -122.34487,
+    "street": "Dexter Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Discount Divers",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.64616757300361,
-    "lng": -122.34938159046705,
     "ts": "2026-07-22T00:14:56.479000+00:00",
-    "address": "Cheshiahud Lake Union Loop",
-    "hood": "Fremont"
+    "lat": 47.64635,
+    "lng": -122.35256,
+    "street": "Mayfair Avenue North",
+    "hood": "Fremont",
+    "flavor": "seen loitering near Queen Anne Elks Lodge #92",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.646555422909096,
-    "lng": -122.34965599770483,
     "ts": "2026-07-22T00:15:10.430000+00:00",
-    "address": "Cheshiahud Lake Union Loop",
-    "hood": "Fremont"
+    "lat": 47.64635,
+    "lng": -122.35256,
+    "street": "Mayfair Avenue North",
+    "hood": "Fremont",
+    "flavor": "seen loitering near Queen Anne Elks Lodge #92",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.649153087938906,
-    "lng": -122.34948532384598,
     "ts": "2026-07-22T00:16:10.773000+00:00",
-    "address": "Fremont Avenue North",
-    "hood": "Fremont"
+    "lat": 47.65047,
+    "lng": -122.34818,
+    "street": "North 35th Street",
+    "hood": "Fremont",
+    "flavor": "maybe a quick bite at Just Burgers",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.651602353510356,
-    "lng": -122.35139754764268,
     "ts": "2026-07-22T00:19:16+00:00",
-    "address": "Evanston Avenue North",
-    "hood": "Fremont"
+    "lat": 47.65216,
+    "lng": -122.35272,
+    "street": "North 36th Street",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Charlie's Queer Books",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.65199621261425,
-    "lng": -122.35273235906082,
     "ts": "2026-07-22T00:19:57.847000+00:00",
-    "address": "462 North 36th Street",
-    "hood": "Fremont"
+    "lat": 47.65226,
+    "lng": -122.3509,
+    "street": "Evanston Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing FedEx Office",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.652181571463146,
-    "lng": -122.35420765091636,
     "ts": "2026-07-22T00:21:10.722000+00:00",
-    "address": "402 North 36th Street",
-    "hood": "Fremont"
+    "lat": 47.65226,
+    "lng": -122.3509,
+    "street": "Evanston Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing FedEx Office",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6528948197688,
-    "lng": -122.35710878659344,
     "ts": "2026-07-22T00:22:35.743000+00:00",
-    "address": "North 36th Street",
-    "hood": "Fremont"
+    "lat": 47.65364,
+    "lng": -122.35345,
+    "street": "Francis Avenue North",
+    "hood": "Fremont",
+    "flavor": "possibly a bite at Kaosamai",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.65326082056667,
-    "lng": -122.35799306650416,
     "ts": "2026-07-22T00:23:44.092000+00:00",
-    "address": "106 Northwest 36th Street",
-    "hood": "Fremont"
+    "lat": 47.65322,
+    "lng": -122.35648,
+    "street": "Palatine Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing EarthWise Pet",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.65317530125277,
-    "lng": -122.35827436956923,
     "ts": "2026-07-22T00:23:56.999000+00:00",
-    "address": "100 Northwest 36th Street",
-    "hood": "Fremont"
+    "lat": 47.65322,
+    "lng": -122.35648,
+    "street": "Palatine Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing EarthWise Pet",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.65379991790498,
-    "lng": -122.35982409679387,
     "ts": "2026-07-22T00:25:12.003000+00:00",
-    "address": "3624 Leary Way Northwest",
-    "hood": "Fremont"
+    "lat": 47.65322,
+    "lng": -122.35648,
+    "street": "Palatine Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing EarthWise Pet",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.65864472199133,
-    "lng": -122.36431596578228,
     "ts": "2026-07-22T00:26:37.665000+00:00",
-    "address": "Leary Way Northwest",
-    "hood": "Fremont"
+    "lat": 47.66015,
+    "lng": -122.36503,
+    "street": "Northwest Bright Street",
+    "hood": "Phinney Ridge",
+    "flavor": "possibly a bite at Big Mario's Pizza",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.663736367516165,
-    "lng": -122.37094516823363,
     "ts": "2026-07-22T00:28:41.012000+00:00",
-    "address": "1100 Northwest Leary Way",
-    "hood": "Ballard"
+    "lat": 47.66321,
+    "lng": -122.37384,
+    "street": "Northwest Ballard Way",
+    "hood": "Ballard",
+    "flavor": "possibly stopped for coffee at Top Pot Doughnuts",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.66366907083873,
-    "lng": -122.37266813780604,
     "ts": "2026-07-22T00:29:40+00:00",
-    "address": "1135 Northwest Leary Way",
-    "hood": "Ballard"
+    "lat": 47.66321,
+    "lng": -122.37384,
+    "street": "Northwest Ballard Way",
+    "hood": "Ballard",
+    "flavor": "possibly stopped for coffee at Top Pot Doughnuts",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6637145786551,
-    "lng": -122.37350648584328,
     "ts": "2026-07-22T00:30:07.116000+00:00",
-    "address": "1148 Northwest Leary Way",
-    "hood": "Ballard"
+    "lat": 47.66417,
+    "lng": -122.37727,
+    "street": "Northwest Leary Way",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Miller Paint",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.66361739480605,
-    "lng": -122.37718771957131,
     "ts": "2026-07-22T00:31:27.035000+00:00",
-    "address": "1514 Northwest Leary Way",
-    "hood": "Ballard"
+    "lat": 47.66359,
+    "lng": -122.37917,
+    "street": "Northwest 48th Street",
+    "hood": "Ballard",
+    "flavor": "possibly shopping at Soft Goods Vintage & Retail",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.66376324270198,
-    "lng": -122.37847083208707,
     "ts": "2026-07-22T00:32:17+00:00",
-    "address": "1546 Northwest Leary Way",
-    "hood": "Ballard"
+    "lat": 47.66359,
+    "lng": -122.37917,
+    "street": "Northwest 48th Street",
+    "hood": "Ballard",
+    "flavor": "possibly shopping at Soft Goods Vintage & Retail",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.66543400632607,
-    "lng": -122.37907968853268,
     "ts": "2026-07-22T00:32:43.024000+00:00",
-    "address": "Russell Avenue Northwest",
-    "hood": "Ballard"
+    "lat": 47.66704,
+    "lng": -122.37785,
+    "street": "Northwest 53rd Street",
+    "hood": "Ballard",
+    "flavor": "maybe browsing American Mary Cannabis",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6684013885457,
-    "lng": -122.38407044910696,
     "ts": "2026-07-22T00:35:25.019000+00:00",
-    "address": "5463 Leary Avenue Northwest",
-    "hood": "Ballard"
+    "lat": 47.66891,
+    "lng": -122.38133,
+    "street": "Northwest Market Street",
+    "hood": "Ballard",
+    "flavor": "maybe browsing All The Best Pet Care",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.66873793671029,
-    "lng": -122.38467453603064,
     "ts": "2026-07-22T00:36:20.994000+00:00",
-    "address": "5506 22nd Avenue Northwest",
-    "hood": "Ballard"
+    "lat": 47.66826,
+    "lng": -122.38422,
+    "street": "Leary Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "possibly a bite at Strega Pizzeria",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.66865776762168,
-    "lng": -122.38741280022897,
     "ts": "2026-07-22T00:37:52.858000+00:00",
-    "address": "Northwest Market Street",
-    "hood": "Ballard"
+    "lat": 47.67034,
+    "lng": -122.3896,
+    "street": "Northwest 57th Street",
+    "hood": "Ballard",
+    "flavor": "seen loitering near Little Free Library",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6686425,
-    "lng": -122.3854293,
     "ts": "2026-07-23T16:54:47.724000+00:00",
-    "address": "2213 Northwest Market Street",
-    "hood": "Ballard"
+    "lat": 47.66826,
+    "lng": -122.38422,
+    "street": "Leary Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "possibly a bite at Strega Pizzeria",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.665241,
-    "lng": -122.3802851,
     "ts": "2026-07-23T16:58:08.360000+00:00",
-    "address": "5109 Leary Avenue Northwest",
-    "hood": "Ballard"
+    "lat": 47.66704,
+    "lng": -122.37785,
+    "street": "Northwest 53rd Street",
+    "hood": "Ballard",
+    "flavor": "maybe browsing American Mary Cannabis",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6636452,
-    "lng": -122.3756314,
     "ts": "2026-07-23T16:59:32.080000+00:00",
-    "address": "1455 Northwest Leary Way",
-    "hood": "Ballard"
+    "lat": 47.66417,
+    "lng": -122.37727,
+    "street": "Northwest Leary Way",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Miller Paint",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6636757,
-    "lng": -122.3718676,
     "ts": "2026-07-23T17:00:14.081000+00:00",
-    "address": "1119 Northwest Leary Way",
-    "hood": "Ballard"
+    "lat": 47.66321,
+    "lng": -122.37384,
+    "street": "Northwest Ballard Way",
+    "hood": "Ballard",
+    "flavor": "possibly stopped for coffee at Top Pot Doughnuts",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6608808,
-    "lng": -122.3667335,
     "ts": "2026-07-23T17:01:38.082000+00:00",
-    "address": "4411 Leary Way Northwest",
-    "hood": "Phinney Ridge"
+    "lat": 47.65861,
+    "lng": -122.36557,
+    "street": "Burke-Gilman Trail",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Herc Rentals",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6591874,
-    "lng": -122.3649832,
     "ts": "2026-07-23T17:02:19.673000+00:00",
-    "address": "4300 Leary Way Northwest",
-    "hood": "Phinney Ridge"
+    "lat": 47.66015,
+    "lng": -122.36503,
+    "street": "Northwest Bright Street",
+    "hood": "Phinney Ridge",
+    "flavor": "possibly a bite at Big Mario's Pizza",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6504454,
-    "lng": -122.3500579,
     "ts": "2026-07-23T17:07:14.159000+00:00",
-    "address": "3427 Fremont Place North",
-    "hood": "Fremont"
+    "lat": 47.65047,
+    "lng": -122.34818,
+    "street": "North 35th Street",
+    "hood": "Fremont",
+    "flavor": "maybe a quick bite at Just Burgers",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6381002,
-    "lng": -122.3408871,
     "ts": "2026-07-23T17:10:44.093000+00:00",
-    "address": "2101 Westlake Avenue North",
-    "hood": "Westlake"
+    "lat": 47.63838,
+    "lng": -122.34143,
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "a corner-store run at Westlake Deli & Grocery",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6328181,
-    "lng": -122.3407845,
     "ts": "2026-07-23T17:12:08.095000+00:00",
-    "address": "1515 Westlake Avenue North",
-    "hood": "Westlake"
+    "lat": 47.6323,
+    "lng": -122.33775,
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "a corner-store run at Metropolitan",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6211983,
-    "lng": -122.3384119,
     "ts": "2026-07-23T17:17:02.101000+00:00",
-    "address": "307 Westlake Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.62235,
+    "lng": -122.34045,
+    "street": "9th Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "maybe grabbed a pastry at Fresh Flours",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.60865661819672,
-    "lng": -122.33654191408807,
     "ts": "2026-07-24T00:24:38.620000+00:00",
-    "address": "301 Union Street",
-    "hood": "Central Business District"
+    "lat": 47.60778,
+    "lng": -122.33453,
+    "street": "4th Avenue Cycletrack",
+    "hood": "Central Business District",
+    "flavor": "possibly stopped for coffee at Caffe Migliore",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.630089,
-    "lng": -122.340926,
     "ts": "2026-07-24T00:53:35.306000+00:00",
-    "address": "Westlake Protected Bike Lane",
-    "hood": "Westlake"
+    "lat": 47.6284,
+    "lng": -122.34157,
+    "street": "8th Avenue North",
+    "hood": "Westlake",
+    "flavor": "maybe a workout at KMS",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6305903,
-    "lng": -122.340354,
     "ts": "2026-07-24T00:53:50.790000+00:00",
-    "address": "1232 Westlake Avenue North",
-    "hood": "Westlake"
+    "lat": 47.6284,
+    "lng": -122.34157,
+    "street": "8th Avenue North",
+    "hood": "Westlake",
+    "flavor": "maybe a workout at KMS",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6328036,
-    "lng": -122.3406312,
     "ts": "2026-07-24T00:54:19.282000+00:00",
-    "address": "Westlake Avenue North",
-    "hood": "Westlake"
+    "lat": 47.6323,
+    "lng": -122.33775,
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "a corner-store run at Metropolitan",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6426424,
-    "lng": -122.3435539,
     "ts": "2026-07-24T00:56:25.282000+00:00",
-    "address": "2520 Westlake Avenue North",
-    "hood": "Fremont"
+    "lat": 47.64285,
+    "lng": -122.34487,
+    "street": "Dexter Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Discount Divers",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.668225669455026,
-    "lng": -122.38558477975681,
     "ts": "2026-07-25T01:35:51.897000+00:00",
-    "address": "Ballard Avenue Northwest",
-    "hood": "Ballard"
+    "lat": 47.66752,
+    "lng": -122.3872,
+    "street": "24th Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "perhaps a pint at Cloudburst on Shilshole",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.668203640930834,
-    "lng": -122.38557848594198,
     "ts": "2026-07-25T01:48:54.271000+00:00",
-    "address": "Ballard Avenue Northwest",
-    "hood": "Ballard"
+    "lat": 47.66752,
+    "lng": -122.3872,
+    "street": "24th Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "perhaps a pint at Cloudburst on Shilshole",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.668719,
-    "lng": -122.386289,
     "ts": "2026-07-25T02:33:36+00:00",
-    "address": "2232 Northwest Market Street",
-    "hood": "Ballard"
+    "lat": 47.66826,
+    "lng": -122.38422,
+    "street": "Leary Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "possibly a bite at Strega Pizzeria",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4312498,
-    "lng": -121.4526098,
     "ts": "2026-07-26T19:49:18.861000+00:00",
-    "address": "Denny Creek Trail",
-    "hood": null
+    "lat": 47.4313,
+    "lng": -121.4529,
+    "street": "Denny Creek Trail",
+    "hood": null,
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.55111885442928,
-    "lng": -122.05231841284721,
     "ts": "2026-07-26T23:39:41.428000+00:00",
-    "address": "1801 10th Avenue Northwest",
-    "hood": "Issaquah"
+    "lat": 47.55097,
+    "lng": -122.05159,
+    "street": "Northwest Sammamish Road",
+    "hood": "Issaquah",
+    "flavor": "maybe browsing Costco",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62829196037588,
-    "lng": -122.37033691531835,
     "ts": "2026-07-27T16:30:51.789000+00:00",
-    "address": "1030 Elliott Avenue West",
-    "hood": "Queen Anne"
+    "lat": 47.62742,
+    "lng": -122.37192,
+    "street": "Alaskan Way West",
+    "hood": "Queen Anne",
+    "flavor": "taking a stroll through Centennial Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6684901,
-    "lng": -122.3848465,
     "ts": "2026-07-28T00:03:00.007000+00:00",
-    "address": "2201 Northwest Market Street",
-    "hood": "Ballard"
+    "lat": 47.66752,
+    "lng": -122.3872,
+    "street": "24th Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "perhaps a pint at Cloudburst on Shilshole",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.658545,
-    "lng": -122.3130831,
     "ts": "2026-08-01T22:50:02.648000+00:00",
-    "address": "1404 Northeast 42nd Street",
-    "hood": "Greek Row"
+    "lat": 47.66007,
+    "lng": -122.31495,
+    "street": "Brooklyn Avenue Northeast",
+    "hood": "Greek Row",
+    "flavor": "taking a stroll through Building Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6507166,
-    "lng": -122.336377,
     "ts": "2026-08-02T00:11:02.934000+00:00",
-    "address": "3604 Wallingford Avenue North",
-    "hood": "Wallingford"
+    "lat": 47.65002,
+    "lng": -122.33581,
+    "street": "Wallingford Avenue North",
+    "hood": "Wallingford",
+    "flavor": "maybe browsing Lilt Salon",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6504856,
-    "lng": -122.3350033,
     "ts": "2026-08-02T00:11:23.935000+00:00",
-    "address": "1908 North 36th Street",
-    "hood": "Wallingford"
+    "lat": 47.65094,
+    "lng": -122.33472,
+    "street": "Burke Avenue North",
+    "hood": "Wallingford",
+    "flavor": "maybe browsing Lilt Salon",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6504769,
-    "lng": -122.3323636,
     "ts": "2026-08-02T00:11:55.937000+00:00",
-    "address": "2205 North 36th Street",
-    "hood": "Wallingford"
+    "lat": 47.64828,
+    "lng": -122.33362,
+    "street": "North Pacific Street",
+    "hood": "Wallingford",
+    "flavor": "possibly stopped for coffee at Mas Café",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6507939,
-    "lng": -122.3312694,
     "ts": "2026-08-02T00:12:37.936000+00:00",
-    "address": "2326 North Pacific Street",
-    "hood": "Wallingford"
+    "lat": 47.65185,
+    "lng": -122.32986,
+    "street": "North Pacific Street",
+    "hood": "Wallingford",
+    "flavor": "perhaps a drink at Gasworks Brewing",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6544309,
-    "lng": -122.3268705,
     "ts": "2026-08-02T00:13:19.936000+00:00",
-    "address": "101 Northeast Pacific Street",
-    "hood": "Wallingford"
+    "lat": 47.65445,
+    "lng": -122.32906,
+    "street": "Eastern Avenue North",
+    "hood": "Wallingford",
+    "flavor": "possibly a bite at The Wayland Mill",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6554251,
-    "lng": -122.3233315,
     "ts": "2026-08-02T00:14:01.936000+00:00",
-    "address": "598 Northeast Pacific Street",
-    "hood": "Wallingford"
+    "lat": 47.65672,
+    "lng": -122.32305,
+    "street": "5th Avenue Northeast",
+    "hood": "University District",
+    "flavor": "possibly a bite at Voula's Offshore Cafe",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6545598,
-    "lng": -122.3225005,
     "ts": "2026-08-02T00:14:43.935000+00:00",
-    "address": "Ship Canal Bridge",
-    "hood": "Eastlake"
+    "lat": 47.65672,
+    "lng": -122.32305,
+    "street": "5th Avenue Northeast",
+    "hood": "University District",
+    "flavor": "possibly a bite at Voula's Offshore Cafe",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6535879,
-    "lng": -122.3169059,
     "ts": "2026-08-02T00:15:25.936000+00:00",
-    "address": "Northeast Pacific Street",
-    "hood": "West Campus"
+    "lat": 47.65385,
+    "lng": -122.31584,
+    "street": "Brooklyn Avenue Northeast",
+    "hood": "West Campus",
+    "flavor": "seen loitering near D",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6533756,
-    "lng": -122.3134259,
     "ts": "2026-08-02T00:16:07.936000+00:00",
-    "address": "3899 University Way Northeast",
-    "hood": "West Campus"
+    "lat": 47.65458,
+    "lng": -122.31065,
+    "street": "West Stevens Way Northeast",
+    "hood": "Central Campus",
+    "flavor": "possibly stopped for coffee at Starbucks",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6560178,
-    "lng": -122.3020651,
     "ts": "2026-08-02T00:18:13.934000+00:00",
-    "address": "1410 Northeast Campus Parkway",
-    "hood": "West Campus"
+    "lat": 47.65476,
+    "lng": -122.30115,
+    "street": "Walla Walla Road Northeast",
+    "hood": "East Campus",
+    "flavor": "maybe a workout at IMA Building",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6590725,
-    "lng": -122.3010336,
     "ts": "2026-08-02T00:18:55.935000+00:00",
-    "address": "1410 Northeast Campus Parkway",
-    "hood": "West Campus"
+    "lat": 47.65945,
+    "lng": -122.303,
+    "street": "Northeast Campus Parkway",
+    "hood": "West Campus",
+    "flavor": "grazing the food court at Center Table",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6600931,
-    "lng": -122.3008858,
     "ts": "2026-08-02T00:19:37.934000+00:00",
-    "address": "1410 Northeast Campus Parkway",
-    "hood": "West Campus"
+    "lat": 47.66108,
+    "lng": -122.30046,
+    "street": "Northeast 45th Street",
+    "hood": "University District",
+    "flavor": "possibly a bite at Joey",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6614102,
-    "lng": -122.3002805,
     "ts": "2026-08-02T00:20:19.934000+00:00",
-    "address": "26th Avenue Northeast",
-    "hood": "University District"
+    "lat": 47.66209,
+    "lng": -122.30103,
+    "street": "Northeast Campus Parkway",
+    "hood": "West Campus",
+    "flavor": "maybe browsing UW Surplus",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6173878,
-    "lng": -122.2002963,
     "ts": "2026-08-02T01:24:40.907000+00:00",
-    "address": "10503 Northeast 8th Street",
-    "hood": "Bellevue"
+    "lat": 47.61867,
+    "lng": -122.19957,
+    "street": "106th Avenue Northeast",
+    "hood": "Bellevue",
+    "flavor": "possibly a bite at Suite",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6198656823118,
-    "lng": -122.3182842098251,
     "ts": "2026-08-02T04:43:11.999000+00:00",
-    "address": "201 11th Avenue East",
-    "hood": "Madison Valley"
+    "lat": 47.61826,
+    "lng": -122.31595,
+    "street": "13th Avenue",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at Kemi Dessert Bar",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6199454421868,
-    "lng": -122.31382317781993,
     "ts": "2026-08-02T04:44:30+00:00",
-    "address": "1405 East John Street",
-    "hood": "Madison Valley"
+    "lat": 47.62127,
+    "lng": -122.31121,
+    "street": "16th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "maybe browsing Talking Tree Massage & Bodywork",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.619922698267466,
-    "lng": -122.31321227269147,
     "ts": "2026-08-02T04:44:36.581000+00:00",
-    "address": "1410 East John Street",
-    "hood": "Madison Valley"
+    "lat": 47.62127,
+    "lng": -122.31121,
+    "street": "16th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "maybe browsing Talking Tree Massage & Bodywork",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62038110979165,
-    "lng": -122.3126948378083,
     "ts": "2026-08-02T04:45:08+00:00",
-    "address": "202 15th Avenue East",
-    "hood": "Madison Valley"
+    "lat": 47.62127,
+    "lng": -122.31121,
+    "street": "16th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "maybe browsing Talking Tree Massage & Bodywork",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62046541344498,
-    "lng": -122.31240560040216,
     "ts": "2026-08-02T04:45:14.652000+00:00",
-    "address": "201 16th Avenue East",
-    "hood": "Madison Valley"
+    "lat": 47.62127,
+    "lng": -122.31121,
+    "street": "16th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "maybe browsing Talking Tree Massage & Bodywork",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62047118865325,
-    "lng": -122.30780530922817,
     "ts": "2026-08-02T04:45:54+00:00",
-    "address": "1819 East Thomas Street",
-    "hood": "Madison Valley"
+    "lat": 47.62144,
+    "lng": -122.30944,
+    "street": "16th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "maybe browsing Talking Tree Massage & Bodywork",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62022301070542,
-    "lng": -122.30493354463016,
     "ts": "2026-08-02T04:46:38+00:00",
-    "address": "East Thomas Street",
-    "hood": "Madison Valley"
+    "lat": 47.62175,
+    "lng": -122.30216,
+    "street": "23rd Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "taking a stroll through Prentis I. Frazier Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.620195369316846,
-    "lng": -122.30287271635899,
     "ts": "2026-08-02T04:47:10+00:00",
-    "address": "2214 East John Street",
-    "hood": "Madison Valley"
+    "lat": 47.62259,
+    "lng": -122.30237,
+    "street": "23rd Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "taking a stroll through Prentis I. Frazier Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.620504474470785,
-    "lng": -122.30053955184862,
     "ts": "2026-08-02T04:47:46+00:00",
-    "address": "2416 East Madison Street",
-    "hood": "Madison Valley"
+    "lat": 47.61984,
+    "lng": -122.29993,
+    "street": "25th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at Yeobo Cafe and Bar",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62112863288955,
-    "lng": -122.2996241811162,
     "ts": "2026-08-02T04:47:55.041000+00:00",
-    "address": "2501 East Madison Street",
-    "hood": "Madison Valley"
+    "lat": 47.61984,
+    "lng": -122.29993,
+    "street": "25th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at Yeobo Cafe and Bar",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62300502247973,
-    "lng": -122.29687352420028,
     "ts": "2026-08-02T04:48:27+00:00",
-    "address": "2709 East Madison Street",
-    "hood": "Madison Valley"
+    "lat": 47.62301,
+    "lng": -122.29808,
+    "street": "27th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "possibly a bite at The Harvest Vine",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62309830768131,
-    "lng": -122.29673384141745,
     "ts": "2026-08-02T04:48:33.141000+00:00",
-    "address": "2719 East Madison Street",
-    "hood": "Madison Valley"
+    "lat": 47.62301,
+    "lng": -122.29808,
+    "street": "27th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "possibly a bite at The Harvest Vine",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6237315654213,
-    "lng": -122.29520448994327,
     "ts": "2026-08-02T04:49:05+00:00",
-    "address": "505 29th Avenue East",
-    "hood": "Madison Valley"
+    "lat": 47.62309,
+    "lng": -122.29667,
+    "street": "East Madison Street",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at I Love Boba",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62360843674947,
-    "lng": -122.29492482668205,
     "ts": "2026-08-02T04:49:11.238000+00:00",
-    "address": "East Arthur Place",
-    "hood": "Madison Valley"
+    "lat": 47.62636,
+    "lng": -122.29431,
+    "street": "Lake Washington Boulevard East",
+    "hood": "Washington Park",
+    "flavor": "possibly a bite at Pagliacci Pizza",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62405938525728,
-    "lng": -122.29310778296535,
     "ts": "2026-08-02T04:49:45+00:00",
-    "address": "510 30th Avenue East",
-    "hood": "Madison Valley"
+    "lat": 47.62636,
+    "lng": -122.29431,
+    "street": "Lake Washington Boulevard East",
+    "hood": "Washington Park",
+    "flavor": "possibly a bite at Pagliacci Pizza",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.62435332860255,
-    "lng": -122.29309775465218,
     "ts": "2026-08-02T04:49:53.330000+00:00",
-    "address": "517 30th Avenue East",
-    "hood": "Madison Valley"
+    "lat": 47.62636,
+    "lng": -122.29431,
+    "street": "Lake Washington Boulevard East",
+    "hood": "Washington Park",
+    "flavor": "possibly a bite at Pagliacci Pizza",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7331095,
-    "lng": -122.293646,
     "ts": "2026-08-02T16:18:35.670000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7330951,
-    "lng": -122.2938312,
     "ts": "2026-08-02T16:35:31.763000+00:00",
-    "address": "14340 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7329916,
-    "lng": -122.2938634,
     "ts": "2026-08-02T20:57:22.628000+00:00",
-    "address": "14340 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.60408611336327,
-    "lng": -122.32752459189963,
     "ts": "2026-08-03T19:42:43.011000+00:00",
-    "address": "I 5",
-    "hood": "First Hill"
+    "lat": 47.60265,
+    "lng": -122.32743,
+    "street": "6th Avenue",
+    "hood": "First Hill",
+    "flavor": "possibly a bite at Deli Cut Subs",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.443329742865835,
-    "lng": -122.30047937219442,
     "ts": "2026-08-03T20:06:51.964000+00:00",
-    "address": "Skybridge 2",
-    "hood": "SeaTac"
+    "lat": 47.44055,
+    "lng": -122.29888,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "perhaps a drink at United Club",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6491976,
-    "lng": -122.3389193,
     "ts": "2026-08-04T03:55:14.871000+00:00",
-    "address": "1602 North 35th Street",
-    "hood": "Wallingford"
+    "lat": 47.64876,
+    "lng": -122.34119,
+    "street": "North 34th Street",
+    "hood": "Fremont",
+    "flavor": "trying on shoes at Brooks Trailhead",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.469427,
-    "lng": -122.3101978,
     "ts": "2026-08-05T17:04:59.916000+00:00",
-    "address": "WA 518",
-    "hood": "SeaTac"
+    "lat": 47.46849,
+    "lng": -122.31063,
+    "street": "WA 518",
+    "hood": "SeaTac",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5823253,
-    "lng": -122.3196407,
     "ts": "2026-08-05T19:56:22.925000+00:00",
-    "address": "I 5",
-    "hood": "Beacon Hill"
+    "lat": 47.58169,
+    "lng": -122.32083,
+    "street": "Airport Way South",
+    "hood": "Beacon Hill",
+    "flavor": "maybe browsing Duke's Truck Repair",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.73243056592655,
-    "lng": -122.29203651749839,
     "ts": "2026-08-06T20:58:49.120000+00:00",
-    "address": "14312 Lake City Way Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73147,
+    "lng": -122.28869,
+    "street": "37th Avenue Northeast",
+    "hood": "Lake City",
+    "flavor": "maybe browsing Mobile Electrical Distributors",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6869537,
-    "lng": -122.3566947,
     "ts": "2026-08-07T01:37:46.775000+00:00",
-    "address": "130 North 80th Street",
-    "hood": "Greenwood"
+    "lat": 47.68895,
+    "lng": -122.35452,
+    "street": "North 83rd Street",
+    "hood": "Greenwood",
+    "flavor": "seen loitering near Dabble",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6869718,
-    "lng": -122.3599692,
     "ts": "2026-08-07T01:38:28.775000+00:00",
-    "address": "144 Northwest 80th Street",
-    "hood": "Greenwood"
+    "lat": 47.6881,
+    "lng": -122.36327,
+    "street": "6th Avenue Northwest",
+    "hood": "Greenwood",
+    "flavor": "seen loitering near Avast! Recording Company",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6905086,
-    "lng": -122.3321033,
     "ts": "2026-08-07T16:20:56.442000+00:00",
-    "address": "2209 North 85th Street",
-    "hood": "Green Lake"
+    "lat": 47.69234,
+    "lng": -122.33352,
+    "street": "North 88th Street",
+    "hood": "Green Lake",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4418731,
-    "lng": -122.2995144,
     "ts": "2026-08-07T19:31:42.707000+00:00",
-    "address": "Departures Drive",
-    "hood": "SeaTac"
+    "lat": 47.44055,
+    "lng": -122.29888,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "perhaps a drink at United Club",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.445894,
-    "lng": -122.2968055,
     "ts": "2026-08-07T19:32:28.933000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.4469,
+    "lng": -122.29365,
+    "street": "30th Avenue South",
+    "hood": "SeaTac",
+    "flavor": "lying low near SureStay",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4528603,
-    "lng": -122.3003394,
     "ts": "2026-08-07T19:33:09.932000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.45325,
+    "lng": -122.30137,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4605923,
-    "lng": -122.2962767,
     "ts": "2026-08-07T19:33:50.933000+00:00",
-    "address": "Seatac Rental Car Counter Entry",
-    "hood": "SeaTac"
+    "lat": 47.46076,
+    "lng": -122.29872,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "seen loitering near FedEx Express",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4658347,
-    "lng": -122.3005334,
     "ts": "2026-08-07T19:34:31.933000+00:00",
-    "address": "WA 518",
-    "hood": "SeaTac"
+    "lat": 47.46443,
+    "lng": -122.29745,
+    "street": "WA 518",
+    "hood": "SeaTac",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4703863,
-    "lng": -122.3132581,
     "ts": "2026-08-07T19:35:12.933000+00:00",
-    "address": "WA 518",
-    "hood": "SeaTac"
+    "lat": 47.46919,
+    "lng": -122.31456,
+    "street": "WA 518",
+    "hood": "SeaTac",
+    "flavor": "taking a stroll through Pacwest Little League",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4699666,
-    "lng": -122.3265705,
     "ts": "2026-08-07T19:35:53.933000+00:00",
-    "address": "WA 518",
-    "hood": "Highline"
+    "lat": 47.46859,
+    "lng": -122.32435,
+    "street": "South 150th Street",
+    "hood": "Burien",
+    "flavor": "taking a stroll through Mathison Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4744247,
-    "lng": -122.3299702,
     "ts": "2026-08-07T19:36:34.932000+00:00",
-    "address": "WA 509",
-    "hood": "Highline"
+    "lat": 47.47604,
+    "lng": -122.32761,
+    "street": "5th Avenue South",
+    "hood": "Highline",
+    "flavor": "a grocery run at Fred Meyer",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4833351,
-    "lng": -122.3272025,
     "ts": "2026-08-07T19:37:15.933000+00:00",
-    "address": "WA 509",
-    "hood": "Highline"
+    "lat": 47.48326,
+    "lng": -122.32803,
+    "street": "4th Avenue South",
+    "hood": "Burien",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5131574,
-    "lng": -122.3277583,
     "ts": "2026-08-07T19:39:18.941000+00:00",
-    "address": "WA 509",
-    "hood": "Seattle"
+    "lat": 47.51378,
+    "lng": -122.32981,
+    "street": "Myers Way South",
+    "hood": "Top Hat",
+    "flavor": "seen loitering near Myers Parcels",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5228071,
-    "lng": -122.3326181,
     "ts": "2026-08-07T19:39:59.942000+00:00",
-    "address": "WA 509",
-    "hood": "Seattle"
+    "lat": 47.52255,
+    "lng": -122.33009,
+    "street": "4th Avenue South",
+    "hood": "Seattle",
+    "flavor": "taking a stroll through Marra-Desimone Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.532794,
-    "lng": -122.3345158,
     "ts": "2026-08-07T19:40:40.941000+00:00",
-    "address": "WA 509",
-    "hood": "Georgetown"
+    "lat": 47.53409,
+    "lng": -122.33336,
+    "street": "South Kenyon Street",
+    "hood": "Georgetown",
+    "flavor": "maybe browsing Fire King of Seattle",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5416472,
-    "lng": -122.3344602,
     "ts": "2026-08-07T19:41:21.941000+00:00",
-    "address": "1st Avenue South Bridge",
-    "hood": "Georgetown"
+    "lat": 47.53986,
+    "lng": -122.33529,
+    "street": "1st Avenue South Bridge",
+    "hood": "Georgetown",
+    "flavor": "taking a stroll through Terminal 115 Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5473702,
-    "lng": -122.3337903,
     "ts": "2026-08-07T19:42:02.942000+00:00",
-    "address": "6191 East Marginal Way South",
-    "hood": "Georgetown"
+    "lat": 47.54755,
+    "lng": -122.33193,
+    "street": "East Marginal Way South",
+    "hood": "Georgetown",
+    "flavor": "maybe browsing Grainger",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5516291,
-    "lng": -122.3359528,
     "ts": "2026-08-07T19:42:43.941000+00:00",
-    "address": "5803 East Marginal Way South",
-    "hood": "Georgetown"
+    "lat": 47.55355,
+    "lng": -122.33911,
+    "street": "Ohio Avenue South",
+    "hood": "Georgetown",
+    "flavor": "possibly stopped for coffee at LadyBug Espresso",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5562829,
-    "lng": -122.3384191,
     "ts": "2026-08-07T19:43:24.941000+00:00",
-    "address": "5055 East Marginal Way South",
-    "hood": "Georgetown"
+    "lat": 47.55707,
+    "lng": -122.34001,
+    "street": "East Marginal Way South",
+    "hood": "Georgetown",
+    "flavor": "possibly a bite at Hudson",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5598885,
-    "lng": -122.3393575,
     "ts": "2026-08-07T19:44:05.941000+00:00",
-    "address": "4746 East Marginal Way South",
-    "hood": "Georgetown"
+    "lat": 47.55844,
+    "lng": -122.33901,
+    "street": "East Marginal Way South",
+    "hood": "Georgetown",
+    "flavor": "possibly a bite at Hudson",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5603557,
-    "lng": -122.3393226,
     "ts": "2026-08-07T19:44:46.941000+00:00",
-    "address": "2 South Alaska Street",
-    "hood": "Georgetown"
+    "lat": 47.55844,
+    "lng": -122.33901,
+    "street": "East Marginal Way South",
+    "hood": "Georgetown",
+    "flavor": "possibly a bite at Hudson",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5634582,
-    "lng": -122.3393413,
     "ts": "2026-08-07T19:45:27.949000+00:00",
-    "address": "4500 East Marginal Way South",
-    "hood": "Georgetown"
+    "lat": 47.56482,
+    "lng": -122.34151,
+    "street": "South Idaho Street",
+    "hood": "Georgetown",
+    "flavor": "maybe browsing Emerald City Pet Rescue & Store",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.569772,
-    "lng": -122.3393959,
     "ts": "2026-08-07T19:46:08.949000+00:00",
-    "address": "3660 East Marginal Way South",
-    "hood": "Delridge"
+    "lat": 47.5716,
+    "lng": -122.34005,
+    "street": "West Seattle Bridge",
+    "hood": "Seattle",
+    "flavor": "seen loitering near Lawless Forge",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5769488,
-    "lng": -122.3394259,
     "ts": "2026-08-07T19:46:49.948000+00:00",
-    "address": "State Route 99",
-    "hood": "Seattle"
+    "lat": 47.57945,
+    "lng": -122.33865,
+    "street": "State Route 99",
+    "hood": "Seattle",
+    "flavor": "maybe browsing The Home Depot",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5852709,
-    "lng": -122.3394002,
     "ts": "2026-08-07T19:47:30.948000+00:00",
-    "address": "State Route 99",
-    "hood": "Yesler Terrace"
+    "lat": 47.58628,
+    "lng": -122.34112,
+    "street": "Alaskan Way South",
+    "hood": "Yesler Terrace",
+    "flavor": "taking a stroll through Jack Perry Memorial Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5928587,
-    "lng": -122.3358468,
     "ts": "2026-08-07T19:48:11.948000+00:00",
-    "address": "State Route 99",
-    "hood": "Yesler Terrace"
+    "lat": 47.59183,
+    "lng": -122.339,
+    "street": "Alaskan Way South",
+    "hood": "Yesler Terrace",
+    "flavor": "possibly at the museum, Coast Guard Museum Northwest",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6231535,
-    "lng": -122.3429147,
     "ts": "2026-08-07T19:51:21.948000+00:00",
-    "address": "435 Dexter Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.6226,
+    "lng": -122.34455,
+    "street": "State Route 99",
+    "hood": "South Lake Union",
+    "flavor": "possibly stopped for coffee at Panino",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.623089,
-    "lng": -122.3427303,
     "ts": "2026-08-07T19:52:02.956000+00:00",
-    "address": "435 Dexter Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.6226,
+    "lng": -122.34455,
+    "street": "State Route 99",
+    "hood": "South Lake Union",
+    "flavor": "possibly stopped for coffee at Panino",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6222137,
-    "lng": -122.3423915,
     "ts": "2026-08-07T19:52:43.956000+00:00",
-    "address": "403 Dexter Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.6226,
+    "lng": -122.34455,
+    "street": "State Route 99",
+    "hood": "South Lake Union",
+    "flavor": "possibly stopped for coffee at Panino",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6208863,
-    "lng": -122.3423966,
     "ts": "2026-08-07T19:53:24.956000+00:00",
-    "address": "234 Dexter Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.62059,
+    "lng": -122.3399,
+    "street": "8th Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "possibly a bite at Papa poy-yo",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6197514,
-    "lng": -122.3432724,
     "ts": "2026-08-07T19:54:05.957000+00:00",
-    "address": "701 John Street",
-    "hood": "South Lake Union"
+    "lat": 47.61788,
+    "lng": -122.34332,
+    "street": "Belltown",
+    "hood": "Belltown",
+    "flavor": "possibly stopped for coffee at Corner Stone Cafe & Deli",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6188607,
-    "lng": -122.3437741,
     "ts": "2026-08-07T19:54:46.956000+00:00",
-    "address": "7th Avenue North",
-    "hood": "South Lake Union"
+    "lat": 47.61877,
+    "lng": -122.34788,
+    "street": "Denny Way",
+    "hood": "South Lake Union",
+    "flavor": "maybe a workout at Transform 180",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6179001,
-    "lng": -122.3445098,
     "ts": "2026-08-07T19:55:27.956000+00:00",
-    "address": "521 Wall Street",
-    "hood": "Belltown"
+    "lat": 47.61621,
+    "lng": -122.34283,
+    "street": "Bell Street",
+    "hood": "Belltown",
+    "flavor": "maybe a workout at Orangetheory Fitness",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6164436,
-    "lng": -122.3436897,
     "ts": "2026-08-07T19:56:05.956000+00:00",
-    "address": "2326 5th Avenue",
-    "hood": "Belltown"
+    "lat": 47.61566,
+    "lng": -122.34337,
+    "street": "Bell Street",
+    "hood": "Belltown",
+    "flavor": "maybe a workout at Orangetheory Fitness",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6155534,
-    "lng": -122.3422937,
     "ts": "2026-08-07T19:56:31.957000+00:00",
-    "address": "2211 5th Avenue",
-    "hood": "Belltown"
+    "lat": 47.61709,
+    "lng": -122.34341,
+    "street": "Belltown",
+    "hood": "Belltown",
+    "flavor": "possibly stopped for coffee at Corner Stone Cafe & Deli",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6153197,
-    "lng": -122.3417279,
     "ts": "2026-08-07T19:57:12.956000+00:00",
-    "address": "500 Blanchard Street",
-    "hood": "Belltown"
+    "lat": 47.61709,
+    "lng": -122.34341,
+    "street": "Belltown",
+    "hood": "Belltown",
+    "flavor": "possibly stopped for coffee at Corner Stone Cafe & Deli",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6165538,
-    "lng": -122.3420728,
     "ts": "2026-08-07T19:57:45.956000+00:00",
-    "address": "2229 6th Avenue",
-    "hood": "Belltown"
+    "lat": 47.61566,
+    "lng": -122.34337,
+    "street": "Bell Street",
+    "hood": "Belltown",
+    "flavor": "maybe a workout at Orangetheory Fitness",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6783087,
-    "lng": -122.3455711,
     "ts": "2026-08-07T20:11:34.985000+00:00",
-    "address": "6826 Aurora Avenue North",
-    "hood": "Phinney Ridge"
+    "lat": 47.67663,
+    "lng": -122.346,
+    "street": "Green Lake Trail",
+    "hood": "Phinney Ridge",
+    "flavor": "possibly a bite at Bongos Caribbean Cafe",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7331044,
-    "lng": -122.2936068,
     "ts": "2026-08-09T19:44:18.628000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7330912,
-    "lng": -122.2935854,
     "ts": "2026-08-09T23:15:27.195000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7331025,
-    "lng": -122.2936026,
     "ts": "2026-08-10T01:18:22.683000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7330974,
-    "lng": -122.2936011,
     "ts": "2026-08-10T01:19:17.364000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7330972,
-    "lng": -122.2936045,
     "ts": "2026-08-10T01:21:10.684000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7330956,
-    "lng": -122.2936113,
     "ts": "2026-08-10T01:23:58.683000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7330988,
-    "lng": -122.2936157,
     "ts": "2026-08-10T01:30:30.682000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7330944,
-    "lng": -122.2936116,
     "ts": "2026-08-10T01:31:26.682000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7331095,
-    "lng": -122.2935993,
     "ts": "2026-08-10T10:55:49.810000+00:00",
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.723186,
-    "lng": -122.346635,
     "ts": "2026-08-10T17:30:44.956000+00:00",
-    "address": "931 North 130th Street",
-    "hood": "Haller Lake"
+    "lat": 47.72392,
+    "lng": -122.3492,
+    "street": "North 130th Street",
+    "hood": "Broadview",
+    "flavor": "seen loitering near Bitter Lake Community Center",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7212681,
-    "lng": -122.3450358,
     "ts": "2026-08-10T17:31:38.955000+00:00",
-    "address": "12553 Aurora Avenue North",
-    "hood": "Haller Lake"
+    "lat": 47.72166,
+    "lng": -122.34252,
+    "street": "Stone Avenue North",
+    "hood": "Haller Lake",
+    "flavor": "seen loitering near North Household Hazardous Waste Facility",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7199688,
-    "lng": -122.3450138,
     "ts": "2026-08-10T17:32:33.955000+00:00",
-    "address": "12521 Aurora Avenue North",
-    "hood": "Haller Lake"
+    "lat": 47.71972,
+    "lng": -122.34684,
+    "street": "Aurora Avenue North",
+    "hood": "Haller Lake",
+    "flavor": "maybe browsing Lowe's",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7133143,
-    "lng": -122.3449034,
     "ts": "2026-08-10T17:33:27.954000+00:00",
-    "address": "11601 Aurora Avenue North",
-    "hood": "Haller Lake"
+    "lat": 47.71279,
+    "lng": -122.34688,
+    "street": "Interurban Trail",
+    "hood": "Broadview",
+    "flavor": "maybe browsing K-Smoke Mart",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7091436,
-    "lng": -122.3448225,
     "ts": "2026-08-10T17:34:21.954000+00:00",
-    "address": "Aurora Avenue North",
-    "hood": "Haller Lake"
+    "lat": 47.70881,
+    "lng": -122.34306,
+    "street": "North 110th Street",
+    "hood": "Haller Lake",
+    "flavor": "maybe browsing Seattle Surgical Repair",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7053174,
-    "lng": -122.3447707,
     "ts": "2026-08-10T17:35:26.172000+00:00",
-    "address": "10507 Aurora Avenue North",
-    "hood": "Greenwood"
+    "lat": 47.70562,
+    "lng": -122.34338,
+    "street": "Midvale Avenue North",
+    "hood": "Haller Lake",
+    "flavor": "maybe browsing Lomi Spa",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.7038583,
-    "lng": -122.3447965,
     "ts": "2026-08-10T17:36:10.948000+00:00",
-    "address": "10311 Aurora Avenue North",
-    "hood": "Greenwood"
+    "lat": 47.7048,
+    "lng": -122.34626,
+    "street": "North 105th Street",
+    "hood": "Greenwood",
+    "flavor": "maybe browsing Easy Smoke & Market",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.698245,
-    "lng": -122.3447019,
     "ts": "2026-08-10T17:37:04.948000+00:00",
-    "address": "9530 Aurora Avenue North",
-    "hood": "Greenwood"
+    "lat": 47.699,
+    "lng": -122.34778,
+    "street": "Linden Avenue North",
+    "hood": "Greenwood",
+    "flavor": "seen loitering near Music Center of the Northwest",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6918281,
-    "lng": -122.3446047,
     "ts": "2026-08-10T17:37:58.948000+00:00",
-    "address": "8615 Aurora Avenue North",
-    "hood": "Greenwood"
+    "lat": 47.69195,
+    "lng": -122.34392,
+    "street": "Aurora Avenue North",
+    "hood": "Greenwood",
+    "flavor": "maybe browsing Seattle Fabrics",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.687496,
-    "lng": -122.3445777,
     "ts": "2026-08-10T17:38:52.954000+00:00",
-    "address": "8019 Aurora Avenue North",
-    "hood": "Greenwood"
+    "lat": 47.68597,
+    "lng": -122.34372,
+    "street": "Stone Avenue North",
+    "hood": "Greenwood",
+    "flavor": "maybe browsing Dollar Tree",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6822113,
-    "lng": -122.3445363,
     "ts": "2026-08-10T17:39:47.944000+00:00",
-    "address": "7315 Aurora Avenue North",
-    "hood": "Greenwood"
+    "lat": 47.68316,
+    "lng": -122.3459,
+    "street": "North 75th Street",
+    "hood": "Greenwood",
+    "flavor": "maybe browsing Triumph of Seattle",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6637977,
-    "lng": -122.3474198,
     "ts": "2026-08-10T17:41:36.954000+00:00",
-    "address": "4807 Aurora Avenue North",
-    "hood": "Phinney Ridge"
+    "lat": 47.66501,
+    "lng": -122.34919,
+    "street": "North 50th Street",
+    "hood": "Phinney Ridge",
+    "flavor": "taking a stroll through Rose Garden",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6553627,
-    "lng": -122.3474574,
     "ts": "2026-08-10T17:42:30.954000+00:00",
-    "address": "821 North 40th Street",
-    "hood": "Fremont"
+    "lat": 47.65349,
+    "lng": -122.34661,
+    "street": "Winslow Place North",
+    "hood": "Fremont",
+    "flavor": "possibly a bite at Kamonegi",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6541721,
-    "lng": -122.3495856,
     "ts": "2026-08-10T17:43:24.954000+00:00",
-    "address": "703 North 39th Street",
-    "hood": "Fremont"
+    "lat": 47.65309,
+    "lng": -122.35095,
+    "street": "Evanston Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing FedEx Office",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6541639,
-    "lng": -122.3496108,
     "ts": "2026-08-10T17:44:18.953000+00:00",
-    "address": "703 North 39th Street",
-    "hood": "Fremont"
+    "lat": 47.65309,
+    "lng": -122.35095,
+    "street": "Evanston Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing FedEx Office",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6515502,
-    "lng": -122.3499834,
     "ts": "2026-08-10T17:45:12.954000+00:00",
-    "address": "3600 Fremont Avenue North",
-    "hood": "Fremont"
+    "lat": 47.65216,
+    "lng": -122.35272,
+    "street": "North 36th Street",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Charlie's Queer Books",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6500878,
-    "lng": -122.3470421,
     "ts": "2026-08-10T17:46:07.952000+00:00",
-    "address": "909 North 35th Street",
-    "hood": "Fremont"
+    "lat": 47.64858,
+    "lng": -122.34989,
+    "street": "Fremont Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe a workout at Anytime Fitness",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6494183,
-    "lng": -122.3427469,
     "ts": "2026-08-10T17:47:01.953000+00:00",
-    "address": "3425 Stone Way North",
-    "hood": "Fremont"
+    "lat": 47.65077,
+    "lng": -122.33984,
+    "street": "North 36th Street",
+    "hood": "Fremont",
+    "flavor": "seen loitering near Max & Bennett’s Trading Stop",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6482354,
-    "lng": -122.3387741,
     "ts": "2026-08-10T17:47:56.952000+00:00",
-    "address": "3401 Woodlawn Avenue North",
-    "hood": "Wallingford"
+    "lat": 47.64888,
+    "lng": -122.34025,
+    "street": "North 34th Street",
+    "hood": "Fremont",
+    "flavor": "seen loitering near Affinity Marina",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.60982623547084,
-    "lng": -122.3363501474081,
     "ts": "2026-08-11T03:53:42.094000+00:00",
-    "address": "1423 4th Avenue",
-    "hood": "Central Business District"
+    "lat": 47.60834,
+    "lng": -122.33507,
+    "street": "4th Avenue Cycletrack",
+    "hood": "Central Business District",
+    "flavor": "possibly stopped for coffee at Caffe Migliore",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6189066,
-    "lng": -122.1964956,
     "ts": "2026-08-13T01:48:56.376000+00:00",
-    "address": "10777 Northeast 10th Street",
-    "hood": "Bellevue"
+    "lat": 47.61756,
+    "lng": -122.1963,
+    "street": "108th Avenue Northeast",
+    "hood": "Bellevue",
+    "flavor": "perhaps a drink at Sam’s Tavern",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.614352,
-    "lng": -122.1800185,
     "ts": "2026-08-13T16:12:47.552000+00:00",
-    "address": "12025 Northeast 5th Street",
-    "hood": "Midlakes"
+    "lat": 47.61285,
+    "lng": -122.17766,
+    "street": "Northeast 3rd Place",
+    "hood": "Midlakes",
+    "flavor": "maybe browsing The Home Depot",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6130016,
-    "lng": -122.1851385,
     "ts": "2026-08-13T16:13:30.898000+00:00",
-    "address": "Northeast 4th Street",
-    "hood": "Midlakes"
+    "lat": 47.61256,
+    "lng": -122.18692,
+    "street": "Northeast 2nd Place",
+    "hood": "Midlakes",
+    "flavor": "maybe browsing Olson's Tack Shop",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6131681,
-    "lng": -122.1871015,
     "ts": "2026-08-13T16:14:12.898000+00:00",
-    "address": "Northeast 4th Street",
-    "hood": "Midlakes"
+    "lat": 47.61256,
+    "lng": -122.18692,
+    "street": "Northeast 2nd Place",
+    "hood": "Midlakes",
+    "flavor": "maybe browsing Olson's Tack Shop",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6132668,
-    "lng": -122.1875471,
     "ts": "2026-08-13T16:14:54.898000+00:00",
-    "address": "Northeast 4th Street",
-    "hood": "Bellevue"
+    "lat": 47.61418,
+    "lng": -122.18613,
+    "street": "Northeast 4th Street",
+    "hood": "Midlakes",
+    "flavor": "a grocery run at Trader Joe's",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.613471,
-    "lng": -122.1883958,
     "ts": "2026-08-13T16:15:36.898000+00:00",
-    "address": "Northeast 4th Street",
-    "hood": "Bellevue"
+    "lat": 47.61418,
+    "lng": -122.18613,
+    "street": "Northeast 4th Street",
+    "hood": "Midlakes",
+    "flavor": "a grocery run at Trader Joe's",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6092568,
-    "lng": -122.1886132,
     "ts": "2026-08-13T16:16:18.896000+00:00",
-    "address": "105 114th Avenue Southeast",
-    "hood": "Bellevue"
+    "lat": 47.61082,
+    "lng": -122.18564,
+    "street": "116th Avenue Northeast",
+    "hood": "Midlakes",
+    "flavor": "possibly a bite at Kura Sushi",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6018369,
-    "lng": -122.1831855,
     "ts": "2026-08-13T16:17:00.898000+00:00",
-    "address": "I 405",
-    "hood": "Bellevue"
+    "lat": 47.60129,
+    "lng": -122.18007,
+    "street": "Eastrail",
+    "hood": "Bellevue",
+    "flavor": "maybe browsing Aqua Quip",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5937832,
-    "lng": -122.1814354,
     "ts": "2026-08-13T16:17:42.896000+00:00",
-    "address": "I 405",
-    "hood": "Bellevue"
+    "lat": 47.59405,
+    "lng": -122.17775,
+    "street": "Southeast 19th Street",
+    "hood": "Norwood Village",
+    "flavor": "taking a stroll through Woodridge Water Tower Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5843975,
-    "lng": -122.1772309,
     "ts": "2026-08-13T16:18:24.897000+00:00",
-    "address": "I 405",
-    "hood": "Bellevue"
+    "lat": 47.58488,
+    "lng": -122.17983,
+    "street": "118th Avenue Southeast",
+    "hood": "Bellevue",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5661754,
-    "lng": -122.1838581,
     "ts": "2026-08-13T16:19:48.896000+00:00",
-    "address": "I 405",
-    "hood": "Bellevue"
+    "lat": 47.56767,
+    "lng": -122.18112,
+    "street": "I 405",
+    "hood": "Bellevue",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5573537,
-    "lng": -122.1899369,
     "ts": "2026-08-13T16:20:30.897000+00:00",
-    "address": "I 405",
-    "hood": "Bellevue"
+    "lat": 47.55734,
+    "lng": -122.19358,
+    "street": "Lakehurst Lane",
+    "hood": "Newport Shores",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5485809,
-    "lng": -122.195616,
     "ts": "2026-08-13T16:21:12.897000+00:00",
-    "address": "I 405",
-    "hood": "Bellevue"
+    "lat": 47.55007,
+    "lng": -122.19479,
+    "street": "I 405",
+    "hood": "Bellevue",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5409488,
-    "lng": -122.1953378,
     "ts": "2026-08-13T16:21:54.897000+00:00",
-    "address": "I 405",
-    "hood": "Renton"
+    "lat": 47.54299,
+    "lng": -122.19852,
+    "street": "Ripley Lane Southeast",
+    "hood": "Renton",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5349229,
-    "lng": -122.1963238,
     "ts": "2026-08-13T16:22:36.896000+00:00",
-    "address": "I 405",
-    "hood": "Renton"
+    "lat": 47.53493,
+    "lng": -122.19836,
+    "street": "Eastrail",
+    "hood": "Renton",
+    "flavor": "maybe a workout at Virginia Mason Athletic Center",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.529679,
-    "lng": -122.1979738,
     "ts": "2026-08-13T16:23:18.897000+00:00",
-    "address": "I 405",
-    "hood": "Renton"
+    "lat": 47.52815,
+    "lng": -122.19824,
+    "street": "Meadow Avenue North",
+    "hood": "Kennydale",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5244614,
-    "lng": -122.1981562,
     "ts": "2026-08-13T16:24:00.897000+00:00",
-    "address": "I 405",
-    "hood": "Renton"
+    "lat": 47.52223,
+    "lng": -122.20033,
+    "street": "North 34th Street",
+    "hood": "Kennydale",
+    "flavor": "a corner-store run at Food Mart",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5165957,
-    "lng": -122.1985425,
     "ts": "2026-08-13T16:24:42.897000+00:00",
-    "address": "I 405",
-    "hood": "Kennydale"
+    "lat": 47.51789,
+    "lng": -122.20084,
+    "street": "North 30th Street",
+    "hood": "Kennydale",
+    "flavor": "a corner-store run at 7-Eleven",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.507023,
-    "lng": -122.1979531,
     "ts": "2026-08-13T16:25:24.897000+00:00",
-    "address": "I 405",
-    "hood": "Renton"
+    "lat": 47.50821,
+    "lng": -122.19732,
+    "street": "Jones Avenue Northeast",
+    "hood": "Kennydale",
+    "flavor": "maybe a quick bite at Kidd Valley",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4974201,
-    "lng": -122.1945651,
     "ts": "2026-08-13T16:26:06.895000+00:00",
-    "address": "I 405",
-    "hood": "Renton"
+    "lat": 47.49662,
+    "lng": -122.19601,
+    "street": "Houser Way North",
+    "hood": "North Renton",
+    "flavor": "maybe browsing Platt",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4886749,
-    "lng": -122.1933653,
     "ts": "2026-08-13T16:26:48.896000+00:00",
-    "address": "I 405",
-    "hood": "Renton"
+    "lat": 47.48835,
+    "lng": -122.19557,
+    "street": "North 4th Street",
+    "hood": "North Renton",
+    "flavor": "maybe browsing Miller Paint",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4802139,
-    "lng": -122.2007715,
     "ts": "2026-08-13T16:27:30.898000+00:00",
-    "address": "Cedar River Trail",
-    "hood": "Renton"
+    "lat": 47.48106,
+    "lng": -122.20401,
+    "street": "South 2nd Street",
+    "hood": "Renton",
+    "flavor": "maybe browsing Ben's Loan",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4713963,
-    "lng": -122.2047485,
     "ts": "2026-08-13T16:28:12.896000+00:00",
-    "address": "I 405",
-    "hood": "Renton"
+    "lat": 47.47012,
+    "lng": -122.20563,
+    "street": "I 405",
+    "hood": "Renton",
+    "flavor": "maybe browsing Home Depot",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4679274,
-    "lng": -122.2180636,
     "ts": "2026-08-13T16:28:54.896000+00:00",
-    "address": "Valley Freeway",
-    "hood": "Renton"
+    "lat": 47.4686,
+    "lng": -122.21983,
+    "street": "Southwest 13th Street",
+    "hood": "Renton",
+    "flavor": "seen loitering near Sin Rock Club",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.467216,
-    "lng": -122.2331168,
     "ts": "2026-08-13T16:29:36.896000+00:00",
-    "address": "Springbrook Trail",
-    "hood": "Renton"
+    "lat": 47.46627,
+    "lng": -122.23593,
+    "street": "I 405",
+    "hood": "Renton",
+    "flavor": "a corner-store run at Grady Way Shell #392",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4635975,
-    "lng": -122.2464789,
     "ts": "2026-08-13T16:30:18.896000+00:00",
-    "address": "I 405",
-    "hood": "Tukwila"
+    "lat": 47.46352,
+    "lng": -122.24769,
+    "street": "I 405",
+    "hood": "Tukwila",
+    "flavor": "lying low near Extended Stay America",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4631043,
-    "lng": -122.2592236,
     "ts": "2026-08-13T16:31:00.896000+00:00",
-    "address": "I 405",
-    "hood": "Tukwila"
+    "lat": 47.46078,
+    "lng": -122.25792,
+    "street": "Tukwila Parkway",
+    "hood": "Tukwila",
+    "flavor": "possibly stopped for coffee at 85°C Bakery Cafe",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4627035,
-    "lng": -122.2682459,
     "ts": "2026-08-13T16:31:42.896000+00:00",
-    "address": "WA 518",
-    "hood": "Tukwila"
+    "lat": 47.46071,
+    "lng": -122.27003,
+    "street": "51st Avenue South",
+    "hood": "Tukwila",
+    "flavor": "taking a stroll through Crystal Springs Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.465862,
-    "lng": -122.2759217,
     "ts": "2026-08-13T16:32:24.896000+00:00",
-    "address": "WA 518",
-    "hood": "Tukwila"
+    "lat": 47.46799,
+    "lng": -122.275,
+    "street": "South 150th Street",
+    "hood": "Tukwila",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4630742,
-    "lng": -122.2845802,
     "ts": "2026-08-13T16:33:06.896000+00:00",
-    "address": "WA 518",
-    "hood": "Tukwila"
+    "lat": 47.46138,
+    "lng": -122.28361,
+    "street": "South 158th Street",
+    "hood": "Tukwila",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4624154,
-    "lng": -122.2952472,
     "ts": "2026-08-13T16:33:48.896000+00:00",
-    "address": "WA 518",
-    "hood": "SeaTac"
+    "lat": 47.46188,
+    "lng": -122.29917,
+    "street": "South 160th Street",
+    "hood": "SeaTac",
+    "flavor": "seen loitering near FedEx Express",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4565312,
-    "lng": -122.3006574,
     "ts": "2026-08-13T16:34:30.895000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.45539,
+    "lng": -122.30117,
+    "street": "South 166th Street",
+    "hood": "SeaTac",
+    "flavor": null,
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4524964,
-    "lng": -122.3007438,
     "ts": "2026-08-13T16:35:12.896000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.44972,
+    "lng": -122.3032,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Skillet",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4512226,
-    "lng": -122.300582,
     "ts": "2026-08-13T16:35:54.896000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.44972,
+    "lng": -122.3032,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Skillet",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4495469,
-    "lng": -122.3001277,
     "ts": "2026-08-13T16:36:36.895000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.44894,
+    "lng": -122.29817,
+    "street": "Cell Phone Lot",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Denny's",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.449053,
-    "lng": -122.2995194,
     "ts": "2026-08-13T16:37:18.895000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.44894,
+    "lng": -122.29817,
+    "street": "Cell Phone Lot",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Denny's",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4488422,
-    "lng": -122.2992987,
     "ts": "2026-08-13T16:38:00.894000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.44837,
+    "lng": -122.30121,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Bad Egg Breakfast Bar",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4484037,
-    "lng": -122.2986716,
     "ts": "2026-08-13T16:38:42.895000+00:00",
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
+    "lat": 47.44837,
+    "lng": -122.30121,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Bad Egg Breakfast Bar",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.447882,
-    "lng": -122.2979425,
     "ts": "2026-08-13T16:39:24.895000+00:00",
-    "address": "Departure Drive",
-    "hood": "SeaTac"
+    "lat": 47.44837,
+    "lng": -122.30121,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Bad Egg Breakfast Bar",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4474753,
-    "lng": -122.2976313,
     "ts": "2026-08-13T16:40:06.894000+00:00",
-    "address": "Departure Drive",
-    "hood": "SeaTac"
+    "lat": 47.4484,
+    "lng": -122.29854,
+    "street": "Airport Expressway",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Denny's",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4473899,
-    "lng": -122.2975761,
     "ts": "2026-08-13T16:40:13.733000+00:00",
-    "address": "Departure Drive",
-    "hood": "SeaTac"
+    "lat": 47.4484,
+    "lng": -122.29854,
+    "street": "Airport Expressway",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Denny's",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4469506,
-    "lng": -122.2974959,
     "ts": "2026-08-13T16:40:48.895000+00:00",
-    "address": "Departure Drive",
-    "hood": "SeaTac"
+    "lat": 47.4469,
+    "lng": -122.29365,
+    "street": "30th Avenue South",
+    "hood": "SeaTac",
+    "flavor": "lying low near SureStay",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4466738,
-    "lng": -122.2975569,
     "ts": "2026-08-13T16:41:30.895000+00:00",
-    "address": "Departure Drive",
-    "hood": "SeaTac"
+    "lat": 47.4469,
+    "lng": -122.29365,
+    "street": "30th Avenue South",
+    "hood": "SeaTac",
+    "flavor": "lying low near SureStay",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4463674,
-    "lng": -122.2977149,
     "ts": "2026-08-13T16:42:12.894000+00:00",
-    "address": "Departure Drive",
-    "hood": "SeaTac"
+    "lat": 47.4469,
+    "lng": -122.29365,
+    "street": "30th Avenue South",
+    "hood": "SeaTac",
+    "flavor": "lying low near SureStay",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4458907,
-    "lng": -122.298386,
     "ts": "2026-08-13T16:42:54.894000+00:00",
-    "address": "Departures Drive",
-    "hood": "SeaTac"
+    "lat": 47.4449,
+    "lng": -122.29979,
+    "street": "Arrivals Drive",
+    "hood": "SeaTac",
+    "flavor": "possibly stopped for coffee at Neighborhood Bubble Tea and Coffee",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4452381,
-    "lng": -122.2996741,
     "ts": "2026-08-13T16:43:25.963000+00:00",
-    "address": "Departures Drive",
-    "hood": "SeaTac"
+    "lat": 47.44291,
+    "lng": -122.30086,
+    "street": "Arrivals Drive",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Convenience Store",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4452057,
-    "lng": -122.2996892,
     "ts": "2026-08-13T16:43:36.896000+00:00",
-    "address": "Departures Drive",
-    "hood": "SeaTac"
+    "lat": 47.44291,
+    "lng": -122.30086,
+    "street": "Arrivals Drive",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Convenience Store",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.4440188,
-    "lng": -122.3014801,
     "ts": "2026-08-13T16:44:18.894000+00:00",
-    "address": "Departures Drive",
-    "hood": "SeaTac"
+    "lat": 47.44333,
+    "lng": -122.30136,
+    "street": "Arrivals Drive",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Convenience Store",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.443107,
-    "lng": -122.3013995,
     "ts": "2026-08-13T16:45:00.895000+00:00",
-    "address": "Air Cargo Road",
-    "hood": "SeaTac"
+    "lat": 47.44194,
+    "lng": -122.3036,
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Rel'lish Burger Lounge",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6690809,
-    "lng": -122.3821493,
     "ts": "2026-08-13T20:43:38.035000+00:00",
-    "address": "5512 20th Avenue Northwest",
-    "hood": "Ballard"
+    "lat": 47.66836,
+    "lng": -122.38052,
+    "street": "Tallman Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "possibly a bite at Monkey Bridge",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5883243,
-    "lng": -122.3052851,
     "ts": "2026-08-14T15:34:56.567000+00:00",
-    "address": "South Massachusetts Street",
-    "hood": "Beacon Hill"
+    "lat": 47.58763,
+    "lng": -122.30215,
+    "street": "South Massachusetts Street",
+    "hood": "Beacon Hill",
+    "flavor": "taking a stroll through Seattle Children's Playgarden",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6698517,
-    "lng": -122.3901457,
     "ts": "2026-08-14T19:59:18.241000+00:00",
-    "address": "5615 26th Avenue Northwest",
-    "hood": "Ballard"
+    "lat": 47.67054,
+    "lng": -122.39223,
+    "street": "Northwest 57th Street",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Western Fire & Safety",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6694441,
-    "lng": -122.3880248,
     "ts": "2026-08-14T20:00:03.240000+00:00",
-    "address": "2418 Northwest 56th Street",
-    "hood": "Ballard"
+    "lat": 47.67034,
+    "lng": -122.3896,
+    "street": "Northwest 57th Street",
+    "hood": "Ballard",
+    "flavor": "seen loitering near Little Free Library",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6694448,
-    "lng": -122.3878549,
     "ts": "2026-08-14T20:00:13.240000+00:00",
-    "address": "2418 Northwest 56th Street",
-    "hood": "Ballard"
+    "lat": 47.67034,
+    "lng": -122.3896,
+    "street": "Northwest 57th Street",
+    "hood": "Ballard",
+    "flavor": "seen loitering near Little Free Library",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6628963,
-    "lng": -122.3778589,
     "ts": "2026-08-14T20:04:12.117000+00:00",
-    "address": "1540 Northwest Ballard Way",
-    "hood": "Ballard"
+    "lat": 47.66255,
+    "lng": -122.37974,
+    "street": "Shilshole Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Canvas Supply Company",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6628963,
-    "lng": -122.3778589,
     "ts": "2026-08-14T20:05:12.218000+00:00",
-    "address": "1540 Northwest Ballard Way",
-    "hood": "Ballard"
+    "lat": 47.66255,
+    "lng": -122.37974,
+    "street": "Shilshole Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Canvas Supply Company",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6628963,
-    "lng": -122.3778589,
     "ts": "2026-08-14T20:06:22.801000+00:00",
-    "address": "1540 Northwest Ballard Way",
-    "hood": "Ballard"
+    "lat": 47.66255,
+    "lng": -122.37974,
+    "street": "Shilshole Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Canvas Supply Company",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6628963,
-    "lng": -122.3778589,
     "ts": "2026-08-14T20:08:50.252000+00:00",
-    "address": "1540 Northwest Ballard Way",
-    "hood": "Ballard"
+    "lat": 47.66255,
+    "lng": -122.37974,
+    "street": "Shilshole Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Canvas Supply Company",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6174973,
-    "lng": -122.3572779,
     "ts": "2026-08-14T20:11:57.879000+00:00",
-    "address": "3126 Elliott Avenue",
-    "hood": "Uptown"
+    "lat": 47.61742,
+    "lng": -122.35675,
+    "street": "Elliott Avenue",
+    "hood": "Uptown",
+    "flavor": "possibly a bite at Me Dor",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6134353,
-    "lng": -122.3495164,
     "ts": "2026-08-14T20:13:27.047000+00:00",
-    "address": "2400 Elliott Avenue",
-    "hood": "Belltown"
+    "lat": 47.61184,
+    "lng": -122.35064,
+    "street": "Alaskan Way",
+    "hood": "Belltown",
+    "flavor": "seen loitering near Bell Harbor International Conference Center",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6134461,
-    "lng": -122.3505689,
     "ts": "2026-08-14T20:14:25.313000+00:00",
-    "address": "2501 Elliott Avenue",
-    "hood": "Belltown"
+    "lat": 47.61184,
+    "lng": -122.35064,
+    "street": "Alaskan Way",
+    "hood": "Belltown",
+    "flavor": "seen loitering near Bell Harbor International Conference Center",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.610616,
-    "lng": -122.3448205,
     "ts": "2026-08-14T20:16:34.642000+00:00",
-    "address": "2003 Western Avenue",
-    "hood": "West Edge"
+    "lat": 47.60839,
+    "lng": -122.34485,
+    "street": "Alaskan Way",
+    "hood": "West Edge",
+    "flavor": "taking a stroll through Pier 62",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6051082,
-    "lng": -122.3392232,
     "ts": "2026-08-14T20:19:37.638000+00:00",
-    "address": "1200 Alaskan Way",
-    "hood": "West Edge"
+    "lat": 47.60332,
+    "lng": -122.34114,
+    "street": "Colman Dock",
+    "hood": "West Edge",
+    "flavor": "taking a stroll through Waterfront Park",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6051238,
-    "lng": -122.3374739,
     "ts": "2026-08-14T20:22:33.056000+00:00",
-    "address": "1099 Post Avenue",
-    "hood": "West Edge"
+    "lat": 47.60427,
+    "lng": -122.33542,
+    "street": "West Edge",
+    "hood": "West Edge",
+    "flavor": "maybe browsing Mosaic Salon & Spa",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6049899,
-    "lng": -122.3347333,
     "ts": "2026-08-14T20:24:06.776000+00:00",
-    "address": "2nd Avenue Cycletrack",
-    "hood": "West Edge"
+    "lat": 47.60546,
+    "lng": -122.33267,
+    "street": "4th Avenue",
+    "hood": "West Edge",
+    "flavor": "possibly stopped for coffee at Belle Epicurean",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6021691,
-    "lng": -122.3322147,
     "ts": "2026-08-14T20:25:12.291000+00:00",
-    "address": "520 2nd Avenue",
-    "hood": "West Edge"
+    "lat": 47.6032,
+    "lng": -122.33012,
+    "street": "4th Avenue",
+    "hood": "First Hill",
+    "flavor": "seen loitering near Seattle City Hall",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6017079,
-    "lng": -122.3307393,
     "ts": "2026-08-14T20:26:15.277000+00:00",
-    "address": "221 Yesler Way",
-    "hood": "First Hill"
+    "lat": 47.60068,
+    "lng": -122.32914,
+    "street": "4th Avenue South",
+    "hood": "First Hill",
+    "flavor": "possibly stopped for coffee at Caffe Vita",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6017128,
-    "lng": -122.3258262,
     "ts": "2026-08-14T20:27:14.626000+00:00",
-    "address": "609 Yesler Way",
-    "hood": "Japantown"
+    "lat": 47.60077,
+    "lng": -122.32865,
+    "street": "4th Avenue South",
+    "hood": "First Hill",
+    "flavor": "possibly stopped for coffee at Caffe Vita",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6017401,
-    "lng": -122.3212,
     "ts": "2026-08-14T20:28:18.477000+00:00",
-    "address": "860 Yesler Way",
-    "hood": "Yesler Terrace"
+    "lat": 47.6022,
+    "lng": -122.32099,
+    "street": "Broadway",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at Café Calaveras",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.6011073,
-    "lng": -122.3173481,
     "ts": "2026-08-14T20:29:33.981000+00:00",
-    "address": "125 Boren Avenue South",
-    "hood": "Yesler Terrace"
+    "lat": 47.59991,
+    "lng": -122.31833,
+    "street": "Yesler Hillclimb",
+    "hood": "Yesler Terrace",
+    "flavor": "possibly a bite at Tamarind Tree",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5992239,
-    "lng": -122.3143742,
     "ts": "2026-08-14T20:30:57.784000+00:00",
-    "address": "South Jackson Street",
-    "hood": "Little Saigon"
+    "lat": 47.59906,
+    "lng": -122.31301,
+    "street": "South Jackson Street",
+    "hood": "Little Saigon",
+    "flavor": "maybe browsing Texture",
+    "snapped": true,
+    "flavor_checked": true
   },
   {
-    "lat": 47.5991666,
-    "lng": -122.3027426,
     "ts": "2026-08-14T20:33:37.440000+00:00",
-    "address": "2201 South Jackson Street",
-    "hood": "Central District"
+    "lat": 47.59764,
+    "lng": -122.30329,
+    "street": "South Jackson Street",
+    "hood": "Central District",
+    "flavor": "maybe browsing Seattle Fish Guys",
+    "snapped": true,
+    "flavor_checked": true
   }
 ]

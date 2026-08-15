@@ -1,874 +1,797 @@
 {
-  "47.6656,-122.3732": {
-    "address": "Northwest 51st Street",
-    "hood": "Ballard"
-  },
-  "47.6328,-122.3409": {
-    "address": "1515 Westlake Avenue North",
-    "hood": "Westlake"
-  },
-  "47.6180,-122.3386": {
-    "address": "Westlake Avenue",
-    "hood": "Belltown"
-  },
-  "47.6111,-122.3392": {
-    "address": "Pine Street",
-    "hood": "Central Business District"
-  },
-  "47.6217,-122.3384": {
-    "address": "320 Westlake Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6253,-122.3383": {
-    "address": "609 Westlake Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6268,-122.3402": {
-    "address": "737 9th Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6285,-122.3407": {
-    "address": "Westlake Avenue North",
-    "hood": "Westlake"
-  },
-  "47.6307,-122.3409": {
-    "address": "Westlake Protected Bike Lane",
-    "hood": "Westlake"
-  },
-  "47.6355,-122.3402": {
-    "address": "Newton Street",
-    "hood": "Westlake"
-  },
-  "47.6383,-122.3409": {
-    "address": "2101 Westlake Avenue North",
-    "hood": "Westlake"
-  },
-  "47.6415,-122.3428": {
-    "address": "Westlake Protected Bike Lane",
-    "hood": "Fremont"
-  },
-  "47.6462,-122.3494": {
-    "address": "Cheshiahud Lake Union Loop",
-    "hood": "Fremont"
-  },
-  "47.6466,-122.3497": {
-    "address": "Cheshiahud Lake Union Loop",
-    "hood": "Fremont"
-  },
-  "47.6492,-122.3495": {
-    "address": "Fremont Avenue North",
-    "hood": "Fremont"
-  },
-  "47.6516,-122.3514": {
-    "address": "Evanston Avenue North",
-    "hood": "Fremont"
-  },
-  "47.6520,-122.3527": {
-    "address": "462 North 36th Street",
-    "hood": "Fremont"
-  },
-  "47.6522,-122.3542": {
-    "address": "402 North 36th Street",
-    "hood": "Fremont"
-  },
-  "47.6529,-122.3571": {
-    "address": "North 36th Street",
-    "hood": "Fremont"
-  },
-  "47.6533,-122.3580": {
-    "address": "106 Northwest 36th Street",
-    "hood": "Fremont"
-  },
-  "47.6532,-122.3583": {
-    "address": "100 Northwest 36th Street",
-    "hood": "Fremont"
-  },
-  "47.6538,-122.3598": {
-    "address": "3624 Leary Way Northwest",
-    "hood": "Fremont"
-  },
-  "47.6586,-122.3643": {
-    "address": "Leary Way Northwest",
-    "hood": "Fremont"
-  },
-  "47.6637,-122.3709": {
-    "address": "1100 Northwest Leary Way",
-    "hood": "Ballard"
-  },
-  "47.6637,-122.3727": {
-    "address": "1135 Northwest Leary Way",
-    "hood": "Ballard"
-  },
-  "47.6637,-122.3735": {
-    "address": "1148 Northwest Leary Way",
-    "hood": "Ballard"
-  },
-  "47.6636,-122.3772": {
-    "address": "1514 Northwest Leary Way",
-    "hood": "Ballard"
-  },
-  "47.6638,-122.3785": {
-    "address": "1546 Northwest Leary Way",
-    "hood": "Ballard"
-  },
-  "47.6654,-122.3791": {
-    "address": "Russell Avenue Northwest",
-    "hood": "Ballard"
-  },
-  "47.6684,-122.3841": {
-    "address": "5463 Leary Avenue Northwest",
-    "hood": "Ballard"
-  },
-  "47.6687,-122.3847": {
-    "address": "5506 22nd Avenue Northwest",
-    "hood": "Ballard"
-  },
-  "47.6687,-122.3874": {
-    "address": "Northwest Market Street",
-    "hood": "Ballard"
-  },
-  "47.6686,-122.3854": {
-    "address": "2213 Northwest Market Street",
-    "hood": "Ballard"
-  },
-  "47.6652,-122.3803": {
-    "address": "5109 Leary Avenue Northwest",
-    "hood": "Ballard"
-  },
-  "47.6636,-122.3756": {
-    "address": "1455 Northwest Leary Way",
-    "hood": "Ballard"
-  },
-  "47.6637,-122.3719": {
-    "address": "1119 Northwest Leary Way",
-    "hood": "Ballard"
-  },
-  "47.6609,-122.3667": {
-    "address": "4411 Leary Way Northwest",
-    "hood": "Phinney Ridge"
-  },
-  "47.6592,-122.3650": {
-    "address": "4300 Leary Way Northwest",
-    "hood": "Phinney Ridge"
-  },
-  "47.6504,-122.3501": {
-    "address": "3427 Fremont Place North",
-    "hood": "Fremont"
-  },
-  "47.6381,-122.3409": {
-    "address": "2101 Westlake Avenue North",
-    "hood": "Westlake"
-  },
-  "47.6328,-122.3408": {
-    "address": "1515 Westlake Avenue North",
-    "hood": "Westlake"
-  },
-  "47.6212,-122.3384": {
-    "address": "307 Westlake Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6087,-122.3365": {
-    "address": "301 Union Street",
-    "hood": "Central Business District"
-  },
-  "47.6301,-122.3409": {
-    "address": "Westlake Protected Bike Lane",
-    "hood": "Westlake"
-  },
-  "47.6306,-122.3404": {
-    "address": "1232 Westlake Avenue North",
-    "hood": "Westlake"
-  },
-  "47.6328,-122.3406": {
-    "address": "Westlake Avenue North",
-    "hood": "Westlake"
-  },
-  "47.6426,-122.3436": {
-    "address": "2520 Westlake Avenue North",
-    "hood": "Fremont"
-  },
-  "47.6682,-122.3856": {
-    "address": "Ballard Avenue Northwest",
-    "hood": "Ballard"
-  },
-  "47.6687,-122.3863": {
-    "address": "2232 Northwest Market Street",
-    "hood": "Ballard"
-  },
-  "47.4312,-121.4526": {
-    "address": "Denny Creek Trail",
-    "hood": null
-  },
-  "47.5511,-122.0523": {
-    "address": "1801 10th Avenue Northwest",
-    "hood": "Issaquah"
-  },
-  "47.6283,-122.3703": {
-    "address": "1030 Elliott Avenue West",
-    "hood": "Queen Anne"
-  },
-  "47.6685,-122.3848": {
-    "address": "2201 Northwest Market Street",
-    "hood": "Ballard"
-  },
-  "47.6585,-122.3131": {
-    "address": "1404 Northeast 42nd Street",
-    "hood": "Greek Row"
-  },
-  "47.6507,-122.3364": {
-    "address": "3604 Wallingford Avenue North",
-    "hood": "Wallingford"
-  },
-  "47.6505,-122.3350": {
-    "address": "1908 North 36th Street",
-    "hood": "Wallingford"
-  },
-  "47.6505,-122.3324": {
-    "address": "2205 North 36th Street",
-    "hood": "Wallingford"
-  },
-  "47.6508,-122.3313": {
-    "address": "2326 North Pacific Street",
-    "hood": "Wallingford"
-  },
-  "47.6544,-122.3269": {
-    "address": "101 Northeast Pacific Street",
-    "hood": "Wallingford"
-  },
-  "47.6554,-122.3233": {
-    "address": "598 Northeast Pacific Street",
-    "hood": "Wallingford"
-  },
-  "47.6546,-122.3225": {
-    "address": "Ship Canal Bridge",
-    "hood": "Eastlake"
-  },
-  "47.6536,-122.3169": {
-    "address": "Northeast Pacific Street",
-    "hood": "West Campus"
-  },
-  "47.6534,-122.3134": {
-    "address": "3899 University Way Northeast",
-    "hood": "West Campus"
-  },
-  "47.6560,-122.3021": {
-    "address": "1410 Northeast Campus Parkway",
-    "hood": "West Campus"
-  },
-  "47.6591,-122.3010": {
-    "address": "1410 Northeast Campus Parkway",
-    "hood": "West Campus"
-  },
-  "47.6601,-122.3009": {
-    "address": "1410 Northeast Campus Parkway",
-    "hood": "West Campus"
-  },
-  "47.6614,-122.3003": {
-    "address": "26th Avenue Northeast",
-    "hood": "University District"
-  },
-  "47.6174,-122.2003": {
-    "address": "10503 Northeast 8th Street",
-    "hood": "Bellevue"
-  },
-  "47.6199,-122.3183": {
-    "address": "201 11th Avenue East",
-    "hood": "Madison Valley"
-  },
-  "47.6199,-122.3138": {
-    "address": "1405 East John Street",
-    "hood": "Madison Valley"
-  },
-  "47.6199,-122.3132": {
-    "address": "1410 East John Street",
-    "hood": "Madison Valley"
-  },
-  "47.6204,-122.3127": {
-    "address": "202 15th Avenue East",
-    "hood": "Madison Valley"
-  },
-  "47.6205,-122.3124": {
-    "address": "201 16th Avenue East",
-    "hood": "Madison Valley"
-  },
-  "47.6205,-122.3078": {
-    "address": "1819 East Thomas Street",
-    "hood": "Madison Valley"
-  },
-  "47.6202,-122.3049": {
-    "address": "East Thomas Street",
-    "hood": "Madison Valley"
-  },
-  "47.6202,-122.3029": {
-    "address": "2214 East John Street",
-    "hood": "Madison Valley"
-  },
-  "47.6205,-122.3005": {
-    "address": "2416 East Madison Street",
-    "hood": "Madison Valley"
-  },
-  "47.6211,-122.2996": {
-    "address": "2501 East Madison Street",
-    "hood": "Madison Valley"
-  },
-  "47.6230,-122.2969": {
-    "address": "2709 East Madison Street",
-    "hood": "Madison Valley"
-  },
-  "47.6231,-122.2967": {
-    "address": "2719 East Madison Street",
-    "hood": "Madison Valley"
-  },
-  "47.6237,-122.2952": {
-    "address": "505 29th Avenue East",
-    "hood": "Madison Valley"
-  },
-  "47.6236,-122.2949": {
-    "address": "East Arthur Place",
-    "hood": "Madison Valley"
-  },
-  "47.6241,-122.2931": {
-    "address": "510 30th Avenue East",
-    "hood": "Madison Valley"
-  },
-  "47.6244,-122.2931": {
-    "address": "517 30th Avenue East",
-    "hood": "Madison Valley"
-  },
-  "47.7331,-122.2936": {
-    "address": "14332 32nd Avenue Northeast",
-    "hood": "Kenwood"
-  },
-  "47.7331,-122.2938": {
-    "address": "14340 32nd Avenue Northeast",
-    "hood": "Kenwood"
-  },
-  "47.7330,-122.2939": {
-    "address": "14340 32nd Avenue Northeast",
-    "hood": "Kenwood"
-  },
-  "47.6041,-122.3275": {
-    "address": "I 5",
-    "hood": "First Hill"
-  },
-  "47.4433,-122.3005": {
-    "address": "Skybridge 2",
-    "hood": "SeaTac"
-  },
-  "47.6492,-122.3389": {
-    "address": "1602 North 35th Street",
-    "hood": "Wallingford"
-  },
-  "47.4694,-122.3102": {
-    "address": "WA 518",
-    "hood": "SeaTac"
-  },
-  "47.5823,-122.3196": {
-    "address": "I 5",
-    "hood": "Beacon Hill"
-  },
-  "47.7324,-122.2920": {
-    "address": "14312 Lake City Way Northeast",
-    "hood": "Kenwood"
-  },
-  "47.6870,-122.3567": {
-    "address": "130 North 80th Street",
-    "hood": "Greenwood"
-  },
-  "47.6870,-122.3600": {
-    "address": "144 Northwest 80th Street",
-    "hood": "Greenwood"
-  },
-  "47.6905,-122.3321": {
-    "address": "2209 North 85th Street",
-    "hood": "Green Lake"
-  },
-  "47.4419,-122.2995": {
-    "address": "Departures Drive",
-    "hood": "SeaTac"
-  },
-  "47.4459,-122.2968": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4529,-122.3003": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4606,-122.2963": {
-    "address": "Seatac Rental Car Counter Entry",
-    "hood": "SeaTac"
-  },
-  "47.4658,-122.3005": {
-    "address": "WA 518",
-    "hood": "SeaTac"
-  },
-  "47.4704,-122.3133": {
-    "address": "WA 518",
-    "hood": "SeaTac"
-  },
-  "47.4700,-122.3266": {
-    "address": "WA 518",
-    "hood": "Highline"
-  },
-  "47.4744,-122.3300": {
-    "address": "WA 509",
-    "hood": "Highline"
-  },
-  "47.4833,-122.3272": {
-    "address": "WA 509",
-    "hood": "Highline"
-  },
-  "47.5132,-122.3278": {
-    "address": "WA 509",
-    "hood": "Seattle"
-  },
-  "47.5228,-122.3326": {
-    "address": "WA 509",
-    "hood": "Seattle"
-  },
-  "47.5328,-122.3345": {
-    "address": "WA 509",
-    "hood": "Georgetown"
-  },
-  "47.5416,-122.3345": {
-    "address": "1st Avenue South Bridge",
-    "hood": "Georgetown"
-  },
-  "47.5474,-122.3338": {
-    "address": "6191 East Marginal Way South",
-    "hood": "Georgetown"
-  },
-  "47.5516,-122.3360": {
-    "address": "5803 East Marginal Way South",
-    "hood": "Georgetown"
-  },
-  "47.5563,-122.3384": {
-    "address": "5055 East Marginal Way South",
-    "hood": "Georgetown"
-  },
-  "47.5599,-122.3394": {
-    "address": "4746 East Marginal Way South",
-    "hood": "Georgetown"
-  },
-  "47.5604,-122.3393": {
-    "address": "2 South Alaska Street",
-    "hood": "Georgetown"
-  },
-  "47.5635,-122.3393": {
-    "address": "4500 East Marginal Way South",
-    "hood": "Georgetown"
-  },
-  "47.5698,-122.3394": {
-    "address": "3660 East Marginal Way South",
-    "hood": "Delridge"
-  },
-  "47.5769,-122.3394": {
-    "address": "State Route 99",
-    "hood": "Seattle"
-  },
-  "47.5853,-122.3394": {
-    "address": "State Route 99",
-    "hood": "Yesler Terrace"
-  },
-  "47.5929,-122.3358": {
-    "address": "State Route 99",
-    "hood": "Yesler Terrace"
-  },
-  "47.6232,-122.3429": {
-    "address": "435 Dexter Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6231,-122.3427": {
-    "address": "435 Dexter Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6222,-122.3424": {
-    "address": "403 Dexter Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6209,-122.3424": {
-    "address": "234 Dexter Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6198,-122.3433": {
-    "address": "701 John Street",
-    "hood": "South Lake Union"
-  },
-  "47.6189,-122.3438": {
-    "address": "7th Avenue North",
-    "hood": "South Lake Union"
-  },
-  "47.6179,-122.3445": {
-    "address": "521 Wall Street",
-    "hood": "Belltown"
-  },
-  "47.6164,-122.3437": {
-    "address": "2326 5th Avenue",
-    "hood": "Belltown"
-  },
-  "47.6156,-122.3423": {
-    "address": "2211 5th Avenue",
-    "hood": "Belltown"
-  },
-  "47.6153,-122.3417": {
-    "address": "500 Blanchard Street",
-    "hood": "Belltown"
-  },
-  "47.6166,-122.3421": {
-    "address": "2229 6th Avenue",
-    "hood": "Belltown"
-  },
-  "47.6783,-122.3456": {
-    "address": "6826 Aurora Avenue North",
-    "hood": "Phinney Ridge"
-  },
-  "47.7232,-122.3466": {
-    "address": "931 North 130th Street",
-    "hood": "Haller Lake"
-  },
-  "47.7213,-122.3450": {
-    "address": "12553 Aurora Avenue North",
-    "hood": "Haller Lake"
-  },
-  "47.7200,-122.3450": {
-    "address": "12521 Aurora Avenue North",
-    "hood": "Haller Lake"
-  },
-  "47.7133,-122.3449": {
-    "address": "11601 Aurora Avenue North",
-    "hood": "Haller Lake"
-  },
-  "47.7091,-122.3448": {
-    "address": "Aurora Avenue North",
-    "hood": "Haller Lake"
-  },
-  "47.7053,-122.3448": {
-    "address": "10507 Aurora Avenue North",
-    "hood": "Greenwood"
-  },
-  "47.7039,-122.3448": {
-    "address": "10311 Aurora Avenue North",
-    "hood": "Greenwood"
-  },
-  "47.6982,-122.3447": {
-    "address": "9530 Aurora Avenue North",
-    "hood": "Greenwood"
-  },
-  "47.6918,-122.3446": {
-    "address": "8615 Aurora Avenue North",
-    "hood": "Greenwood"
-  },
-  "47.6875,-122.3446": {
-    "address": "8019 Aurora Avenue North",
-    "hood": "Greenwood"
-  },
-  "47.6822,-122.3445": {
-    "address": "7315 Aurora Avenue North",
-    "hood": "Greenwood"
-  },
-  "47.6638,-122.3474": {
-    "address": "4807 Aurora Avenue North",
-    "hood": "Phinney Ridge"
-  },
-  "47.6554,-122.3475": {
-    "address": "821 North 40th Street",
-    "hood": "Fremont"
-  },
-  "47.6542,-122.3496": {
-    "address": "703 North 39th Street",
-    "hood": "Fremont"
-  },
-  "47.6516,-122.3500": {
-    "address": "3600 Fremont Avenue North",
-    "hood": "Fremont"
-  },
-  "47.6501,-122.3470": {
-    "address": "909 North 35th Street",
-    "hood": "Fremont"
-  },
-  "47.6494,-122.3427": {
-    "address": "3425 Stone Way North",
-    "hood": "Fremont"
-  },
-  "47.6482,-122.3388": {
-    "address": "3401 Woodlawn Avenue North",
-    "hood": "Wallingford"
-  },
-  "47.6098,-122.3364": {
-    "address": "1423 4th Avenue",
-    "hood": "Central Business District"
-  },
-  "47.6189,-122.1965": {
-    "address": "10777 Northeast 10th Street",
-    "hood": "Bellevue"
-  },
-  "47.6144,-122.1800": {
-    "address": "12025 Northeast 5th Street",
-    "hood": "Midlakes"
-  },
-  "47.6130,-122.1851": {
-    "address": "Northeast 4th Street",
-    "hood": "Midlakes"
-  },
-  "47.6132,-122.1871": {
-    "address": "Northeast 4th Street",
-    "hood": "Midlakes"
-  },
-  "47.6133,-122.1875": {
-    "address": "Northeast 4th Street",
-    "hood": "Bellevue"
-  },
-  "47.6135,-122.1884": {
-    "address": "Northeast 4th Street",
-    "hood": "Bellevue"
-  },
-  "47.6093,-122.1886": {
-    "address": "105 114th Avenue Southeast",
-    "hood": "Bellevue"
-  },
-  "47.6018,-122.1832": {
-    "address": "I 405",
-    "hood": "Bellevue"
-  },
-  "47.5938,-122.1814": {
-    "address": "I 405",
-    "hood": "Bellevue"
-  },
-  "47.5844,-122.1772": {
-    "address": "I 405",
-    "hood": "Bellevue"
-  },
-  "47.5662,-122.1839": {
-    "address": "I 405",
-    "hood": "Bellevue"
-  },
-  "47.5574,-122.1899": {
-    "address": "I 405",
-    "hood": "Bellevue"
-  },
-  "47.5486,-122.1956": {
-    "address": "I 405",
-    "hood": "Bellevue"
-  },
-  "47.5409,-122.1953": {
-    "address": "I 405",
-    "hood": "Renton"
-  },
-  "47.5349,-122.1963": {
-    "address": "I 405",
-    "hood": "Renton"
-  },
-  "47.5297,-122.1980": {
-    "address": "I 405",
-    "hood": "Renton"
-  },
-  "47.5245,-122.1982": {
-    "address": "I 405",
-    "hood": "Renton"
-  },
-  "47.5166,-122.1985": {
-    "address": "I 405",
-    "hood": "Kennydale"
-  },
-  "47.5070,-122.1980": {
-    "address": "I 405",
-    "hood": "Renton"
-  },
-  "47.4974,-122.1946": {
-    "address": "I 405",
-    "hood": "Renton"
-  },
-  "47.4887,-122.1934": {
-    "address": "I 405",
-    "hood": "Renton"
-  },
-  "47.4802,-122.2008": {
-    "address": "Cedar River Trail",
-    "hood": "Renton"
-  },
-  "47.4714,-122.2047": {
-    "address": "I 405",
-    "hood": "Renton"
-  },
-  "47.4679,-122.2181": {
-    "address": "Valley Freeway",
-    "hood": "Renton"
-  },
-  "47.4672,-122.2331": {
-    "address": "Springbrook Trail",
-    "hood": "Renton"
-  },
-  "47.4636,-122.2465": {
-    "address": "I 405",
-    "hood": "Tukwila"
-  },
-  "47.4631,-122.2592": {
-    "address": "I 405",
-    "hood": "Tukwila"
-  },
-  "47.4627,-122.2682": {
-    "address": "WA 518",
-    "hood": "Tukwila"
-  },
-  "47.4659,-122.2759": {
-    "address": "WA 518",
-    "hood": "Tukwila"
-  },
-  "47.4631,-122.2846": {
-    "address": "WA 518",
-    "hood": "Tukwila"
-  },
-  "47.4624,-122.2952": {
-    "address": "WA 518",
-    "hood": "SeaTac"
-  },
-  "47.4565,-122.3007": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4525,-122.3007": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4512,-122.3006": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4495,-122.3001": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4491,-122.2995": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4488,-122.2993": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4484,-122.2987": {
-    "address": "Airport Expressway",
-    "hood": "SeaTac"
-  },
-  "47.4479,-122.2979": {
-    "address": "Departure Drive",
-    "hood": "SeaTac"
-  },
-  "47.4475,-122.2976": {
-    "address": "Departure Drive",
-    "hood": "SeaTac"
-  },
-  "47.4474,-122.2976": {
-    "address": "Departure Drive",
-    "hood": "SeaTac"
-  },
-  "47.4470,-122.2975": {
-    "address": "Departure Drive",
-    "hood": "SeaTac"
-  },
-  "47.4467,-122.2976": {
-    "address": "Departure Drive",
-    "hood": "SeaTac"
-  },
-  "47.4464,-122.2977": {
-    "address": "Departure Drive",
-    "hood": "SeaTac"
-  },
-  "47.4459,-122.2984": {
-    "address": "Departures Drive",
-    "hood": "SeaTac"
-  },
-  "47.4452,-122.2997": {
-    "address": "Departures Drive",
-    "hood": "SeaTac"
-  },
-  "47.4440,-122.3015": {
-    "address": "Departures Drive",
-    "hood": "SeaTac"
-  },
-  "47.4431,-122.3014": {
-    "address": "Air Cargo Road",
-    "hood": "SeaTac"
-  },
-  "47.6691,-122.3821": {
-    "address": "5512 20th Avenue Northwest",
-    "hood": "Ballard"
-  },
-  "47.5883,-122.3053": {
-    "address": "South Massachusetts Street",
-    "hood": "Beacon Hill"
-  },
-  "47.6699,-122.3901": {
-    "address": "5615 26th Avenue Northwest",
-    "hood": "Ballard"
-  },
-  "47.6694,-122.3880": {
-    "address": "2418 Northwest 56th Street",
-    "hood": "Ballard"
-  },
-  "47.6694,-122.3879": {
-    "address": "2418 Northwest 56th Street",
-    "hood": "Ballard"
-  },
-  "47.6629,-122.3779": {
-    "address": "1540 Northwest Ballard Way",
-    "hood": "Ballard"
-  },
-  "47.6175,-122.3573": {
-    "address": "3126 Elliott Avenue",
-    "hood": "Uptown"
-  },
-  "47.6134,-122.3495": {
-    "address": "2400 Elliott Avenue",
-    "hood": "Belltown"
-  },
-  "47.6134,-122.3506": {
-    "address": "2501 Elliott Avenue",
-    "hood": "Belltown"
-  },
-  "47.6106,-122.3448": {
-    "address": "2003 Western Avenue",
-    "hood": "West Edge"
-  },
-  "47.6051,-122.3392": {
-    "address": "1200 Alaskan Way",
-    "hood": "West Edge"
-  },
-  "47.6051,-122.3375": {
-    "address": "1099 Post Avenue",
-    "hood": "West Edge"
-  },
-  "47.6050,-122.3347": {
-    "address": "2nd Avenue Cycletrack",
-    "hood": "West Edge"
-  },
-  "47.6022,-122.3322": {
-    "address": "520 2nd Avenue",
-    "hood": "West Edge"
-  },
-  "47.6017,-122.3307": {
-    "address": "221 Yesler Way",
-    "hood": "First Hill"
-  },
-  "47.6017,-122.3258": {
-    "address": "609 Yesler Way",
-    "hood": "Japantown"
-  },
-  "47.6017,-122.3212": {
-    "address": "860 Yesler Way",
-    "hood": "Yesler Terrace"
-  },
-  "47.6011,-122.3173": {
-    "address": "125 Boren Avenue South",
-    "hood": "Yesler Terrace"
-  },
-  "47.5992,-122.3144": {
-    "address": "South Jackson Street",
-    "hood": "Little Saigon"
-  },
-  "47.5992,-122.3027": {
-    "address": "2201 South Jackson Street",
-    "hood": "Central District"
+  "47.66580,-122.37480": {
+    "street": "14th Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "perhaps a pint at Great Notion"
+  },
+  "47.63160,-122.33700": {
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "a corner-store run at Metropolitan"
+  },
+  "47.61900,-122.33970": {
+    "street": "Denny Way",
+    "hood": "South Lake Union",
+    "flavor": "maybe a quick bite at Einstein Bros. Bagels"
+  },
+  "47.61360,-122.33970": {
+    "street": "3rd Avenue",
+    "hood": "Central Business District",
+    "flavor": "possibly a bite at Neb Wine Bar"
+  },
+  "47.62080,-122.33970": {
+    "street": "8th Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "possibly a bite at Papa poy-yo"
+  },
+  "47.62620,-122.33430": {
+    "street": "Fairview Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "lying low near Staybridge Suites - South Lake Union"
+  },
+  "47.62620,-122.33700": {
+    "street": "Valley Street",
+    "hood": "South Lake Union",
+    "flavor": "possibly a bite at Buca di Beppo"
+  },
+  "47.62620,-122.33970": {
+    "street": "9th Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "perhaps a drink at Art Marble 21"
+  },
+  "47.63340,-122.33970": {
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "maybe browsing Hurtigruten"
+  },
+  "47.63880,-122.34240": {
+    "street": "Westlake Avenue North",
+    "hood": "Westlake",
+    "flavor": "a corner-store run at Westlake Deli & Grocery"
+  },
+  "47.64240,-122.34510": {
+    "street": "Dexter Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Discount Divers"
+  },
+  "47.64600,-122.35320": {
+    "street": "Mayfair Avenue North",
+    "hood": "Fremont",
+    "flavor": "seen loitering near Queen Anne Elks Lodge #92"
+  },
+  "47.64960,-122.34780": {
+    "street": "North 35th Street",
+    "hood": "Fremont",
+    "flavor": "maybe a quick bite at Just Burgers"
+  },
+  "47.65140,-122.35320": {
+    "street": "North 36th Street",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Charlie's Queer Books"
+  },
+  "47.65140,-122.35050": {
+    "street": "Evanston Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing FedEx Office"
+  },
+  "47.65320,-122.35320": {
+    "street": "Francis Avenue North",
+    "hood": "Fremont",
+    "flavor": "possibly a bite at Kaosamai"
+  },
+  "47.65320,-122.35590": {
+    "street": "Palatine Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing EarthWise Pet"
+  },
+  "47.66040,-122.36400": {
+    "street": "Northwest Bright Street",
+    "hood": "Phinney Ridge",
+    "flavor": "possibly a bite at Big Mario's Pizza"
+  },
+  "47.66400,-122.37480": {
+    "street": "Northwest Ballard Way",
+    "hood": "Ballard",
+    "flavor": "possibly stopped for coffee at Top Pot Doughnuts"
+  },
+  "47.66400,-122.37750": {
+    "street": "Northwest Leary Way",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Miller Paint"
+  },
+  "47.66400,-122.38020": {
+    "street": "Northwest 48th Street",
+    "hood": "Ballard",
+    "flavor": "possibly shopping at Soft Goods Vintage & Retail"
+  },
+  "47.66760,-122.37750": {
+    "street": "Northwest 53rd Street",
+    "hood": "Ballard",
+    "flavor": "maybe browsing American Mary Cannabis"
+  },
+  "47.66940,-122.38020": {
+    "street": "Northwest Market Street",
+    "hood": "Ballard",
+    "flavor": "maybe browsing All The Best Pet Care"
+  },
+  "47.66760,-122.38290": {
+    "street": "Leary Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "possibly a bite at Strega Pizzeria"
+  },
+  "47.67120,-122.38830": {
+    "street": "Northwest 57th Street",
+    "hood": "Ballard",
+    "flavor": "seen loitering near Little Free Library"
+  },
+  "47.65860,-122.36670": {
+    "street": "Burke-Gilman Trail",
+    "hood": "Fremont",
+    "flavor": "maybe browsing Herc Rentals"
+  },
+  "47.62260,-122.33970": {
+    "street": "9th Avenue North",
+    "hood": "South Lake Union",
+    "flavor": "maybe grabbed a pastry at Fresh Flours"
+  },
+  "47.60820,-122.33430": {
+    "street": "4th Avenue Cycletrack",
+    "hood": "Central Business District",
+    "flavor": "possibly stopped for coffee at Caffe Migliore"
+  },
+  "47.62800,-122.34240": {
+    "street": "8th Avenue North",
+    "hood": "Westlake",
+    "flavor": "maybe a workout at KMS"
+  },
+  "47.66760,-122.38830": {
+    "street": "24th Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "perhaps a pint at Cloudburst on Shilshole"
+  },
+  "47.43180,-121.45410": {
+    "street": "Denny Creek Trail",
+    "hood": null,
+    "flavor": null
+  },
+  "47.55060,-122.05080": {
+    "street": "Northwest Sammamish Road",
+    "hood": "Issaquah",
+    "flavor": "maybe browsing Costco"
+  },
+  "47.62800,-122.37210": {
+    "street": "Alaskan Way West",
+    "hood": "Queen Anne",
+    "flavor": "taking a stroll through Centennial Park"
+  },
+  "47.66040,-122.31540": {
+    "street": "Brooklyn Avenue Northeast",
+    "hood": "Greek Row",
+    "flavor": "taking a stroll through Building Park"
+  },
+  "47.64960,-122.33700": {
+    "street": "Wallingford Avenue North",
+    "hood": "Wallingford",
+    "flavor": "maybe browsing Lilt Salon"
+  },
+  "47.65140,-122.33430": {
+    "street": "Burke Avenue North",
+    "hood": "Wallingford",
+    "flavor": "maybe browsing Lilt Salon"
+  },
+  "47.64780,-122.33430": {
+    "street": "North Pacific Street",
+    "hood": "Wallingford",
+    "flavor": "possibly stopped for coffee at Mas Café"
+  },
+  "47.65140,-122.32890": {
+    "street": "North Pacific Street",
+    "hood": "Wallingford",
+    "flavor": "perhaps a drink at Gasworks Brewing"
+  },
+  "47.65500,-122.32890": {
+    "street": "Eastern Avenue North",
+    "hood": "Wallingford",
+    "flavor": "possibly a bite at The Wayland Mill"
+  },
+  "47.65680,-122.32350": {
+    "street": "5th Avenue Northeast",
+    "hood": "University District",
+    "flavor": "possibly a bite at Voula's Offshore Cafe"
+  },
+  "47.65320,-122.31540": {
+    "street": "Brooklyn Avenue Northeast",
+    "hood": "West Campus",
+    "flavor": "seen loitering near D"
+  },
+  "47.65500,-122.31000": {
+    "street": "West Stevens Way Northeast",
+    "hood": "Central Campus",
+    "flavor": "possibly stopped for coffee at Starbucks"
+  },
+  "47.65500,-122.30190": {
+    "street": "Walla Walla Road Northeast",
+    "hood": "East Campus",
+    "flavor": "maybe a workout at IMA Building"
+  },
+  "47.65860,-122.30190": {
+    "street": "Northeast Campus Parkway",
+    "hood": "West Campus",
+    "flavor": "grazing the food court at Center Table"
+  },
+  "47.66040,-122.29920": {
+    "street": "Northeast 45th Street",
+    "hood": "University District",
+    "flavor": "possibly a bite at Joey"
+  },
+  "47.66220,-122.30190": {
+    "street": "Northeast Campus Parkway",
+    "hood": "West Campus",
+    "flavor": "maybe browsing UW Surplus"
+  },
+  "47.61900,-122.19930": {
+    "street": "106th Avenue Northeast",
+    "hood": "Bellevue",
+    "flavor": "possibly a bite at Suite"
+  },
+  "47.61900,-122.31540": {
+    "street": "13th Avenue",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at Kemi Dessert Bar"
+  },
+  "47.62080,-122.31000": {
+    "street": "16th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "maybe browsing Talking Tree Massage & Bodywork"
+  },
+  "47.62260,-122.30190": {
+    "street": "23rd Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "taking a stroll through Prentis I. Frazier Park"
+  },
+  "47.61900,-122.29920": {
+    "street": "25th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at Yeobo Cafe and Bar"
+  },
+  "47.62260,-122.29920": {
+    "street": "27th Avenue East",
+    "hood": "Madison Valley",
+    "flavor": "possibly a bite at The Harvest Vine"
+  },
+  "47.62260,-122.29650": {
+    "street": "East Madison Street",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at I Love Boba"
+  },
+  "47.62620,-122.29380": {
+    "street": "Lake Washington Boulevard East",
+    "hood": "Washington Park",
+    "flavor": "possibly a bite at Pagliacci Pizza"
+  },
+  "47.73240,-122.29650": {
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "flavor": "taking a stroll through Little Brook Park"
+  },
+  "47.60280,-122.32620": {
+    "street": "6th Avenue",
+    "hood": "First Hill",
+    "flavor": "possibly a bite at Deli Cut Subs"
+  },
+  "47.44080,-122.29920": {
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "perhaps a drink at United Club"
+  },
+  "47.64960,-122.34240": {
+    "street": "North 34th Street",
+    "hood": "Fremont",
+    "flavor": "trying on shoes at Brooks Trailhead"
+  },
+  "47.46780,-122.31000": {
+    "street": "WA 518",
+    "hood": "SeaTac",
+    "flavor": null
+  },
+  "47.58120,-122.32080": {
+    "street": "Airport Way South",
+    "hood": "Beacon Hill",
+    "flavor": "maybe browsing Duke's Truck Repair"
+  },
+  "47.73060,-122.28840": {
+    "street": "37th Avenue Northeast",
+    "hood": "Lake City",
+    "flavor": "maybe browsing Mobile Electrical Distributors"
+  },
+  "47.68920,-122.35320": {
+    "street": "North 83rd Street",
+    "hood": "Greenwood",
+    "flavor": "seen loitering near Dabble"
+  },
+  "47.68740,-122.36400": {
+    "street": "6th Avenue Northwest",
+    "hood": "Greenwood",
+    "flavor": "seen loitering near Avast! Recording Company"
+  },
+  "47.69280,-122.33430": {
+    "street": "North 88th Street",
+    "hood": "Green Lake",
+    "flavor": null
+  },
+  "47.44620,-122.29380": {
+    "street": "30th Avenue South",
+    "hood": "SeaTac",
+    "flavor": "lying low near SureStay"
+  },
+  "47.45340,-122.30190": {
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": null
+  },
+  "47.46060,-122.29920": {
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "seen loitering near FedEx Express"
+  },
+  "47.46420,-122.29650": {
+    "street": "WA 518",
+    "hood": "SeaTac",
+    "flavor": null
+  },
+  "47.46960,-122.31540": {
+    "street": "WA 518",
+    "hood": "SeaTac",
+    "flavor": "taking a stroll through Pacwest Little League"
+  },
+  "47.46780,-122.32350": {
+    "street": "South 150th Street",
+    "hood": "Burien",
+    "flavor": "taking a stroll through Mathison Park"
+  },
+  "47.47680,-122.32890": {
+    "street": "5th Avenue South",
+    "hood": "Highline",
+    "flavor": "a grocery run at Fred Meyer"
+  },
+  "47.48400,-122.32890": {
+    "street": "4th Avenue South",
+    "hood": "Burien",
+    "flavor": null
+  },
+  "47.51460,-122.32890": {
+    "street": "Myers Way South",
+    "hood": "Top Hat",
+    "flavor": "seen loitering near Myers Parcels"
+  },
+  "47.52180,-122.32890": {
+    "street": "4th Avenue South",
+    "hood": "Seattle",
+    "flavor": "taking a stroll through Marra-Desimone Park"
+  },
+  "47.53440,-122.33430": {
+    "street": "South Kenyon Street",
+    "hood": "Georgetown",
+    "flavor": "maybe browsing Fire King of Seattle"
+  },
+  "47.53980,-122.33430": {
+    "street": "1st Avenue South Bridge",
+    "hood": "Georgetown",
+    "flavor": "taking a stroll through Terminal 115 Park"
+  },
+  "47.54700,-122.33160": {
+    "street": "East Marginal Way South",
+    "hood": "Georgetown",
+    "flavor": "maybe browsing Grainger"
+  },
+  "47.55420,-122.33970": {
+    "street": "Ohio Avenue South",
+    "hood": "Georgetown",
+    "flavor": "possibly stopped for coffee at LadyBug Espresso"
+  },
+  "47.55780,-122.33970": {
+    "street": "East Marginal Way South",
+    "hood": "Georgetown",
+    "flavor": "possibly a bite at Hudson"
+  },
+  "47.56500,-122.34240": {
+    "street": "South Idaho Street",
+    "hood": "Georgetown",
+    "flavor": "maybe browsing Emerald City Pet Rescue & Store"
+  },
+  "47.57220,-122.33970": {
+    "street": "West Seattle Bridge",
+    "hood": "Seattle",
+    "flavor": "seen loitering near Lawless Forge"
+  },
+  "47.57940,-122.33970": {
+    "street": "State Route 99",
+    "hood": "Seattle",
+    "flavor": "maybe browsing The Home Depot"
+  },
+  "47.58660,-122.34240": {
+    "street": "Alaskan Way South",
+    "hood": "Yesler Terrace",
+    "flavor": "taking a stroll through Jack Perry Memorial Park"
+  },
+  "47.59200,-122.33970": {
+    "street": "Alaskan Way South",
+    "hood": "Yesler Terrace",
+    "flavor": "possibly at the museum, Coast Guard Museum Northwest"
+  },
+  "47.62260,-122.34510": {
+    "street": "State Route 99",
+    "hood": "South Lake Union",
+    "flavor": "possibly stopped for coffee at Panino"
+  },
+  "47.61720,-122.34240": {
+    "street": "Belltown",
+    "hood": "Belltown",
+    "flavor": "possibly stopped for coffee at Corner Stone Cafe & Deli"
+  },
+  "47.61900,-122.34780": {
+    "street": "Denny Way",
+    "hood": "South Lake Union",
+    "flavor": "maybe a workout at Transform 180"
+  },
+  "47.61540,-122.34240": {
+    "street": "Bell Street",
+    "hood": "Belltown",
+    "flavor": "maybe a workout at Orangetheory Fitness"
+  },
+  "47.67660,-122.34510": {
+    "street": "Green Lake Trail",
+    "hood": "Phinney Ridge",
+    "flavor": "possibly a bite at Bongos Caribbean Cafe"
+  },
+  "47.72340,-122.35050": {
+    "street": "North 130th Street",
+    "hood": "Broadview",
+    "flavor": "seen loitering near Bitter Lake Community Center"
+  },
+  "47.72160,-122.34240": {
+    "street": "Stone Avenue North",
+    "hood": "Haller Lake",
+    "flavor": "seen loitering near North Household Hazardous Waste Facility"
+  },
+  "47.71980,-122.34780": {
+    "street": "Aurora Avenue North",
+    "hood": "Haller Lake",
+    "flavor": "maybe browsing Lowe's"
+  },
+  "47.71260,-122.34780": {
+    "street": "Interurban Trail",
+    "hood": "Broadview",
+    "flavor": "maybe browsing K-Smoke Mart"
+  },
+  "47.70900,-122.34240": {
+    "street": "North 110th Street",
+    "hood": "Haller Lake",
+    "flavor": "maybe browsing Seattle Surgical Repair"
+  },
+  "47.70540,-122.34240": {
+    "street": "Midvale Avenue North",
+    "hood": "Haller Lake",
+    "flavor": "maybe browsing Lomi Spa"
+  },
+  "47.70540,-122.34510": {
+    "street": "North 105th Street",
+    "hood": "Greenwood",
+    "flavor": "maybe browsing Easy Smoke & Market"
+  },
+  "47.69820,-122.34780": {
+    "street": "Linden Avenue North",
+    "hood": "Greenwood",
+    "flavor": "seen loitering near Music Center of the Northwest"
+  },
+  "47.69280,-122.34510": {
+    "street": "Aurora Avenue North",
+    "hood": "Greenwood",
+    "flavor": "maybe browsing Seattle Fabrics"
+  },
+  "47.68560,-122.34240": {
+    "street": "Stone Avenue North",
+    "hood": "Greenwood",
+    "flavor": "maybe browsing Dollar Tree"
+  },
+  "47.68380,-122.34510": {
+    "street": "North 75th Street",
+    "hood": "Greenwood",
+    "flavor": "maybe browsing Triumph of Seattle"
+  },
+  "47.66580,-122.35050": {
+    "street": "North 50th Street",
+    "hood": "Phinney Ridge",
+    "flavor": "taking a stroll through Rose Garden"
+  },
+  "47.65320,-122.34780": {
+    "street": "Winslow Place North",
+    "hood": "Fremont",
+    "flavor": "possibly a bite at Kamonegi"
+  },
+  "47.65320,-122.35050": {
+    "street": "Evanston Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe browsing FedEx Office"
+  },
+  "47.64780,-122.35050": {
+    "street": "Fremont Avenue North",
+    "hood": "Fremont",
+    "flavor": "maybe a workout at Anytime Fitness"
+  },
+  "47.65140,-122.33970": {
+    "street": "North 36th Street",
+    "hood": "Fremont",
+    "flavor": "seen loitering near Max & Bennett’s Trading Stop"
+  },
+  "47.64960,-122.33970": {
+    "street": "North 34th Street",
+    "hood": "Fremont",
+    "flavor": "seen loitering near Affinity Marina"
+  },
+  "47.61720,-122.19660": {
+    "street": "108th Avenue Northeast",
+    "hood": "Bellevue",
+    "flavor": "perhaps a drink at Sam’s Tavern"
+  },
+  "47.61360,-122.17770": {
+    "street": "Northeast 3rd Place",
+    "hood": "Midlakes",
+    "flavor": "maybe browsing The Home Depot"
+  },
+  "47.61180,-122.18580": {
+    "street": "Northeast 2nd Place",
+    "hood": "Midlakes",
+    "flavor": "maybe browsing Olson's Tack Shop"
+  },
+  "47.61360,-122.18580": {
+    "street": "Northeast 4th Street",
+    "hood": "Midlakes",
+    "flavor": "a grocery run at Trader Joe's"
+  },
+  "47.61000,-122.18580": {
+    "street": "116th Avenue Northeast",
+    "hood": "Midlakes",
+    "flavor": "possibly a bite at Kura Sushi"
+  },
+  "47.60100,-122.18040": {
+    "street": "Eastrail",
+    "hood": "Bellevue",
+    "flavor": "maybe browsing Aqua Quip"
+  },
+  "47.59380,-122.17770": {
+    "street": "Southeast 19th Street",
+    "hood": "Norwood Village",
+    "flavor": "taking a stroll through Woodridge Water Tower Park"
+  },
+  "47.58480,-122.18040": {
+    "street": "118th Avenue Southeast",
+    "hood": "Bellevue",
+    "flavor": null
+  },
+  "47.56680,-122.18040": {
+    "street": "I 405",
+    "hood": "Bellevue",
+    "flavor": null
+  },
+  "47.55780,-122.19390": {
+    "street": "Lakehurst Lane",
+    "hood": "Newport Shores",
+    "flavor": null
+  },
+  "47.55060,-122.19390": {
+    "street": "I 405",
+    "hood": "Bellevue",
+    "flavor": null
+  },
+  "47.54340,-122.19930": {
+    "street": "Ripley Lane Southeast",
+    "hood": "Renton",
+    "flavor": null
+  },
+  "47.53440,-122.19930": {
+    "street": "Eastrail",
+    "hood": "Renton",
+    "flavor": "maybe a workout at Virginia Mason Athletic Center"
+  },
+  "47.52900,-122.19930": {
+    "street": "Meadow Avenue North",
+    "hood": "Kennydale",
+    "flavor": null
+  },
+  "47.52180,-122.19930": {
+    "street": "North 34th Street",
+    "hood": "Kennydale",
+    "flavor": "a corner-store run at Food Mart"
+  },
+  "47.51820,-122.20200": {
+    "street": "North 30th Street",
+    "hood": "Kennydale",
+    "flavor": "a corner-store run at 7-Eleven"
+  },
+  "47.50740,-122.19660": {
+    "street": "Jones Avenue Northeast",
+    "hood": "Kennydale",
+    "flavor": "maybe a quick bite at Kidd Valley"
+  },
+  "47.49660,-122.19660": {
+    "street": "Houser Way North",
+    "hood": "North Renton",
+    "flavor": "maybe browsing Platt"
+  },
+  "47.48760,-122.19660": {
+    "street": "North 4th Street",
+    "hood": "North Renton",
+    "flavor": "maybe browsing Miller Paint"
+  },
+  "47.48040,-122.20470": {
+    "street": "South 2nd Street",
+    "hood": "Renton",
+    "flavor": "maybe browsing Ben's Loan"
+  },
+  "47.46960,-122.20470": {
+    "street": "I 405",
+    "hood": "Renton",
+    "flavor": "maybe browsing Home Depot"
+  },
+  "47.46780,-122.22090": {
+    "street": "Southwest 13th Street",
+    "hood": "Renton",
+    "flavor": "seen loitering near Sin Rock Club"
+  },
+  "47.46600,-122.23710": {
+    "street": "I 405",
+    "hood": "Renton",
+    "flavor": "a corner-store run at Grady Way Shell #392"
+  },
+  "47.46420,-122.24790": {
+    "street": "I 405",
+    "hood": "Tukwila",
+    "flavor": "lying low near Extended Stay America"
+  },
+  "47.46060,-122.25870": {
+    "street": "Tukwila Parkway",
+    "hood": "Tukwila",
+    "flavor": "possibly stopped for coffee at 85°C Bakery Cafe"
+  },
+  "47.46060,-122.26950": {
+    "street": "51st Avenue South",
+    "hood": "Tukwila",
+    "flavor": "taking a stroll through Crystal Springs Park"
+  },
+  "47.46780,-122.27490": {
+    "street": "South 150th Street",
+    "hood": "Tukwila",
+    "flavor": null
+  },
+  "47.46060,-122.28300": {
+    "street": "South 158th Street",
+    "hood": "Tukwila",
+    "flavor": null
+  },
+  "47.46240,-122.29920": {
+    "street": "South 160th Street",
+    "hood": "SeaTac",
+    "flavor": "seen loitering near FedEx Express"
+  },
+  "47.45520,-122.30190": {
+    "street": "South 166th Street",
+    "hood": "SeaTac",
+    "flavor": null
+  },
+  "47.44980,-122.30190": {
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Skillet"
+  },
+  "47.44980,-122.29920": {
+    "street": "Cell Phone Lot",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Denny's"
+  },
+  "47.44800,-122.30190": {
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Bad Egg Breakfast Bar"
+  },
+  "47.44800,-122.29920": {
+    "street": "Airport Expressway",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Denny's"
+  },
+  "47.44440,-122.29920": {
+    "street": "Arrivals Drive",
+    "hood": "SeaTac",
+    "flavor": "possibly stopped for coffee at Neighborhood Bubble Tea and Coffee"
+  },
+  "47.44260,-122.30190": {
+    "street": "Arrivals Drive",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Convenience Store"
+  },
+  "47.44260,-122.30460": {
+    "street": "Air Cargo Road",
+    "hood": "SeaTac",
+    "flavor": "possibly a bite at Rel'lish Burger Lounge"
+  },
+  "47.66760,-122.38020": {
+    "street": "Tallman Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "possibly a bite at Monkey Bridge"
+  },
+  "47.58840,-122.30190": {
+    "street": "South Massachusetts Street",
+    "hood": "Beacon Hill",
+    "flavor": "taking a stroll through Seattle Children's Playgarden"
+  },
+  "47.67120,-122.39100": {
+    "street": "Northwest 57th Street",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Western Fire & Safety"
+  },
+  "47.66220,-122.38020": {
+    "street": "Shilshole Avenue Northwest",
+    "hood": "Ballard",
+    "flavor": "maybe browsing Canvas Supply Company"
+  },
+  "47.61720,-122.35590": {
+    "street": "Elliott Avenue",
+    "hood": "Uptown",
+    "flavor": "possibly a bite at Me Dor"
+  },
+  "47.61180,-122.35050": {
+    "street": "Alaskan Way",
+    "hood": "Belltown",
+    "flavor": "seen loitering near Bell Harbor International Conference Center"
+  },
+  "47.60820,-122.34510": {
+    "street": "Alaskan Way",
+    "hood": "West Edge",
+    "flavor": "taking a stroll through Pier 62"
+  },
+  "47.60280,-122.34240": {
+    "street": "Colman Dock",
+    "hood": "West Edge",
+    "flavor": "taking a stroll through Waterfront Park"
+  },
+  "47.60460,-122.33430": {
+    "street": "West Edge",
+    "hood": "West Edge",
+    "flavor": "maybe browsing Mosaic Salon & Spa"
+  },
+  "47.60460,-122.33160": {
+    "street": "4th Avenue",
+    "hood": "West Edge",
+    "flavor": "possibly stopped for coffee at Belle Epicurean"
+  },
+  "47.60280,-122.32890": {
+    "street": "4th Avenue",
+    "hood": "First Hill",
+    "flavor": "seen loitering near Seattle City Hall"
+  },
+  "47.60100,-122.32890": {
+    "street": "4th Avenue South",
+    "hood": "First Hill",
+    "flavor": "possibly stopped for coffee at Caffe Vita"
+  },
+  "47.60280,-122.32080": {
+    "street": "Broadway",
+    "hood": "Madison Valley",
+    "flavor": "possibly stopped for coffee at Café Calaveras"
+  },
+  "47.59920,-122.31810": {
+    "street": "Yesler Hillclimb",
+    "hood": "Yesler Terrace",
+    "flavor": "possibly a bite at Tamarind Tree"
+  },
+  "47.59920,-122.31270": {
+    "street": "South Jackson Street",
+    "hood": "Little Saigon",
+    "flavor": "maybe browsing Texture"
+  },
+  "47.59740,-122.30460": {
+    "street": "South Jackson Street",
+    "hood": "Central District",
+    "flavor": "maybe browsing Seattle Fish Guys"
   }
 }
