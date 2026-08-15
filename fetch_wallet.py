@@ -47,7 +47,9 @@ JITTER_METERS = float(os.environ.get("JITTER_METERS") or "0")
 
 LAT_KEYS = ("latitude", "lat")
 LNG_KEYS = ("longitude", "lng", "lon", "long")
-TS_KEYS = ("timestamp", "logged_timestamp", "end_timestamp", "ts", "time", "logged_ts")
+# Tile uses "location_timestamp"; the others are fallbacks for safety.
+TS_KEYS = ("location_timestamp", "timestamp", "logged_timestamp",
+           "end_timestamp", "ts", "time", "logged_ts")
 
 
 # ---------- small helpers ----------
