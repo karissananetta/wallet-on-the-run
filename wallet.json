@@ -2336,5 +2336,13 @@
     "street": "North 36th Street",
     "hood": "Fremont",
     "snapped": true
+  },
+  {
+    "ts": "2026-08-16T15:12:32.870000+00:00",
+    "lat": 47.73257,
+    "lng": -122.29583,
+    "street": "30th Avenue Northeast",
+    "hood": "Kenwood",
+    "snapped": true
   }
 ]
