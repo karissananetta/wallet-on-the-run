@@ -793,5 +793,9 @@
     "street": "South Jackson Street",
     "hood": "Central District",
     "flavor": "maybe browsing Seattle Fish Guys"
+  },
+  "47.67480,-122.38290": {
+    "street": "Northwest 64th Street",
+    "hood": "Ballard"
   }
 }

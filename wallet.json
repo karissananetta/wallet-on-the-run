@@ -2352,5 +2352,13 @@
     "street": "30th Avenue Northeast",
     "hood": "Kenwood",
     "snapped": true
+  },
+  {
+    "ts": "2026-08-17T18:50:53.771000+00:00",
+    "lat": 47.67548,
+    "lng": -122.38398,
+    "street": "Northwest 64th Street",
+    "hood": "Ballard",
+    "snapped": true
   }
 ]
