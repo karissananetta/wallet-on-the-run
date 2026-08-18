@@ -797,5 +797,9 @@
   "47.67480,-122.38290": {
     "street": "Northwest 64th Street",
     "hood": "Ballard"
+  },
+  "47.63520,-122.34510": {
+    "street": "Aurora Avenue North",
+    "hood": "Belltown"
   }
 }

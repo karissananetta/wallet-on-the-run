@@ -2360,5 +2360,13 @@
     "street": "Northwest 64th Street",
     "hood": "Ballard",
     "snapped": true
+  },
+  {
+    "ts": "2026-08-18T03:32:22.323000+00:00",
+    "lat": 47.63454,
+    "lng": -122.3439,
+    "street": "Aurora Avenue North",
+    "hood": "Belltown",
+    "snapped": true
   }
 ]
