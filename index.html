@@ -338,7 +338,7 @@ function render(raw){
   // heat bloom underneath (Look B) — grows as the reveal plays
   let heat=null;
   if(L.heatLayer){
-    heat=L.heatLayer([],{radius:26,blur:22,minOpacity:.12,max:Math.max(3,maxCount),
+    heat=L.heatLayer([],{radius:15,blur:20,minOpacity:.06,max:Math.max(4,maxCount*1.6),
       gradient:{0.15:'rgba(244,166,76,.0)',0.4:'rgba(240,112,60,.5)',0.75:'#F0703C',1:'#FFE0B0'}}).addTo(map);
   }
 
@@ -355,12 +355,12 @@ function render(raw){
 
   // ---- constellation markers (Look A), revealed in time order ----
   const byFirst=chrono;
-  const radiusFor=s=>4+Math.sqrt(s.count/maxCount)*16;   // dwell -> size
+  const radiusFor=s=>2.5+Math.sqrt(s.count/maxCount)*7;   // dwell -> size (small & tidy)
   function place(s,animate){
     const col=rampColor((+new Date(s.firstTs)-tMin)/((tMax-tMin)||1));
     const target=radiusFor(s);
-    const m=L.circleMarker([s.lat,s.lng],{radius:animate?0:target,color:col,weight:1,
-      fillColor:col,fillOpacity:.75,opacity:.9}).addTo(map);
+    const m=L.circleMarker([s.lat,s.lng],{radius:animate?0:target,color:col,weight:0.5,
+      fillColor:col,fillOpacity:.6,opacity:.55}).addTo(map);
     m.bindPopup(`<b>${s.addr||s.hood||'Somewhere'}</b>${s.hood?`<br>${s.hood}`:''}`+
       `<br><i>${flavorOf(s,s===latestStop)}</i><br>${fmtDate(s.firstTs)} · ${s.count} ping${s.count>1?'s':''}`);
     if(heat) heat.addLatLng([s.lat,s.lng,s.count]);
