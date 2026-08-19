@@ -90,6 +90,27 @@
   .entry .flavor{color:var(--signal);font-family:var(--mono);font-size:12.5px;margin-top:6px;opacity:.9}
   @media(max-width:560px){.entry{grid-template-columns:1fr;gap:6px}.entry .when{order:2}}
   .more{font-family:var(--mono);font-size:12px;color:var(--dim);padding:18px 0 0;border-top:1px solid var(--line)}
+  .showmore{margin:22px auto 0;display:block;background:transparent;color:var(--signal);
+    border:1px solid var(--line);border-radius:999px;font-family:var(--mono);font-size:12px;
+    letter-spacing:.08em;text-transform:uppercase;padding:10px 22px;cursor:pointer;transition:border-color .2s,color .2s}
+  .showmore:hover{border-color:var(--signal);color:var(--text)}
+
+  .facts{margin:52px 0 20px}
+  .facts > h2{font-family:var(--mono);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:0 0 20px}
+  .numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  .numbers .cell{background:var(--panel);padding:18px 16px}
+  .numbers .big{font-family:var(--mono);font-weight:700;font-size:clamp(22px,4.6vw,30px);line-height:1;color:var(--text)}
+  .numbers .big.hot{color:var(--hot)}
+  .numbers .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-top:9px}
+  .numbers .sub{color:var(--muted);font-size:12.5px;margin-top:7px;line-height:1.4}
+  @media(max-width:620px){.numbers{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:380px){.numbers{grid-template-columns:1fr}}
+
+  .faq{margin-top:26px;display:grid;gap:2px}
+  .faq .qa{padding:18px 0;border-top:1px solid var(--line)}
+  .faq .q{font-weight:500;font-size:clamp(15px,2.6vw,18px);letter-spacing:-.01em}
+  .faq .a{color:var(--muted);font-family:var(--mono);font-size:13px;margin-top:8px;line-height:1.55}
+  .faq .a b{color:var(--hot);font-weight:400}
 
   footer{border-top:1px solid var(--line);margin-top:30px;padding:26px 0 60px;color:var(--dim);
     font-family:var(--mono);font-size:12px;line-height:1.7}
@@ -107,7 +128,7 @@
   <header class="hero">
     <div class="eyebrow">Field dispatch — Greater Seattle</div>
     <h1>Your wallet is <span class="glow">still at large.</span></h1>
-    <p class="lede">It slipped out of your pocket and started an unauthorized tour of the city. This map rebuilds itself from the tracker — locations fuzzed, newest hours held back. It has crossed a lake. It shows no remorse.</p>
+    <p class="lede">It slipped out of your pocket and started an unauthorized tour of the city. This map rebuilds itself from the tracker. It has crossed a lake. It shows no remorse.</p>
     <div class="stats">
       <div class="stat"><div class="n" id="s-days">–</div><div class="k">Days on the run</div></div>
       <div class="stat"><div class="n" id="s-pings">–</div><div class="k">Sightings</div></div>
@@ -126,12 +147,19 @@
 
   <section class="log">
     <h2>Dispatch log</h2>
-    <div class="sub">Most recent first · grouped by stop · locations fuzzed & shown on a 6-hour delay</div>
+    <div class="sub">Most recent first</div>
     <div id="entries"></div>
+    <button id="showmore" class="showmore" style="display:none">Show more</button>
+  </section>
+
+  <section class="facts">
+    <h2>The wallet, by the numbers</h2>
+    <div id="numbers" class="numbers"></div>
+    <div id="faq" class="faq"></div>
   </section>
 
   <footer>
-    <div><b>Wallet on the Run</b> — auto-tracked via Tile. Locations snapped to ~200 m.</div>
+    <div><b>Wallet on the Run</b> — auto-tracked via Tile.</div>
     <div>If found: it answers to no one now.</div>
   </footer>
 </div>
@@ -148,8 +176,10 @@ const SEED = [
 ];
 const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-const fmtDate = ts => new Date(ts).toLocaleDateString('en-US',{month:'short',day:'numeric'});
-const fmtTime = ts => new Date(ts).toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit'});
+const SEA={timeZone:'America/Los_Angeles'};
+const seaHour = ts => parseInt(new Date(ts).toLocaleString('en-US',{...SEA,hour12:false,hour:'2-digit'}),10)%24;
+const fmtDate = ts => new Date(ts).toLocaleDateString('en-US',{...SEA,month:'short',day:'numeric'});
+const fmtTime = ts => new Date(ts).toLocaleTimeString('en-US',{...SEA,hour:'numeric',minute:'2-digit'});
 const meters = (a,b) => { const R=6371000,dLat=(b[0]-a[0])*Math.PI/180,dLng=(b[1]-a[1])*Math.PI/180,
   la1=a[0]*Math.PI/180,la2=b[0]*Math.PI/180,
   h=Math.sin(dLat/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin(dLng/2)**2;
@@ -192,7 +222,7 @@ function aggregate(points){
 }
 
 // ---- the wallet's voice (smug runaway, talking about you) ----
-function tod(ts){const h=new Date(ts).getHours();return h<5?'small-hours':h<11?'morning':h<15?'midday':h<18?'afternoon':h<22?'evening':'small-hours';}
+function tod(ts){const h=seaHour(ts);return h<5?'small-hours':h<11?'morning':h<15?'midday':h<18?'afternoon':h<22?'evening':'small-hours';}
 function hcode(s){let h=0;for(let i=0;i<s.length;i++)h=(h*31+s.charCodeAt(i))|0;return Math.abs(h);}
 function pick(arr,seed){return arr[seed%arr.length];}
 
@@ -355,10 +385,9 @@ function render(raw){
     setTimeout(addBeacon,byFirst.length*step+120);
   }
 
-  // ---- dispatch log ----
+  // ---- dispatch log (paginated: 10 at a time) ----
   const ordered=[...stops].sort((a,b)=>new Date(b.lastTs)-new Date(a.lastTs));
-  const show=ordered.slice(0,14);
-  box.innerHTML=show.map((s,i)=>`
+  const entryHTML=(s,i)=>`
     <article class="entry ${i===0?'now':''}">
       <div class="when"><span class="d">${fmtDate(s.lastTs)}</span><br>${fmtTime(s.lastTs)}</div>
       <div>
@@ -370,10 +399,79 @@ function render(raw){
         <div class="addr">${s.addr||s.hood||'Somewhere in Seattle'}</div>
         <div class="flavor">${flavorOf(s,i===0)}</div>
       </div>
-    </article>`).join('');
-  if(ordered.length>show.length){
-    box.insertAdjacentHTML('beforeend',`<div class="more">+ ${ordered.length-show.length} more stops · ${points.length} sightings total</div>`);
+    </article>`;
+  const btn=document.getElementById('showmore');
+  let shown=0;
+  function showMore(){
+    const next=ordered.slice(shown,shown+10);
+    box.insertAdjacentHTML('beforeend', next.map((s)=>entryHTML(s,shown+next.indexOf(s))).join(''));
+    shown+=next.length;
+    btn.style.display = shown<ordered.length ? 'block' : 'none';
+    if(shown<ordered.length) btn.textContent=`Show more (${ordered.length-shown} left)`;
   }
+  box.innerHTML=''; showMore();
+  btn.onclick=showMore;
+
+  // ---- the wallet, by the numbers (live) ----
+  renderFacts(points, stops, chrono, latestStop);
+}
+
+function renderFacts(points, stops, chrono, latestStop){
+  // total distance along the chronological trail
+  let miTotal=0;
+  for(let i=1;i<chrono.length;i++) miTotal+=meters([chrono[i-1].lat,chrono[i-1].lng],[chrono[i].lat,chrono[i].lng])/1609.34;
+  const days=new Set(points.map(p=>p.ts.slice(0,10))).size;
+  // home base = where it rests in the EVENING (6pm–midnight local), not where it's pinged most by daytime crowds
+  const isEve=p=>{const h=seaHour(p.ts);return h>=18&&h<24;};
+  const evePts=points.filter(isEve);
+  const useEve=evePts.length>=5;                 // fall back to all-day only if evenings are too thin
+  const homeSet=useEve?evePts:points;
+  const hc={}; homeSet.forEach(p=>{ if(p.hood) hc[p.hood]=(hc[p.hood]||0)+1; });
+  const ranked=Object.entries(hc).sort((a,b)=>b[1]-a[1]);
+  const home=ranked[0]?ranked[0][0]:'parts unknown';
+  const splitHome = (ranked[1] && ranked[1][1] >= ranked[0][1]*0.85) ? `${ranked[0][0]} and ${ranked[1][0]}` : home;
+  // neighborhoods visited counts ALL day, not just evenings
+  const hoodCount=new Set(points.map(p=>p.hood).filter(Boolean)).size;
+  // home centroid (dwell-weighted within the home hood) for "farthest from home"
+  const homePts=points.filter(p=>p.hood===home);
+  const hLat=homePts.reduce((a,p)=>a+p.lat,0)/(homePts.length||1);
+  const hLng=homePts.reduce((a,p)=>a+p.lng,0)/(homePts.length||1);
+  let far=stops[0],farMi=0;
+  stops.forEach(s=>{const d=meters([hLat,hLng],[s.lat,s.lng])/1609.34; if(d>farMi){farMi=d;far=s;}});
+  const farName=far.hood||far.addr||'the middle of nowhere';
+  // lakes crossed
+  const west=points.some(p=>p.lng< -122.28), east=points.some(p=>p.lng> -122.24);
+  const lakes=(west&&east)?1:0;
+  // busiest day
+  const dc={}; points.forEach(p=>{const d=p.ts.slice(0,10); dc[d]=(dc[d]||0)+1;});
+  const busiest=Object.entries(dc).sort((a,b)=>b[1]-a[1])[0];
+  const busiestLabel=busiest?fmtDate(busiest[0]+'T12:00:00Z'):'—';
+  // latest hour (night-owl gag)
+  const lateHour=Math.max(...points.map(p=>{const h=new Date(p.ts).getHours();return h;}));
+
+  const N=(v,dp=0)=>v.toLocaleString('en-US',{maximumFractionDigits:dp});
+  const cells=[
+    {big:`${N(miTotal)} mi`, cap:'Total distance', sub:'Farther than you\u2019ve walked all year.'},
+    {big:`${days}`, cap:'Days on the run', sub:'No forwarding address.'},
+    {big:`${hoodCount}`, cap:'Neighborhoods', sub:'A busier social calendar than yours.'},
+    {big:`${N(farMi)} mi`, cap:'Farthest from home', hot:true, sub:`All the way to ${farName} \u2014 without telling the folks back in ${home}.`},
+    {big:splitHome.toUpperCase(), cap:'Home base', hot:true, sub: splitHome===home?'Where it turns in most nights.':'Two evening haunts, no loyalty.'},
+    {big:`${lakes}`, cap:'Lakes crossed', sub: lakes?'Seen the other side of the bridge. Liked it.':'Still landlocked, for now.'},
+  ];
+  document.getElementById('numbers').innerHTML=cells.map(c=>
+    `<div class="cell"><div class="big ${c.hot?'hot':''}">${c.big}</div><div class="cap">${c.cap}</div><div class="sub">${c.sub}</div></div>`
+  ).join('');
+
+  const faqs=[
+    {q:'Where does it sleep?', a:`<b>${splitHome}</b>, most nights. Rent-free, naturally \u2014 it\u2019s yours.`},
+    {q:'Has it crossed a lake?', a: lakes?`It has. Bellevue happened. There was no undoing it.`:`Not yet. Give it time and your patience.`},
+    {q:'What\u2019s the farthest it\u2019s gotten?', a:`<b>${farName}</b>, about ${N(farMi)} miles out. A little vacation from you.`},
+    {q:'Does it have a job now?', a:`All signs point to <b>gig-economy delivery driver</b> \u2014 ${hoodCount} neighborhoods in ${days} days, ${N(miTotal)} miles logged. It\u2019s thriving.`},
+    {q:'Is it coming back?', a:`Last seen in <b>${(latestStop.hood||'Seattle')}</b>, ${fmtDate(latestStop.lastTs)}. It shows no remorse and no return date.`},
+  ];
+  document.getElementById('faq').innerHTML=faqs.map(f=>
+    `<div class="qa"><div class="q">${f.q}</div><div class="a">${f.a}</div></div>`
+  ).join('');
 }
 
 fetch('wallet.json',{cache:'no-store'})
